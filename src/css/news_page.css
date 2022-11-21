@@ -1,0 +1,123 @@
+.news-page{
+    width: 100%;
+    font-size: 2.8VW;
+    color: white;
+    text-align: center;
+    margin-top: 60px;
+    text-shadow: 0px 0px 5px #eeff00;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.news-page .date{
+    font-size: 3.2VW;
+    margin-left: 10%;
+    width: 80%;
+}
+
+.news-page .title{
+    margin-left: 10%;
+    width: 80%;
+}
+
+.news-page .passage{
+    font-size: 1.8VW;
+    margin-left: 10%;
+    width: 80%;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 20px;
+}
+
+.news-page .external{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 10px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.news-page .passage .line{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.news-page .graphic{
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.news-page .button{
+    width: 50%;
+    margin-left: 25%;
+    padding: 5px;
+    font-size: 2.4VW;
+    display: block;
+    background-color: crimson;
+    border-radius: 5px;
+}
+
+.news-page .button {
+    transition-duration: 0.6s ease-in;
+    bottom: 0;
+}
+
+.news-page .button :hover {
+    cursor: pointer;
+}
+
+.news-page .mid-title{
+    display: block;
+}
+
+.news-page .mid-title .date{
+    font-size: 2.4VW;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.news-page .mid-title .title{
+    font-size: 2VW;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.news-page .graphic{
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 780px) {
+    .news-page .passage .line{
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .news-page .title{
+        font-size: 3.6VW;
+        margin-left: 5%;
+        width: 90%;
+    }
+    
+    .news-page .passage{
+        margin-left: 5%;
+        width: 90%;
+        font-size: 2.8VW;
+    }
+
+    .news-page .date{
+        font-size: 4.2VW;
+    }
+
+    .news-page .mid-title .date{
+        font-size: 2.8VW;
+    }
+    .news-page .mid-title .title{
+        font-size: 2.4VW;
+    }
+
+    .news-page .external{
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+}

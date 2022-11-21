@@ -1,0 +1,98 @@
+.titled-container{
+    width: 100%;
+    text-shadow: 2px 2px 3px rgb(39, 38, 38);
+}
+
+
+.titled-container .title{
+    color:white;
+    text-align: center;
+    z-index: 2000;
+    position: relative;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+
+@media screen and (max-width: 780px) {
+    .titled-container .title .left{
+        width: 75%;
+        font-size: 7.5VW;
+        padding: 10px 40px;
+        margin-bottom: -10px;
+    }
+    .titled-container .title .right{
+        width: 75%;
+        font-size: 7.5VW;
+        padding: 10px 40px;
+        margin-bottom: -10px;
+    }
+}
+
+
+.titled-container .title .left{
+    border-radius: 10px 20px 20px 10px;
+    
+
+    margin-right: 0;
+    margin-left: auto;
+
+    font-size: 5VW;
+    width: 50%;
+    margin-bottom: -20px;
+    padding: 10px 80px;
+    box-shadow: 2.5px 2.5px 5px darkblue;
+}
+
+
+.titled-container .title .right{
+    border-radius: 20px 10px 10px 20px;
+
+    margin-left: 0;
+    margin-right: auto;
+
+    font-size: 5VW;
+    width: 50%;
+    margin-bottom: -20px;
+    padding: 10px 80px;
+    box-shadow: 2.5px 2.5px 5px darkblue;
+}
+
+.titled-container .body-container{
+    color:white;
+    text-align: center;
+    width: 100%;
+    
+    
+}
+
+
+.titled-container .body-container .left{
+    margin-right: 10%;
+    margin-left: auto;
+    padding: 40px 20px 30px 20px;
+    margin-bottom: 20%;
+    border-radius: 20px;
+    background: royalblue;
+    
+}
+
+
+.titled-container .body-container .right{
+    margin-left: 10%;
+    margin-right: auto;
+    padding: 40px 20px 30px 20px;
+    margin-bottom: 20%;
+    border-radius: 20px;
+    background: royalblue;
+}
+
+@media screen and (max-width: 780px) {
+    .titled-container .body-container .left{
+        padding: 30px 20px 30px 20px;
+    }
+    .titled-container .body-container .right{
+        padding: 30px 20px 30px 20px;
+    }
+}
+
+

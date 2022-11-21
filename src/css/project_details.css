@@ -1,0 +1,113 @@
+.project-details{
+    width: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+    font-size: 5VW;
+    text-align: center;
+    background-repeat: repeat;
+    background-size: 100%;
+    color: white;
+    text-shadow: 2px 2px 4px rgb(39, 38, 38);
+    padding-bottom: 10%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+.project-details .suptitle{
+    font-size: 5VW;
+    margin-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: calc(80% - 20px);
+    background-color: rgba(65, 105, 255, 0.2);
+    border: 10px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    overflow:hidden;
+    box-shadow: 2px 2px 3px rgb(39, 38, 38) inset,  2px 2px 3px rgb(39, 38, 38);
+
+}
+
+.project-details .block-container{
+    overflow:hidden;
+    backdrop-filter: blur(3px);
+    box-shadow: 2px 2px 3px rgb(39, 38, 38);
+    margin-bottom: 10px;
+    border: 20px solid rgba(65, 105, 255, 0.65);
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 2px 2px 3px rgb(39, 38, 38) inset,  2px 2px 3px rgb(39, 38, 38);
+}
+
+.project-details .left-block{
+    width: 100% ;
+    
+    
+}
+
+.project-details .right-block{
+    width: 100%;
+}
+
+.project-details .single-block{
+    width: calc(85% - 40px);
+    overflow:hidden;
+    backdrop-filter: blur(3px);
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 20px solid rgba(65, 105, 255, 0.65);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    margin-left: 7.5%;
+    box-shadow: 2px 2px 3px rgb(39, 38, 38) inset,  2px 2px 3px rgb(39, 38, 38);
+}
+
+.project-details .title{
+    margin-top: 1VW;
+    font-size: 3.6VW;
+    text-align: center;
+}
+
+.project-details .passage{
+    color: white;
+    padding: 10px 10px;
+    margin: 20px;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.project-details .passage .line{
+    font-size: 1.8VW;
+    text-align: center;
+    margin: 0.6VW 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+@media screen and (max-width: 780px) {
+    
+    .project-details{
+        padding: 20px;
+    }
+
+    .project-details .title{
+        margin-top: 3.6VW;
+        font-size: 6VW;
+        text-align: center;
+    }
+    
+    .project-details .passage .line{
+        font-size: 3.6VW;
+        text-align: center;
+        margin: 0.8VW;
+        text-shadow: 2px 2px 3px rgb(0, 0, 0);
+    }
+
+    .project-details .suptitle{
+        font-size: 7VW;
+    }
+
+    .project-details .right-block{
+        margin-top: 40px;
+    }
+}

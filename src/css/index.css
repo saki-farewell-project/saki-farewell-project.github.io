@@ -1,0 +1,142 @@
+.intro_quote{
+    width: 80%;
+    height: 100%;
+    margin: auto 10%;
+    padding-top: 10%;
+    margin-bottom: auto;
+    background: transparent;
+    color:crimson;
+    display: inline-block;
+    transition: 0.5s ease-out;
+    text-align: justify;
+    font-size: 2VW;
+}
+
+@media screen and (max-width: 780px) {
+    .intro_quote  {
+        margin: auto 5%;
+        width: 90%;
+        font-size: 2.5VW;
+    }
+}
+
+
+.haachama-channel-text{
+    font-size: 1.2VW;
+    opacity: 0.65;
+    color: crimson;
+    text-shadow: none;
+}
+
+
+@media screen and (max-width: 780px) {
+    .haachama-channel-text{
+        font-size: 1.7VW;
+        opacity: 0.65;
+        color: crimson;
+    }
+}
+
+.logo_banner {
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 100VH;
+}
+
+.logo_banner_place_holder {
+    height: 100VH;
+    width: 100%;
+}
+
+.logo_banner_inner_image{
+    position: absolute;
+    width: 75%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.welcome_text{
+    background: transparent;
+    color:crimson;
+    display: inline-block;
+    text-align: center;
+    font-size: 4VW;
+    width: 100%;
+    text-decoration: underline;
+}
+.center_vert{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.prev_work_yt_slider_text{
+    margin-top: 40px;
+    background: transparent;
+    color:white;
+    display: inline-block;
+    text-align: center;
+    font-size: 4VW;
+    width: 100%;
+}
+
+@media screen and (max-width: 780px) {
+    .prev_work_yt_slider_text  {
+        margin-top: 20px;
+        font-size: 6VW;
+    }
+}
+
+.intro {
+    text-align: center;
+    text-shadow: 0px 0px 3px #eeff00;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+.intro .title{
+    font-size: 4VW;
+    text-align: center;
+}
+
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
+
+.intro .passage{
+    font-size: 2VW;
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 5VW;
+}
+
+@media screen and (max-width: 780px) {
+    .intro .passage{
+        font-size: 2.4VW;
+        margin: 3.6VW;
+    }
+}
+
+.scroll-indicator{
+    position: fixed;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    z-index: 9999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.scroll-indicator .image-container{
+    position: static;
+    width: 100%;
+}

@@ -1,0 +1,17 @@
+.column {
+    float: left;
+    width: 100%;
+    /*width: var(--width);*/
+    text-align: center;
+}
+
+.row{
+    content: "";
+    display: table;
+    width: 100%;
+    /*width: var(--width);*/
+    margin-left: auto;
+    margin-right: auto;
+    clear: both;
+    
+}

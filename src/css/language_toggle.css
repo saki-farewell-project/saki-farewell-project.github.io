@@ -1,0 +1,35 @@
+.toggle{
+    float: right;
+    margin: 15px;
+    opacity: 1;
+    transform: scale(1, 1);
+    color: white;
+    text-shadow: 2px 2px 3px rgb(39, 38, 38);
+    backdrop-filter: blur(2px);
+    
+}
+
+
+.toggle .toggle-container{
+    position: static;
+    font-size: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: block;
+    transition: 0.5s ease-out;
+    padding: 5px;
+    border-radius: 5px;
+    
+}
+
+.toggle:hover .toggle-container {
+    opacity: 0.85;
+    cursor: pointer;
+    transform: scale(1.2, 1.2);
+    background-color: white;
+    color: rgba(64, 0, 0, 1)
+}
+
+.switchable-language{
+    color: white;
+    font-size: 50px;
+}

@@ -1,0 +1,105 @@
+/* Slideshow container */
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.slideshow-container .bar{
+    padding: 5px;
+    text-align: center;
+    background-color: black;
+    opacity: 1;
+    margin: 10px 20%;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 780px) {
+    .slideshow-container .bar{
+        padding: 3px;
+        text-align: center;
+        background-color: black;
+        opacity: 1;
+        border-radius: 7px;
+    }
+}
+
+
+.slideshow-container .bar .dot{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: white;
+    margin: 5px;
+    animation: 650ms ease-out;
+}
+
+@media screen and (max-width: 780px){
+    .slideshow-container .bar .dot{
+        height: 12px;
+        width: 12px;
+        border-radius: 50%;
+        display: inline-block;
+        background-color: white;
+        margin: 3px;
+        animation: 650ms ease-out;
+    }
+}
+
+.slideshow-container .bar .dot:hover {
+    opacity: 0.85;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+
+
+.slideshow-container .left-button {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+    transition: 1500ms ease-out;
+    opacity: 1;
+}
+
+.slideshow-container .right-button {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+    transition: 1500ms ease-in;
+    opacity: 1;
+}
+
+.slideshow-container .right-button :hover{
+    transform: scale(1.05, 1.05);
+    cursor: pointer;
+}
+
+.slideshow-container .left-button  :hover{
+    transform: scale(1.05, 1.05);
+    cursor: pointer;
+}
+
+.slideshow-container .slide{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    transition: 500ms ease-out;
+    opacity: 1;
+    display: none;
+}
+
+
+
+  

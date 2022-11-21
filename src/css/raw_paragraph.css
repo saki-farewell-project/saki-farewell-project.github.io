@@ -1,0 +1,46 @@
+.raw-paragraph{
+    width: 100%;
+    padding-top: 60px;
+    padding-bottom: 70px;
+    background: transparent;
+    color:white;
+    text-align: left;
+    font-size: 5VW;
+    text-shadow: 0px 0px 3px #eeff00;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.raw-paragraph .suptitle{
+    padding-left: 60px;
+}
+
+.raw-paragraph .title{
+    font-size: 4VW;
+    padding-left: 120px;
+    padding-bottom: 2VW;
+}
+
+.raw-paragraph .passage{
+    margin: 0 90px;
+    font-size: 2.4VW;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+
+.raw-paragraph .passage .line{
+    margin-top: 1.2VW;
+    margin-bottom: 1.2VW;
+}
+
+@media screen and (max-width: 780px) {
+    .raw-paragraph .passage {
+        font-size: 3.2VW;
+        margin: 0 20px;
+    }    
+    .raw-paragraph .title{
+        font-size: 4.5VW;
+    }
+    .raw-paragraph{
+        font-size: 6VW;
+    }
+}

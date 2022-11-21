@@ -1,0 +1,71 @@
+.project-top-banner {
+    width: 100%;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    text-shadow: 0px 0px 3px #eeff00;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-bottom: 10%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+
+.project-top-banner .suptitle{
+    font-size: 4.5VW;
+}
+
+.project-top-banner .title{
+    font-size: 5VW;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.project-top-banner .passage{
+    margin: 1.2VW;
+    text-align: center;
+}
+
+.project-top-banner .passage .title{
+    font-size: 2.8VW;
+    margin-bottom: 1.2VW;
+}
+
+.project-top-banner .passage .line{
+    font-size: 1.8VW;
+    margin-bottom: 0.6VW;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+@media screen and (max-width: 780px) {
+    .project-top-banner .suptitle{
+        font-size: 5VW;
+    }
+    .project-top-banner .title{
+        font-size: 6VW;
+        margin-bottom: 10px;
+    }
+    
+    .project-top-banner .passage{
+        margin: 2.4VW;
+    }
+    
+    .project-top-banner .passage .title{
+        font-size: 4.8VW;
+        margin: 1.2VW;
+    }
+    
+    .project-top-banner .passage .line{
+        font-size: 3.6VW;
+        margin-left: 0VW;
+        margin-bottom: 1VW;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .project-top-banner{
+        padding: 40px;
+    }
+    
+}

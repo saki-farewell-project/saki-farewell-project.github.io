@@ -1,0 +1,65 @@
+.page-container{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(181, 38, 59, 1);
+    overflow: hidden;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.page-container .title-container{
+    width: 100%;
+    margin: auto;
+}
+
+.page-container .title-container .title{
+    background: rgb(229, 49, 76);
+    color:white;
+    display: inline-block;
+    text-align: center;
+    font-size: 4VW;
+   
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 15px;
+    padding: 10px 0;
+    border-radius: 10px;
+}
+
+
+.page-container .thumbnail-container{
+    width: 100%;
+    position:relative;
+    background-color: transparent;
+}
+
+.page-container .thumbnail-container .button{
+    transition: 0.5s ease-out;
+    font-size: 3VW;
+    color:white;
+    text-align: center;
+    background-color: transparent;
+}
+
+.page-container .thumbnail-container .button:hover{
+    opacity: 0.65;
+    cursor: pointer;
+    transform: scale(1.2, 1.2);
+    color:white;
+}
+
+@media screen and (max-width: 780px) {
+    .page-container .title-container .title{
+        font-size: 5VW;
+       
+    }
+    .page-container .thumbnail-container .button{
+        font-size: 4VW;
+    }
+    
+    
+}

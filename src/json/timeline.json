@@ -1,0 +1,164 @@
+{
+    "timeline":[
+        {
+            "date": {"year": 2021, "month": 3, "day": 8}, 
+            "title": "WWS initiated by Leo", 
+            "passages": [
+                "To support Haachama the World Wide Support for SAIKYO Idol group was founded. ",
+                "The goal was to show Haachama that fans from all over the world support her. ", 
+                "Haachama should know she is never alone. "
+            ]
+            
+        }, 
+        { 
+            "date": {"year": 2021, "month": 3, "day": 9}, 
+            "title": "Sakazuki joins WWS", 
+            "passages": [
+                "To support Leo with his idea Sakazuki joined the WWS team as a staff member. ",
+                "He is working on graphics and also the contact person for JP Haatons. "
+            ]
+            
+        }, 
+        {
+            "date": {"year": 2021, "month": 3, "day": 3}, 
+            "title": "Haachama hiatus", 
+            "passages": [
+                "As a result of new rules Haachama had to private videos of her Haachama x Haato series ", 
+                "and announced later that she is taking a break for a while."
+            ]
+            
+        }, 
+        {
+            "date": {"year": 2021, "month": 3, "day": 12}, 
+            "title": "M.A.S.S. Collab", 
+            "passages": [
+                "The WWS team reached out to the Manotomo Alliance Support Squad discord server. ", 
+                "It is known for helping with various fan support projects. ",
+                "The collab consisted of gathering fan messages and portraying them on a website. "
+            ]
+            
+        }, 
+        {
+            "date": {"year": 2021, "month": 3, "day": 17}, 
+            "title": "Zhadar joins WWS", 
+            "passages": [
+                "In order to represent WWS on social media Zhadar joined the team. ", 
+                "He is also working on the overall coordination of the projects."
+            ]
+            
+        }, 
+        {
+            "date": {"year": 2021, "month": 3, "day": 25}, 
+            "title": "Website launch", 
+            "passages": ["The website for the gathered fan messages and pictures was launched."]
+            
+        }, 
+        {
+            "date": {"year": 2021, "month": 3, "day": 26}, 
+            "title": "Abner joins WWS", 
+            "passages": [
+                "To help with final touches on the project video Abner joined the staff team. ",
+                "Since then he has been the head of the graphic team."
+                
+            ]
+            
+        }, 
+        {
+            "date": {"year": 2021, "month": 4, "day": 3}, 
+            "title": "Steve joins WWS", 
+            "passages": [
+                "As a means to assist Abner on the video Steve joined the staff team. ", 
+                "Besides his work on graphics he is supervising the WWS discord server."
+            ]
+            
+        }, 
+        {
+            "date": {"year": 2021, "month": 4, "day": 11}, 
+            "title": "Haachama World Wide Tourguide", 
+            "passages": [
+                "The first project was completed and the video uploaded on youtube. ", 
+                "In total we received photos from more than 450 Haatons from all over the world. ",
+                "46 different countries were represented in this fan project. ", 
+                "(The video was later reuploaded on the official WWS youtube channel)"
+            ]
+            
+        }, 
+        {
+            "date": {"year": 2021, "month": 5, "day": 3}, 
+            "title": "WWS Discord", 
+            "passages": [
+                "As a convenient way to coordinate projects better in the future ",
+                "the WWS Discord server was created. ",
+                "Until the start of the second project it remained closed. ", 
+                "During the peak of the following project 470 members joined the server. "
+            ]
+            
+        }, 
+        {
+            "date": {"year": 2021, "month": 5, "day": 6}, 
+            "title": "Athy joins WWS", 
+            "passages": [
+                "Athy (Athena Nightingale) joined the WWS staff team as an expert for music. ",
+                "She has led the chorus & instrumental teams and was participating ",
+                "in the song as one of the two main lead singers. "
+            ]
+            
+        }, 
+        {
+            "date": {"year": 2021, "month": 7, "day": 12}, 
+            "title": "2nd project: Grand Birthday Chorus", 
+            "passages": [
+                "On this day the new project opened up to the public. ",
+                "Everyone who was interested in supporting Haachama could work ", 
+                "for the project and join the discord server. ", 
+                "There were the following teams: ", 
+                "illustrators, animators, chorus, instrumentalists, songwriter and translators"
+            ]
+            
+        }, 
+        {
+            "date": {"year": 2021, "month": 8, "day": 6}, 
+            "title": "WWS youtube channel", 
+            "passages": [
+                "The WWS team opened up their own official youtube ", 
+                "channel to present all projects properly."
+            ]
+            
+        }, 
+        {
+            "date": {"year": 2021, "month": 8, "day": 10}, 
+            "title": "Haato’s Birthday Parade♥", 
+            "passages": [
+                "On Haachamas birthday the WWS group released the finished project video. ",
+                "It was uploaded on youtube and posted on twitter with Haachamas hashtags. ",
+                
+                "Later Haachama had a cooking stream and tried to make her own cake. ",
+                "During her stream she showed the birthday project video three times. ",
+                "She was overwhelmed by this gift and very thankful"
+            ]
+            
+        }, 
+        {
+            "date": {"year": 2021, "month": 8, "day": 12}, 
+            "title": "WWS project server on break", 
+            "passages": [
+                "After the birthday project was over the WWS discord server went on a break. ",
+                "Everyone could stay and wait for the next project announcement in 2022. "
+            ]
+            
+        }, 
+        {
+            "date": {"year": 2022, "month": 2, "day": 11}, 
+            "title": "Shoutout from Haachama", 
+            "passages": [
+                "For Haachamas #photochama stream the WWS team decided to enter ", 
+                "the contest with the World Wide Tourguide project of 2021. ", 
+                "It was suspected that Haachama didn’t see it before when the WWS group was still unknown. ", 
+                "Haachama showed the first project video at the end of her stream. ",
+                "Furthermore she asked Haatons to support the WWS fangroup ",
+                "and revealed that she is subscribed on youtube. "
+            ]
+            
+        }
+    ]
+}

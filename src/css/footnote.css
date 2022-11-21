@@ -1,0 +1,69 @@
+.footnote {
+    background: linear-gradient(
+        120deg, rgba(181, 38, 59, 1) 0%, 
+        rgba(64, 0, 0, 1) 100%
+    );
+    color: white;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    padding-top: 2.4VW;
+    padding-bottom: 1.8VW;
+    margin: 0;
+    margin-bottom: 60px;
+    font-size: 3.8VW;
+    text-shadow: 2px 2px 4px rgb(39, 38, 38);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+.footnote .passage{
+    margin: 1.2VW;
+}
+
+.footnote .passage .line{
+    font-size: 1.6VW;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.footnote .button{
+    font-size: 2VW;
+    margin-left: 15%;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    display: block;
+    transition: 0.5s ease-out;
+    border-radius: 10px;
+    font-size: 2VW;
+    padding-top: 0.8VW;
+    padding-bottom: 0.8VW;
+    opacity: 1;
+    width: 70%;
+}
+
+.footnote .button:hover{
+    opacity: 0.4;
+    cursor: pointer;
+    transform: scale(1.2, 1.2);
+    background-color: aliceblue;
+}
+
+@media screen and (max-width: 780px) {
+    .footnote {
+        font-size: 4.5VW;
+    }
+    
+    .footnote .subtitle{
+        font-size: 3.2VW;
+    }
+    
+    .footnote .button{
+        font-size: 2.4VW;
+        border-radius: 5px;
+    }
+
+    .footnote .passage .line{
+        font-size: 2.4VW;
+    }
+    
+}

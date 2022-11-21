@@ -1,0 +1,39 @@
+.centered-img img{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.img-hover{
+    position: relative;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    cursor: pointer;
+}
+
+.img-hover .water-mark {
+    transition: .4s ease;
+    opacity: 0;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.img-hover .centered-img {
+    transition: .4s ease;
+}
+  
+.img-hover:hover .centered-img{
+    opacity: 0.85;
+}
+
+
+.img-hover:hover .water-mark{
+    opacity: 1;
+}

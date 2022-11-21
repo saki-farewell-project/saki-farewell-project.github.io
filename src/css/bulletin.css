@@ -1,0 +1,29 @@
+div.scrollable_bulletin{
+    background-color:skyblue;
+    width: 100%-10px;
+    height: 85VH;
+    overflow: scroll;
+    border-radius: 10px;
+    padding: 10px 10px;
+    box-shadow:  1.5px 1.5px 2.5px royalblue inset;
+    
+}
+
+div.message{
+    cursor: pointer;
+    background-color:royalblue;
+    border-radius: 5px;
+    width: 100%;
+    text-align: left;
+    color: white;
+    margin-bottom: 10px;
+    border-top-style: solid;
+    border-top-color: white;
+    border-bottom-color: white;
+    border-width: 5px;
+    box-shadow: 0 2.5px 2.5px 0 rgba(0.2, 0.2, 0.2, 0.5), 0 5px 5px 0 rgba(0.2, 0.2, 0.2, 0.01);
+}
+
+.message:hover{
+    opacity: 0.65;
+}
