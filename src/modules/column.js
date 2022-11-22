@@ -14,7 +14,8 @@ export default class Column{
         this.textAligns = [];
         
         const avg = 100.0/this.nCols;
-        for(var i = 0; i < nCols; i++){
+        for (var i = 0; i < nCols; i++)
+        {
             this.items.push(0);
             this.ratios.push(avg);
             this.textAligns.push("center");

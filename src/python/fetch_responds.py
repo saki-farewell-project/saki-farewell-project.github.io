@@ -5,26 +5,64 @@ from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
 import os
+import shutil
+from os import listdir
+from os.path import isfile
+
+
+JP_CSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQTd0fr7ChGEmaSu7PJPdDhJgdXsqtk3fWxYUgBcOetkiEMAIYPJsnlv2e_fdo1O1Wqkb8fQEV6z08T/pub?output=csv" 
+EN_CSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQXPmMUWDql_Y1_fk5WbV4LUAN2i-vTJ4zqBYhBV6u4wBlasZrojCNO6iFOxC1xc8uR3SgLRhiZAgFc/pub?output=csv"
+
+EN_COLS = [
+    "Type your message to Saki here (English)", 
+    "Type your message to Saki here (Japanese)", 
+    "Upload your image(s) here", "Fanart credit to? ",
+    "Your nickname", "Saki has become my \" \""
+]
+
+JP_COLS = [
+    "サキへのメッセージを入力してください", 
+    "サキへのメッセージを入力してください", 
+    "ここに画像をアップロードしてください", "ファンアートの作者は？", 
+    "ニックネーム", "サキは私の「 」になりました"
+]
+
 
 class MsgCard:
-    def __init__(self, name, msg_en, msg_jp):
+    def __init__(self, is_jp, name, msg_en, msg_jp):
         self.name = name
         self.msg_en = msg_en
         self.msg_en = msg_jp
 
 
 if __name__ == "__main__": 
-    url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR6rr99D5UgPT_h6v3Gppke1ygVF31dR42FXoRrF6guJFParapzZ6d2HHP-Atcj6Xq0stJDmmYvVWgh/pub?output=csv"
-    
     print("fetching msgs...")
-    df = pd.read_csv(url)
-    labels = ["Type your message to Saki here (%s)" % lang for lang in ("English", "Japanese")]
-    labels += ["Your nickname", "Type of submission", "Saki has become my \" \""]
-    datas = [df[label] for label in labels]
+    resps = zip([EN_CSV, JP_CSV], [EN_COLS, JP_COLS])
+    resps = [pd.read_csv(csv).filter(items=cols) for csv, cols in resps]
 
+    print("exporting...")
     msgs = []
-    folder = "public/fig/cards"
-    name_ids = {}
+    folder = "public/fig/fanarts"
+    old_files = [f for f in listdir() if isfile(f)]
+    for is_jp, datas in enumerate(resps): 
+        datas = [datas[cols] for cols in datas]
+        for df_en_msg, df_jp_msg, df_urls, df_cred, df_name, df_quote in zip(*datas):
+            df_urls = [url for url in str(df_urls).split(", ") if url.startswith("http")]
+            is_txt = not df_urls
+            if not is_txt:
+                imgs = []
+                for url in df_urls: 
+                    os.system("gdown %s" % url.replace("open", "uc"))
+                    new_files = [f for f in listdir() if isfile(f)]
+                    imgs += [f for f in new_files if f not in old_files]
+                    old_files = new_files
+
+                for i, img in enumerate(imgs): 
+                    imgs[i] = os.path.join(folder, os.path.basename(img))
+                    shutil.move(img, imgs[i])
+
+        
+    '''
     for en, jp, name, genre, ans in zip(*datas):
         if genre == "Text":
             if name not in name_ids:
@@ -65,5 +103,6 @@ if __name__ == "__main__":
 
         outfile.write(dumps)
         outfile.write("\nexport default fetchedMsgs;")
+    '''
     
     
