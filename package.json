@@ -10,6 +10,7 @@
   "main": "src/index.js",
   "dependencies": {
     "async-mutex": "^0.3.2",
+    "copy-image-clipboard": "^2.1.2",
     "event-emitter": "^0.3.5",
     "fs": "0.0.1-security",
     "get-google-fonts": "^1.2.2",

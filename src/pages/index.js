@@ -12,8 +12,6 @@ import Slider from "../modules/slider";
 import { wrapDiv} from "../utils";
 import { fadeInExplosive, fadeInExplosiveDelayed, fadeInExplosiveLatched, fadeInRightwardsLatched, fadeInUpwards, fadeInUpwardsDelayed } from "../modules/defaults/entrance_effect";
 import TitledMediaText from "../modules/titled_media_text";
-import TitledNews, { NewsContents } from "../modules/titled_news";
-import NewsDataBase, { NewsConfig } from "../modules/titled_news";
 import TitledContainer from "../modules/titled_container";
 import InvertableColumn from "../modules/invertable_columns";
 import { fadeInDelayed } from "../modules/defaults/entrance_effect";

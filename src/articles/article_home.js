@@ -66,5 +66,4 @@ const articlesHome = [
     }
 ]
 
-
 export default articlesHome;

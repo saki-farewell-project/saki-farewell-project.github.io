@@ -4,9 +4,6 @@ import Image from "../modules/Image";
 import { merge, wrapDiv, wrapDivRecursive, wrapLanguages} from "../utils";
 import Border from "../config/border";
 import { wrapLink } from "../utils";
-import articlesProject1 from "../articles/article_proj1";
-import articlesProject2 from "../articles/article_proj2";
-
 
 
 const FanMsgs = () => {

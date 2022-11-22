@@ -6,6 +6,8 @@ import Image from "./Image";
 import ImageLinked from "./Image_linked";
 import "../css/image.css";
 import twitterIntent from 'twitter-intent';
+import { copyImageToClipboard } from 'copy-image-clipboard'
+
 
 
 export default class Showcase
@@ -29,6 +31,7 @@ export default class Showcase
     {
         this.padding.set(ind, val);
     }
+
 
     get()
     {
@@ -56,17 +59,17 @@ export default class Showcase
     
         img.setWidth("100%");
         var text = 
-            "@sakifansupport1\n"+ this.name + " says:\n\n" +
+            "@sakifansupport1\n" + this.name + " says:\n\n" +
             "SAKI, you have become my \""+this.ans+"\"\n"+
             "サキは私の「"+this.ans+"」になりました\n\n"+
-            "submit/投稿--->https://forms.gle/ys4Xca2oZpSuFuNy7\n";
+            "submit/投稿: https://forms.gle/ys4Xca2oZpSuFuNy7\n"+
+            "website/ウェブサイト: https://saki-farewell-project.github.io\n";
 
         const href = twitterIntent.tweet.url({
             text: text,
             hashtags: ['芦澤サキ', 'Saki_Farewell_Project'],
-            url: "https://saki-farewell-project.github.io/"+this.img_path
         });
-        const tweet = wrapDiv("tweet-text", "Tweet!");
+        const tweet = wrapDiv("tweet-text","Tweet!");
         img.setWaterMark(merge(waterMark.get("fig/common/icons/twitter.png"), tweet));
 
         /*var bundle = 
