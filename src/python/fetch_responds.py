@@ -21,7 +21,7 @@ EN_COLS = [
 ]
 
 JP_COLS = [
-    "サキへのメッセージを入力してください", 
+    "企画へのアドバイスはありますか？", # dummy field, not used 
     "サキへのメッセージを入力してください", 
     "ここに画像をアップロードしてください", "ファンアートの作者は？", 
     "ニックネーム", "サキは私の「 」になりました"
@@ -44,65 +44,43 @@ if __name__ == "__main__":
     msgs = []
     folder = "public/fig/fanarts"
     old_files = [f for f in listdir() if isfile(f)]
+    js_file = open("src/python/text_subs.js", "w")
+    js_file.write("const fetchedMsgs = ")
     for is_jp, datas in enumerate(resps): 
         datas = [datas[cols] for cols in datas]
         for df_en_msg, df_jp_msg, df_urls, df_cred, df_name, df_quote in zip(*datas):
+            out_dict = {"is_jp": is_jp, "name": df_name, "quote": df_quote}
             df_urls = [url for url in str(df_urls).split(", ") if url.startswith("http")]
-            is_txt = not df_urls
-            if not is_txt:
-                imgs = []
+            if df_urls:
+                out_dict["imgs"] = []
+                out_dict["cred"] = df_cred
                 for url in df_urls: 
                     os.system("gdown %s" % url.replace("open", "uc"))
                     new_files = [f for f in listdir() if isfile(f)]
-                    imgs += [f for f in new_files if f not in old_files]
+                    out_dict["imgs"] += [f for f in new_files if f not in old_files]
                     old_files = new_files
 
-                for i, img in enumerate(imgs): 
-                    imgs[i] = os.path.join(folder, os.path.basename(img))
-                    shutil.move(img, imgs[i])
+                assert len(out_dict["imgs"]) == len(df_urls)
+                for i, img in enumerate(out_dict["imgs"]): 
+                    out_dict["imgs"][i] = os.path.join(folder, os.path.basename(img))
+                    shutil.move(img, out_dict["imgs"][i])
+                    out_dict["imgs"][i].replace("public/", "")
 
-        
-    '''
-    for en, jp, name, genre, ans in zip(*datas):
-        if genre == "Text":
-            if name not in name_ids:
-                name_ids[name] = -1
+            out_dict["jp"] = df_jp_msg
+            if not is_jp:
+                out_dict["en"] = df_en_msg
 
-            name_ids[name] += 1
-            rev_name = name.replace(" ", "-", 1000)
-            fn = os.path.join(folder, "%s_%i.jpg" % (rev_name, name_ids[name]))
-            msgs.append(
-                {
-                    "name": name, "ans": ans, 
-                    "en": en , "jp": jp, 
-                    "img_path": fn.replace("public/", "")
-                }
-            )
-            fire = Image.open('src/python/fire.jpg')
-            # Call draw Method to add 2D graphics in an image
-            I1 = ImageDraw.Draw(fire)
-            
-            # Custom font style and font size
-            myFont = ImageFont.truetype('Ubuntu-B.ttf', 45)
-            I1.text((25, 25), "You Have Become my", font=myFont, fill =(255, 255, 255))
-
-            myFont = ImageFont.truetype('Ubuntu-B.ttf', 25)
-            I1.text((250+len(name), 280), " -- from %s" % name, font=myFont, fill =(255, 255, 255))
-
-            myFont = ImageFont.truetype('Ubuntu-BI.ttf', 60)
-            I1.text((75, 100), "\"%s\"" % ans, font=myFont, fill =(255, 255, 255), align="center")
-            fire.save(fn)
+            msgs.append(out_dict)
 
 
-    with open("src/python/text_subs.js", "w") as outfile:
-        outfile.write("const fetchedMsgs = ")
-        dumps = json.dumps(msgs, indent=4)
+    with open("src/python/text_subs.js", "w") as js_file:
+        js_file.write("const fetchedMsgs = ")
+        dumps = json.dumps(msgs, indent=4, ensure_ascii=False)
         dumps = dumps.replace("NaN", "\"\"", len(msgs))
-        for tag in ["name", "en", "jp", "ans", "img_path"]:
-            dumps = dumps.replace("\"%s\"" % tag, tag, len(msgs))
-
-        outfile.write(dumps)
-        outfile.write("\nexport default fetchedMsgs;")
-    '''
-    
-    
+        for out_dict in msgs:
+            for tag in out_dict:
+                dumps = dumps.replace("\"%s\"" % tag, tag)
+            
+        js_file.write(dumps)
+        js_file.write("\nexport default fetchedMsgs;")
+       
