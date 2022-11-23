@@ -61,7 +61,7 @@ const articlesHome = [
         title: 
         {
             en: "You submit, we showcase, together we wish her the best!", 
-            jp: "そちらのメッセージを、こちらで載せる。一緒に彼女に祝福を！"
+            jp: ""
         }
     }
 ]
