@@ -54,6 +54,13 @@ const FETCHED_MSGS = [
         en: "Saki, you are young, talented, and ambitious. Therefore, I firmly believe in your potential to succeed, no matter what awaits you in the future. I will continue to support your singing activities. Thank you for your regular singing streams in recent months. Although I wasn't quite interactive on YouTube or Twitter, I really enjoyed the time. Until now, I'm still not accustomed to your absence at 20:00. Guess I can never get used to it. However, neither will I ever feel lonely having your ever-lasting spirit with me. You had always been straightforward and passionate, the same Saki since day one. And I'm sure you will always be. Take care and good luck! "
     },
     {
+        is_jp: 0,
+        name: "L C",
+        quote: "Fire",
+        jp: "",
+        en: "Thank you for your hard work for the past 2 years! I have been following you since your Birthday Live in 2020, and it is you who introduced me to other v-singers and the whole RIOT. Farewell, my first Oshi. I will always listen to your Bloom Lonely and Senkou Hibana. I really hope that one day I will be able to see you again."
+    },
+    {
         is_jp: 1,
         name: "チータちゃん",
         quote: "原動力",

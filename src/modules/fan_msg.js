@@ -33,7 +33,7 @@ export default class FanMsg
         items.push(suptitle);
 
         var quote = this.is_jp ? "「": " \"";
-        quote += this.quote + (this.is_jp ? "」": "\"");
+        quote += this.quote + (this.is_jp ? "」に": "\"");
         quote = wrapDiv("passage", quote);
         items.push(quote);
 

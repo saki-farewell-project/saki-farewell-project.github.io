@@ -67,7 +67,37 @@ function createMsgCase(){
     titleCont.setRight();
 
     //const slicedMsgs = fetchedMsgs.slice(0, 1);
-    var cntMsgs = 0;
+    var cols = new InvertableColumn();
+    var cells = [0, 0, 0, 0];
+
+    var fetchMsgs = FETCHED_MSGS.reverse().map(function(x){return x;});
+    while (fetchMsgs.length % 4)
+        fetchMsgs.push(0);
+
+    var i = 0;
+    for (let msg of fetchMsgs)
+    {
+        if (!msg)
+        {
+            cells[i % 4] = utils.wrapStyle({width:"100%", aspectRatio: "2 / 1"}, "");
+        }
+        else
+        {
+            var showcase = new FanMsg(msg, true);
+            showcase.setMargin(Boarder.ALL, "15px");
+            cells[i % 4] = showcase.getMsgCard();
+        }
+        
+        if ((i+1) % 4 === 0)
+        {
+            cols.insert(0, cells[0], cells[1]);
+            cols.insert(1, cells[2], cells[3]);
+            slider.append(cols.get());
+        }
+        i++;
+    }
+
+    /*
     for (let msg of FETCHED_MSGS.reverse())
     {
         if (cntMsgs++ >= 100000)
@@ -84,7 +114,7 @@ function createMsgCase(){
         //cols.insert(1, fullMsg);
         //cols.insert(1, fullMsg);
         slider.append(cols.get());
-    }
+    }*/
     //slider.append(youtube.get("https://youtu.be/aHt-fGy5BYQ"));
     //slider.append(youtube.get("https://youtu.be/LLuqBMnfKJY"));
 
