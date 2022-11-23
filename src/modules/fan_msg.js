@@ -1,4 +1,4 @@
-import "../css/showcase.css";
+import "../css/fan_msg.css";
 import { merge, wrapDiv, wrapDivStyled } from "../utils";
 import Boarder from "../config/border";
 import { wrapLanguages } from "../utils";
@@ -7,6 +7,7 @@ import ImageLinked from "./Image_linked";
 import "../css/image.css";
 import twitterIntent from 'twitter-intent';
 import UniqueIDGenerator from "./unique_id_generator";
+import { fadeInExplosive, fadeInExplosiveDelayed, fadeInLeftwardsLatched} from "./defaults/entrance_effect";
 
 export default class FanMsg
 {
@@ -18,8 +19,30 @@ export default class FanMsg
         this.context = is_txt ? wrapLanguages(kwargs): "";
         this.margin =  new Boarder();
         this.padding =  new Boarder();
-        this.img_path =  kwargs.img_path
-        this.ans = kwargs.ans;
+        this.img_path = kwargs.img_path;
+        this.is_jp = kwargs.is_jp == 1;
+        this.quote = kwargs.quote;
+        this.uid = FanMsg.uidGen.generateUniqueID();
+    }
+
+    getMsgCard()
+    {
+        var items = [];
+        var suptitle = this.is_jp ? "サキはなりましたよ、私の": "Saki has become my";
+        suptitle = wrapDiv("suptitle", suptitle);
+        items.push(suptitle);
+
+        var quote = this.is_jp ? "「": " \"";
+        quote += this.quote + (this.is_jp ? "」": "\"");
+        quote = wrapDiv("passage", quote);
+        items.push(quote);
+
+        var name = this.is_jp ? this.name + " より": "from " + this.name;
+        name = wrapDiv("name", name);
+        items.push(name);
+
+        return wrapDivStyled("card", 
+            {backgroundImage: "url("+FanMsg.FIRE_IMG+')'}, items);
     }
 
     setMargin(ind, val)

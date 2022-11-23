@@ -48,67 +48,6 @@ const Home = () => {
 export default Home;
 
 
-
-
-function createContact(){
-    var titledContainer = new TitledContainer();
-    titledContainer.setTitle("Contact");
-    titledContainer.setFontColor(255, 255, 255,1);
-    titledContainer.setTitleColor(229, 49, 76, 1);
-    titledContainer.setBodyColor(181, 38, 59, 1);
-    titledContainer.setRight();
-    
-    var cols = new InvertableColumn();
-    var img = new ImageLinked();
-    var waterMark = new Image();
-    waterMark.setWidth("50%");
-
-    img.setWidth("100%");
-    img.setWaterMark(waterMark.get("fig/common/icons/ext_link.png"));
-
-    var iconHolder = new Column(3);
-    iconHolder.setMargin(Boarder.ALL, "20px");
-    
-
-    const preffix = "fig/common/icons/";
-    const paths = ["youtube.png", "discord.png", "twitter.png"];
-    var links = [];
-    links.push("https://www.youtube.com/channel/UCCC84LkFYu3vJae52LK_5FA");
-    links.push("https://discord.gg/HqQ5n2cMBY");
-    links.push("https://twitter.com/WWS_Haato");
-    for(var i = 0; i < 3; i++)
-        iconHolder.insert(i, img.get(preffix+paths[i], links[i]));
-
-
-    //"titled-media-text"
-    const passage = fadeInDelayed.get(wrapDiv("passage", 
-        "All staffs are available in the Discord server. \
-        Please consider Discord as your preferred contact platform"));
-
-    const subtitle = fadeInDelayed.get(wrapDiv("title", "Social Media"));
-    const passages = [subtitle, fadeInExplosiveDelayed.get(iconHolder.get()), passage];
-    cols.insert(1, wrapDiv("titled-media-text", passages));
-
-
-    var slider = new Slider();
-    slider.append(staffInformationLeo);
-    slider.append(staffInformationZhadar);
-    slider.append(staffInformationSakazuki);
-    slider.append(staffInformationAbner);
-    slider.append(staffInformationSteve);
-
-    slider.setClickWidth("4VW");
-    slider.setBarColor(229, 49, 76, 1);
-    slider.setDotColor(255,255,255,1);
-    slider.setWidth("95%");
-
-    const leftTitle = fadeInDelayed.get(wrapDiv("title", "Staff Informations"));
-    const leftContent = fadeInExplosiveDelayed.get(slider.get());
-    cols.insert(0, wrapDiv("titled-media-text", leftTitle), leftContent);
-
-    return titledContainer.get(cols.get());
-}
-
 function createMsgCase(){
     var slider = new Slider();
     var youtube = new Youtube();
@@ -142,9 +81,9 @@ function createMsgCase(){
         const passage = wrapDiv("passage", showcase.context);
         const title = wrapDiv("title", utils.wrapLanguages(articlesHome[3].title));
         const fullMsg = wrapDiv("titled-media-text", utils.merge(title, passage))
-        cols.insert(0, showcase.get());
-        cols.insert(1, showcase.context);
-        cols.insert(1, fullMsg);
+        cols.insert(0, showcase.getMsgCard());
+        //cols.insert(1, showcase.context);
+        //cols.insert(1, fullMsg);
         slider.append(cols.get());
     }
     //slider.append(youtube.get("https://youtu.be/aHt-fGy5BYQ"));

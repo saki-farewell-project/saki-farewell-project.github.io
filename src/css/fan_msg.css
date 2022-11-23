@@ -1,0 +1,59 @@
+
+.tweet-text{
+    font-size: 1.2VW;
+    opacity: 0.65;
+    color: white;
+    text-shadow: none;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+.card{
+    width: 100%;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    background: transparent;
+    background-size: 100%;
+    color:white;
+    font-size: 3VW;
+    text-shadow: 0px 0px 3px #eeff00;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border-radius: 15px;
+}
+
+.card .suptitle{
+    padding-left: 40px;
+    text-align: left;
+    padding-bottom: 2VW;
+}
+
+.card .name{
+    font-size: 2VW;
+    margin-top: 4VW;
+    margin-right: 15px;
+    text-align: right;
+    
+}
+
+.card .passage{
+    font-size: 4VW;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.card .passage .line{
+    margin-top: 1.2VW;
+    margin-bottom: 1.2VW;
+}
+
+@media screen and (max-width: 780px) {
+    .card .passage {
+        font-size: 7VW;
+        margin: 0 30px;
+    }    
+    .card .name{
+        font-size: 4.5VW;
+    }
+    .card{
+        font-size: 5VW;
+    }
+}
