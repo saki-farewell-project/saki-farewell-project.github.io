@@ -6,12 +6,12 @@ import Image from "./Image";
 import ImageLinked from "./Image_linked";
 import "../css/image.css";
 import twitterIntent from 'twitter-intent';
-import { copyImageToClipboard } from 'copy-image-clipboard'
+import UniqueIDGenerator from "./unique_id_generator";
 
-
-
-export default class Showcase
+export default class FanMsg
 {
+    static FIRE_IMG = "fig/fire.jpg";
+    static uidGen = new UniqueIDGenerator("msg-cards");
     constructor(kwargs, is_txt)
     {
         this.name = kwargs.name;

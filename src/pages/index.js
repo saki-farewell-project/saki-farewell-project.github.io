@@ -22,7 +22,7 @@ import { EntranceEffect } from '../modules/entrance_effect';
 import articlesHome from '../articles/article_home';
 import FETCHED_MSGS from '../python/fetched_msgs';
 import Border from '../config/border';
-import Showcase from '../modules/showcase';
+import FanMsg from '../modules/fan_msg';
 
 const Home = () => {
     EntranceEffect.stopAllRequest();
@@ -134,7 +134,7 @@ function createMsgCase(){
         if (cntMsgs++ >= 100000)
             break;
 
-        var showcase = new Showcase(msg, true);
+        var showcase = new FanMsg(msg, true);
         showcase.setMargin(Boarder.ALL, "15px");
         //slider.append(showcase.get());
         var cols = new InvertableColumn();
