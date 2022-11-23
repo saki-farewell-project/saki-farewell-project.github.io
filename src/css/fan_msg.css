@@ -22,6 +22,13 @@
     background-repeat: no-repeat;
 }
 
+.card:hover {
+    opacity: 0.65;
+    cursor: pointer;
+    transition: 0.5s ease-out;
+    transform: scale(1.1, 1.1);
+}
+
 .card .suptitle{
     padding-left: 40px;
     text-align: left;
@@ -61,5 +68,56 @@
         font-size: 5VW;
         padding-top: 20px;
         padding-bottom: 20px;
+    }
+}
+
+.all_msgs {
+    font-size: 1.6VW;
+    margin-top: 1.2VW;
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.all_msgs .name{
+    font-size: 3VW;
+    margin-top: 1.8VW;
+    margin-bottom: 0.6VW;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+.all_msgs .quote{
+    font-size: 2.4VW;
+    margin-bottom: 1.8VW;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+@media screen and (max-width: 780px) {
+    .all_msgs {
+        font-size: 2.8VW;
+        margin-top: 1.2VW;
+        text-align: justify;
+        font-family: Arial, Helvetica, sans-serif;
+        margin-left: 15px;
+        margin-right: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .all_msgs .name{
+        font-size: 4.2VW;
+        margin-top: 1.8VW;
+        text-align: center;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    }
+    
+    .all_msgs .quote{
+        font-size: 3.2VW;
+        margin-top: 0.6VW;
+        margin-bottom: 15px;
+        text-align: center;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
     }
 }

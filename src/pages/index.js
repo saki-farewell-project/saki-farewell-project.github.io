@@ -124,7 +124,7 @@ function createMsgCase(){
     slider.setWidth("100%"); 
     slider.setBarColor(229, 49, 76, 1);
     slider.setDotColor(255, 255, 255,1);
-    slider.setPeriod(2000);
+    slider.setPeriod(4000);
     slider.hideBar();
 
     const title = wrapDiv("title", utils.wrapLanguages(articlesHome[3].title));
@@ -170,7 +170,7 @@ function createAll(){
     var cols = new InvertableColumn();
     var items = [[], []];
     var i = 0;
-    for (let msg of FETCHED_MSGS)
+    for (let msg of FETCHED_MSGS.reverse())
     {
         var fmsg = new FanMsg(msg, true);
         if (!fmsg.is_txt)

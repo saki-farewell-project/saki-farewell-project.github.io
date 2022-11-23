@@ -7,7 +7,8 @@ import ImageLinked from "./Image_linked";
 import "../css/image.css";
 import twitterIntent from 'twitter-intent';
 import UniqueIDGenerator from "./unique_id_generator";
-import { fadeInExplosive, fadeInExplosiveDelayed, fadeInLeftwardsLatched} from "./defaults/entrance_effect";
+import { useRef } from "react";
+import { fadeInDelayed, fadeInExplosiveDelayed, fadeInExplosiveLatched, fadeInRightwardsLatched} from "./defaults/entrance_effect";
 
 export default class FanMsg
 {
@@ -19,11 +20,19 @@ export default class FanMsg
         this.context = is_txt ? wrapLanguages(kwargs): "";
         this.margin =  new Boarder();
         this.padding =  new Boarder();
-        this.img_path = kwargs.img_path;
         this.is_jp = kwargs.is_jp == 1;
         this.quote = kwargs.quote;
         this.uid = FanMsg.uidGen.generateUniqueID();
         this.is_txt = !kwargs.imgs;
+        this.ref = useRef(null);
+    }
+
+    goToMsg()
+    {
+        window.scrollTo({
+            top:this.ref.current.offsetTop, 
+            behavior: "smooth"
+        });
     }
 
     getMsgCard()
@@ -42,8 +51,12 @@ export default class FanMsg
         name = wrapDiv("name", name);
         items.push(name);
 
-        return wrapDivStyled("card", 
+        var out = wrapDivStyled("card", 
             {backgroundImage: "url("+FanMsg.FIRE_IMG+')'}, items);
+        return <div onClick={this.goToMsg.bind(this)}>{out}</div>;
+        return wrapDivStyled("card", 
+            {backgroundImage: "url("+FanMsg.FIRE_IMG+')', 
+            onClick:this.goToMsg.bind(this)}, items);
     }
 
     setMargin(ind, val)
@@ -59,20 +72,21 @@ export default class FanMsg
     getAll()
     {
         var items = [];
-        var suptitle = this.is_jp ? "サキはなりましたよ、私の": "Saki has become my";
-        suptitle = wrapDiv("suptitle", suptitle);
-        items.push(suptitle);
 
-        var quote = this.is_jp ? "「": " \"";
-        quote += this.quote + (this.is_jp ? "」に": "\"");
-        quote = wrapDiv("passage", quote);
-        items.push(quote);
+        var name = wrapDiv("name", this.name);
+        items.push(fadeInDelayed.get(name));
+        items.push(fadeInExplosiveLatched.get(this.get()));
 
-        var name = this.is_jp ? this.name + " より": "from " + this.name;
-        name = wrapDiv("name", name);
-        items.push(fadeInExplosiveDelayed.get(wrapDiv("passage", this.name)));
+        var quote = this.is_jp ? "サキは私の": "Saki has become my";
+        quote += this.is_jp ? "「": " \"";
+        quote += this.quote + (this.is_jp ? "」になりました": "\"");
+        quote = wrapDiv("quote", quote);
+        items.push(fadeInExplosiveDelayed.get(quote));
+
+        var cont = wrapDivStyled("div", {width:"85%"}, this.context);
+        items.push(fadeInRightwardsLatched.get(this.context));
         
-        return wrapDiv("titled-media-text", items);
+        return <div ref={this.ref}>{wrapDiv("all_msgs", items)}</div>;
     }
 
 
@@ -80,8 +94,7 @@ export default class FanMsg
     {
         var img = new ImageLinked();
         img.setWidth("100%");
-        img.setCorner(Boarder.ALL, "10px");
-
+        img.setCorner(Boarder.ALL, "15px");
         const divArgs = [
             {
                 className: "w3-container", 
@@ -98,22 +111,21 @@ export default class FanMsg
         ];
 
         var waterMark = new Image();
-        waterMark.setWidth("15%");
+        waterMark.setWidth("35%");
     
-        img.setWidth("100%");
+        img.setWidth("15%");
         var text = 
             "@sakifansupport1\n" + this.name + " says:\n\n" +
             "SAKI, you have become my \""+this.quote+"\"\n"+
             "サキは私の「"+this.quote+"」になりました\n\n"+
             "submit/投稿: https://forms.gle/ys4Xca2oZpSuFuNy7\n"+
-            "website/ウェブサイト: https://saki-farewell-project.github.io\n";
+            "see full message/メッセージ全文: https://saki-farewell-project.github.io/\n";
 
         const href = twitterIntent.tweet.url({
             text: text,
             hashtags: ['芦澤サキ', 'Saki_Farewell_Project'],
         });
-        const tweet = wrapDiv("tweet-text","Tweet!");
-        img.setWaterMark(merge(waterMark.get("fig/common/icons/twitter.png"), tweet));
+        img.setWaterMark(waterMark.get("fig/common/icons/ext_link.png"));
 
         /*var bundle = 
             (<div className="centered-img" style={{width: "100%", margin: this.margin.get()}}>
@@ -124,7 +136,7 @@ export default class FanMsg
                 
             </div>);*/
                    
-        return wrapDiv(divArgs, img.get(this.img_path, href));
+        return wrapDiv(divArgs, img.get("fig/common/icons/twitter.png", href));
 
         return img.get(img_path);
         
