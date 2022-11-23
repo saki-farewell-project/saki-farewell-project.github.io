@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
 import pandas as pd
 import json
-from PIL import Image
-from PIL import ImageDraw
-from PIL import ImageFont
 import os
 import shutil
 from os import listdir
@@ -11,7 +8,7 @@ from os.path import isfile
 
 
 JP_CSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQTd0fr7ChGEmaSu7PJPdDhJgdXsqtk3fWxYUgBcOetkiEMAIYPJsnlv2e_fdo1O1Wqkb8fQEV6z08T/pub?output=csv" 
-EN_CSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQXPmMUWDql_Y1_fk5WbV4LUAN2i-vTJ4zqBYhBV6u4wBlasZrojCNO6iFOxC1xc8uR3SgLRhiZAgFc/pub?output=csv"
+EN_CSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTXV-67qyDzHbtYYopleeThlSahG8fIifW-pnpiPAfqrrmwmSWRDKXOYPeZ_h-nhBSWSEZZC5P-H7NE/pub?output=csv"
 
 EN_COLS = [
     "Type your message to Saki here (English)", 
@@ -27,12 +24,6 @@ JP_COLS = [
     "ニックネーム", "サキは私の「 」になりました"
 ]
 
-
-class MsgCard:
-    def __init__(self, is_jp, name, msg_en, msg_jp):
-        self.name = name
-        self.msg_en = msg_en
-        self.msg_en = msg_jp
 
 
 if __name__ == "__main__": 
@@ -62,19 +53,19 @@ if __name__ == "__main__":
 
                 assert len(out_dict["imgs"]) == len(df_urls)
                 for i, img in enumerate(out_dict["imgs"]): 
-                    out_dict["imgs"][i] = os.path.join(folder, os.path.basename(img))
-                    shutil.move(img, out_dict["imgs"][i])
-                    out_dict["imgs"][i].replace("public/", "")
+                    new_dir = os.path.join(folder, os.path.basename(img))
+                    shutil.move(img, new_dir)
+                    out_dict["imgs"][i] = new_dir.replace("public/", "")
 
             out_dict["jp"] = df_jp_msg
-            if not is_jp:
-                out_dict["en"] = df_en_msg
+            out_dict["en"] = "" if is_jp else df_en_msg
 
             msgs.append(out_dict)
 
 
-    with open("src/python/text_subs.js", "w") as js_file:
-        js_file.write("const fetchedMsgs = ")
+    with open("src/python/fetched_msgs.js", "w") as js_file:
+        var_name = "FETCHED_MSGS"
+        js_file.write("const %s = " % var_name)
         dumps = json.dumps(msgs, indent=4, ensure_ascii=False)
         dumps = dumps.replace("NaN", "\"\"", len(msgs))
         for out_dict in msgs:
@@ -82,5 +73,5 @@ if __name__ == "__main__":
                 dumps = dumps.replace("\"%s\"" % tag, tag)
             
         js_file.write(dumps)
-        js_file.write("\nexport default fetchedMsgs;")
+        js_file.write("\nexport default %s;" % var_name)
        

@@ -20,7 +20,7 @@ import twitterIntent from 'twitter-intent';
 
 import { EntranceEffect } from '../modules/entrance_effect';
 import articlesHome from '../articles/article_home';
-import fetchedMsgs from "../python/text_subs";
+import FETCHED_MSGS from '../python/fetched_msgs';
 import Border from '../config/border';
 import Showcase from '../modules/showcase';
 
@@ -129,16 +129,14 @@ function createMsgCase(){
 
     //const slicedMsgs = fetchedMsgs.slice(0, 1);
     var cntMsgs = 0;
-    for (let msg of fetchedMsgs)
+    for (let msg of FETCHED_MSGS.reverse())
     {
-        if (cntMsgs++ >= 2)
+        if (cntMsgs++ >= 100000)
             break;
 
         var showcase = new Showcase(msg, true);
         showcase.setMargin(Boarder.ALL, "15px");
         //slider.append(showcase.get());
-        console.log(cntMsgs);
-
         var cols = new InvertableColumn();
 
         const passage = wrapDiv("passage", showcase.context);

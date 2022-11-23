@@ -10,11 +10,12 @@ export default class LanguageSwitch{
 
     static uidGen = new UniqueIDGenerator("langauge-switch");
     static uidArray = [];
-    constructor(textObj){
-        if(!textObj.en)
-            textObj.en = "text lost";
-        if(!textObj.jp)
-            textObj.jp = "[翻訳中] "+textObj.en;
+    constructor(textObj)
+    {
+        if (!textObj.en)
+            textObj.en = "[Translating]" + textObj.jp;
+        if (!textObj.jp)
+            textObj.jp = "[翻訳中] "+ textObj.en;
 
         this.items = [textObj.en, textObj.jp];
     }
