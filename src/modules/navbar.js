@@ -21,7 +21,7 @@ export const NavbarDropdown = () =>{
 					<div className="button">Home</div>
 				</NavLink>
 				<NavLink to="fan-msgs" activeStyle>
-					<div className="button">Fan Messages</div>
+					<div className="button">Debug</div>
 				</NavLink>
 			</div>
 		</nav>

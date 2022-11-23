@@ -126,7 +126,7 @@ function createMsgCase(){
     var a = anime.get(TitledMediaText.createButton("View all messages", "/#/fan-msgs", style));
     //var a = anime.get(TitledMediaText.createButton("View all messages", href, style));
 
-    return titleCont.get(utils.merge(slider.get(), a));
+    return titleCont.get(utils.merge(slider.get()));
   
 }
 
