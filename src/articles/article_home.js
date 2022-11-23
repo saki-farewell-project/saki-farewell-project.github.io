@@ -47,7 +47,7 @@ const articlesHome = [
         title: 
         {
             en: "Message to SAKI Wanted!", 
-            jp: "SAKIへのメッセージ募集中！"
+            jp: "サキへのメッセージ募集中！"
         },
         intro: 
         {
@@ -60,8 +60,8 @@ const articlesHome = [
         //3 msgs!!
         title: 
         {
-            en: "Full Message", 
-            jp: "メッセージ全文"
+            en: "You submit, we showcase, together we wish her the best!", 
+            jp: "そちらのメッセージを、こちらで載せる。一緒に彼女に祝福を！"
         }
     }
 ]

@@ -79,10 +79,9 @@ function createMsgCase(){
         var cols = new InvertableColumn();
 
         const passage = wrapDiv("passage", showcase.context);
-        const title = wrapDiv("title", utils.wrapLanguages(articlesHome[3].title));
-        const fullMsg = wrapDiv("titled-media-text", utils.merge(title, passage))
+        
         cols.insert(0, showcase.getMsgCard());
-        //cols.insert(1, showcase.context);
+        //cols.insert(1, fullMsg);
         //cols.insert(1, fullMsg);
         slider.append(cols.get());
     }
@@ -95,6 +94,9 @@ function createMsgCase(){
     slider.setDotColor(255, 255, 255,1);
     slider.setPeriod(2000);
     slider.hideBar();
+
+    const title = wrapDiv("title", utils.wrapLanguages(articlesHome[3].title));
+    const fullMsg = wrapDiv("titled-media-text", title);
 
     
 
@@ -126,7 +128,7 @@ function createMsgCase(){
     var a = anime.get(TitledMediaText.createButton("View all messages", "/#/fan-msgs", style));
     //var a = anime.get(TitledMediaText.createButton("View all messages", href, style));
 
-    return titleCont.get(utils.merge(slider.get()));
+    return titleCont.get(utils.merge(wrapDiv("titled-media-text", title), slider.get()));
   
 }
 
