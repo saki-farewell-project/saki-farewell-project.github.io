@@ -1,5 +1,5 @@
 import "../css/fan_msg.css";
-import { merge, wrapDiv, wrapDivStyled } from "../utils";
+import { merge, wrapDiv, wrapDivStyled, wrapLink } from "../utils";
 import Boarder from "../config/border";
 import { wrapLanguages } from "../utils";
 import Image from "./Image";
@@ -53,10 +53,7 @@ export default class FanMsg
 
         var out = wrapDivStyled("card", 
             {backgroundImage: "url("+FanMsg.FIRE_IMG+')'}, items);
-        return <div onClick={this.goToMsg.bind(this)}>{out}</div>;
-        return wrapDivStyled("card", 
-            {backgroundImage: "url("+FanMsg.FIRE_IMG+')', 
-            onClick:this.goToMsg.bind(this)}, items);
+        return wrapLink(this.getTwitterPost(), out);
     }
 
     setMargin(ind, val)
@@ -90,6 +87,22 @@ export default class FanMsg
     }
 
 
+    getTwitterPost()
+    {
+        var text = 
+            "@sakifansupport1\n" + this.name + " says:\n\n" +
+            "SAKI, you have become my \""+this.quote+"\"\n"+
+            "サキは私の「"+this.quote+"」になりました\n\n"+
+            "submit/投稿: https://forms.gle/ys4Xca2oZpSuFuNy7\n"+
+            "see full message/メッセージ全文: https://saki-farewell-project.github.io/\n";
+
+        return twitterIntent.tweet.url({
+            text: text,
+            hashtags: ['芦澤サキ', 'Saki_Farewell_Project'],
+        });
+    }
+
+
     get()
     {
         var img = new ImageLinked();
@@ -114,17 +127,6 @@ export default class FanMsg
         waterMark.setWidth("35%");
     
         img.setWidth("15%");
-        var text = 
-            "@sakifansupport1\n" + this.name + " says:\n\n" +
-            "SAKI, you have become my \""+this.quote+"\"\n"+
-            "サキは私の「"+this.quote+"」になりました\n\n"+
-            "submit/投稿: https://forms.gle/ys4Xca2oZpSuFuNy7\n"+
-            "see full message/メッセージ全文: https://saki-farewell-project.github.io/\n";
-
-        const href = twitterIntent.tweet.url({
-            text: text,
-            hashtags: ['芦澤サキ', 'Saki_Farewell_Project'],
-        });
         img.setWaterMark(waterMark.get("fig/common/icons/ext_link.png"));
 
         /*var bundle = 
@@ -136,7 +138,7 @@ export default class FanMsg
                 
             </div>);*/
                    
-        return wrapDiv(divArgs, img.get("fig/common/icons/twitter.png", href));
+        return wrapDiv(divArgs, img.get("fig/common/icons/twitter.png", this.getTwitterPost()));
 
         return img.get(img_path);
         

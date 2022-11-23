@@ -182,6 +182,10 @@ function createAll(){
 
     for (var i = 0; i < 2; i++)
         cols.insert(i, items[i]);
+
+    tc.setFontColor(255, 255, 255, 1);
+    tc.setTitleColor(229, 49, 76, 1);
+    tc.setBodyColor(181, 38, 59, 1);
     
     return tc.get(cols.get());
 }
