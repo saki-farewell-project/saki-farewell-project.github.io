@@ -145,8 +145,8 @@ export default class ProjectDetails{
 
         }
 
-        return wrapDivStyled("project-details", 
-            {backgroundImage: "url("+this.imgPath+')'}, items);
+        return wrapDiv("project-details"/*, 
+            {backgroundImage: "url("+this.imgPath+')'}*/, items);
     }
 
 

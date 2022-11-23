@@ -23,6 +23,7 @@ export default class FanMsg
         this.is_jp = kwargs.is_jp == 1;
         this.quote = kwargs.quote;
         this.uid = FanMsg.uidGen.generateUniqueID();
+        this.is_txt = !kwargs.imgs;
     }
 
     getMsgCard()
@@ -55,6 +56,25 @@ export default class FanMsg
         this.padding.set(ind, val);
     }
 
+    getAll()
+    {
+        var items = [];
+        var suptitle = this.is_jp ? "サキはなりましたよ、私の": "Saki has become my";
+        suptitle = wrapDiv("suptitle", suptitle);
+        items.push(suptitle);
+
+        var quote = this.is_jp ? "「": " \"";
+        quote += this.quote + (this.is_jp ? "」に": "\"");
+        quote = wrapDiv("passage", quote);
+        items.push(quote);
+
+        var name = this.is_jp ? this.name + " より": "from " + this.name;
+        name = wrapDiv("name", name);
+        items.push(fadeInExplosiveDelayed.get(wrapDiv("passage", this.name)));
+        
+        return wrapDiv("titled-media-text", items);
+    }
+
 
     get()
     {
@@ -83,8 +103,8 @@ export default class FanMsg
         img.setWidth("100%");
         var text = 
             "@sakifansupport1\n" + this.name + " says:\n\n" +
-            "SAKI, you have become my \""+this.ans+"\"\n"+
-            "サキは私の「"+this.ans+"」になりました\n\n"+
+            "SAKI, you have become my \""+this.quote+"\"\n"+
+            "サキは私の「"+this.quote+"」になりました\n\n"+
             "submit/投稿: https://forms.gle/ys4Xca2oZpSuFuNy7\n"+
             "website/ウェブサイト: https://saki-farewell-project.github.io\n";
 

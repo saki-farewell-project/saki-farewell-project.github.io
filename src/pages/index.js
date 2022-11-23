@@ -23,6 +23,7 @@ import articlesHome from '../articles/article_home';
 import FETCHED_MSGS from '../python/fetched_msgs';
 import Border from '../config/border';
 import FanMsg from '../modules/fan_msg';
+import ProjectDetails from '../modules/project_details';
 
 const Home = () => {
     EntranceEffect.stopAllRequest();
@@ -36,6 +37,7 @@ const Home = () => {
         //createNews(), 
         //createCurrentEvent(), 
         createMsgCase(), 
+        createAll(),
         createFootNote("0px")
     );
 
@@ -72,7 +74,7 @@ function createMsgCase(){
 
     var fetchMsgs = FETCHED_MSGS.reverse().map(function(x){return x;});
     while (fetchMsgs.length % 4)
-        fetchMsgs.push(0);
+        fetchMsgs.push(fetchMsgs[fetchMsgs.length % 4 - 1]);
 
     var i = 0;
     for (let msg of fetchMsgs)
@@ -161,6 +163,29 @@ function createMsgCase(){
     return titleCont.get(utils.merge(wrapDiv("titled-media-text", title), slider.get()));
   
 }
+
+function createAll(){
+    var tc = new TitledContainer();
+    tc.setTitle("All Messages");
+    var cols = new InvertableColumn();
+    var items = [[], []];
+    var i = 0;
+    for (let msg of FETCHED_MSGS)
+    {
+        var fmsg = new FanMsg(msg, true);
+        if (!fmsg.is_txt)
+            continue;
+
+        items[i%2].push(fmsg.getAll());
+        i++;
+    }
+
+    for (var i = 0; i < 2; i++)
+        cols.insert(i, items[i]);
+    
+    return tc.get(cols.get());
+}
+
 
 
 function createAbout(){
