@@ -218,9 +218,10 @@ function createAbout(){
     let aboutArticle = articlesHome[2];    
     const title = wrapDiv("title", utils.wrapLanguages(aboutArticle.title));
     const passage = wrapDiv("passage", utils.wrapLanguages(aboutArticle.intro));
+    const buttonLangs = utils.wrapLanguages({jp: "メッセージ投稿", en:"Submit Now!"});
       
     
-    const button = TitledMediaText.createButton("Submit Now!", "https://forms.gle/ys4Xca2oZpSuFuNy7", 
+    const button = TitledMediaText.createButton(buttonLangs, "https://forms.gle/ys4Xca2oZpSuFuNy7", 
         {background: "crimson", marginTop: "10%"});
 
     cols.insert(0, fadeInExplosiveLatched.get(haatoPfp));

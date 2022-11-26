@@ -47,13 +47,13 @@ const articlesHome = [
         title: 
         {
             en: "Message to SAKI Wanted!", 
-            jp: "サキへのメッセージ募集中！"
+            jp: "サキさんへのメッセージを募集中！"
         },
         intro: 
         {
             en: "To appreciate Saki’s great efforts, \
                 we would like to showcase farewell messages collected from fans. ", 
-            jp: ""
+            jp: "ファンからの感謝を伝える様にメッセージやファンアートで寄せ書き企画をしております。参加者を募集中です。"
         }
     }, 
     {

@@ -2,24 +2,24 @@ const articlesFootNote = {
     className: "footnote", 
     suptitle: {
         en: "This is a non-profit project", 
-        jp: ""
+        jp: "当企画は非営利です。"
     }, 
     passage:[
         [
             {
                 en: "This project is organized by fans voluntarily", 
-                jp: "", 
+                jp: "当企画はファンとして自主的に開催しております。", 
                 style:{fontWeight: "bold"}
             }
         ],
         [
             {
-                en: "We are NOT affiliated with RIOT MUSIC", 
-                jp: ""
+                en: "We are NOT affiliated with RIOT MUSIC or Super Yellow Inc. ", 
+                jp: "RIOT MUSICやSuper Yellow株式会社とは一切関係ありません。"
             },
             {
                 en: "We are NOT representing/endorded by Ashizawa Saki", 
-                jp: ""
+                jp: "芦澤サキさんとは一切関係ありません。芦澤サキさんの代理人ではありません。"
             }
         ]
     ],
@@ -30,7 +30,7 @@ const articlesFootNote = {
         },
         {
             en: "Contact us", 
-            jp: "連絡先", 
+            jp: "連絡", 
         }
     ]
 };
