@@ -61,10 +61,67 @@ const FETCHED_MSGS = [
         en: "Saki, you are young, talented, and ambitious. There's nothing you can't overcome. No matter what happens in the future, we will continue to support your singing activities. Thank you for your regular singing streams in recent months. Although I wasn't quite interactive on YouTube or Twitter, I really enjoyed the time. Until now, I'm still not accustomed to your absence at 20:00. Guess I can never get used to it. However, I will never feel lonely having your ever-lasting spirit with me. You had always been straightforward and passionate, the same Saki since day one. And I'm sure you will always be. Take care and good luck!"
     },
     {
+        is_jp: 0,
+        name: "Del",
+        quote: "My Future",
+        jp: "",
+        en: "I've said that a long time ago. I will always stand by you."
+    },
+    {
+        is_jp: 0,
+        name: "Yinyun",
+        quote: "fiery role model",
+        imgs: [
+            "fig/fanarts/saki thank you - Yin Yun.png"
+        ],
+        cred: "",
+        jp: "",
+        en: ""
+    },
+    {
+        is_jp: 0,
+        name: "Ryukato",
+        quote: "Only existences in Life, always love her cool and beautiful singing voice, Forever Love and Support Ashizawa Saki",
+        jp: "",
+        en: "she the reason that i still alive and live, her singing voice always gives me a reason to live"
+    },
+    {
+        is_jp: 0,
+        name: "Zhangw",
+        quote: "Idol and hope",
+        jp: "",
+        en: "I will miss you and so if one day i jope we will me again.The moon is so beautiful right!? Saki!"
+    },
+    {
+        is_jp: 0,
+        name: "ET",
+        quote: "Eternal Blaze",
+        imgs: [
+            "fig/fanarts/Saki's Fan Art GoodBye S - ET.jpg"
+        ],
+        cred: "ET",
+        jp: "",
+        en: NaN
+    },
+    {
+        is_jp: 0,
+        name: "ET",
+        quote: "Eternal Blaze",
+        jp: NaN,
+        en: "Saki is like a Flame that will forever be remembered in my heart. A present that has been there for as long as I could remember, always warming me up with her amazing voice and cute personality. Though she might be gone, her flames will never go out, even if there's only embers left. She is my main source of motivation, and her covers and songs drive me forward through hard times and push me to be a better version of myself. Thank you very much for all your hard work and we shall meet again in the future."
+    },
+    {
         is_jp: 1,
         name: "チータちゃん",
         quote: "原動力",
         jp: "私の原動力になってくれてありがとうございました！",
+        en: ""
+    },
+    {
+        is_jp: 1,
+        name: "Del",
+        quote: "私の将来",
+        jp: "私はずっと前にそれを言った。 私はいつもあなたのそばにいます。",
         en: ""
     }
 ]

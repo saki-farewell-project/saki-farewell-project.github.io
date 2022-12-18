@@ -22,6 +22,7 @@ import { EntranceEffect } from '../modules/entrance_effect';
 import articlesHome from '../articles/article_home';
 import FETCHED_MSGS from '../python/fetched_msgs';
 import Border from '../config/border';
+import LAST_UPDATE from '../python/last_update';
 import FanMsg from '../modules/fan_msg';
 import ProjectDetails from '../modules/project_details';
 
@@ -167,6 +168,12 @@ function createMsgCase(){
 function createAll(){
     var tc = new TitledContainer();
     tc.setTitle("All Messages");
+    var updatetime = {
+        jp: articlesHome[4].jp + LAST_UPDATE, 
+        en: articlesHome[4].en + LAST_UPDATE
+    };
+    
+    const title = wrapDiv("title", utils.wrapLanguages(updatetime));
     var cols = new InvertableColumn();
     var items = [[], []];
     var i = 0;
@@ -186,8 +193,9 @@ function createAll(){
     tc.setFontColor(255, 255, 255, 1);
     tc.setTitleColor(229, 49, 76, 1);
     tc.setBodyColor(181, 38, 59, 1);
-    
-    return tc.get(cols.get());
+    var cont = utils.merge(wrapDiv("titled-media-text", title), cols.get())
+    //const cont = utils.merge(title.get(), cols.get());
+    return tc.get(cont);
 }
 
 

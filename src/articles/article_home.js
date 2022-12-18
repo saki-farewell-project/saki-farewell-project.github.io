@@ -63,6 +63,10 @@ const articlesHome = [
             en: "You submit, we showcase, together we wish her the best!", 
             jp: ""
         }
+    }, 
+    {
+        en: "Last Update at ", 
+        jp: "最終更新時間 "
     }
 ]
 

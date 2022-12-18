@@ -5,6 +5,8 @@ import os
 import shutil
 from os import listdir
 from os.path import isfile
+from datetime import datetime
+import pytz
 
 
 JP_CSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQTd0fr7ChGEmaSu7PJPdDhJgdXsqtk3fWxYUgBcOetkiEMAIYPJsnlv2e_fdo1O1Wqkb8fQEV6z08T/pub?output=csv" 
@@ -13,7 +15,7 @@ EN_CSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTXV-67qyDzHbtYYopleeT
 EN_COLS = [
     "Type your message to Saki here (English)", 
     "Type your message to Saki here (Japanese)", 
-    "Upload your image(s) here", "Fanart credit to? ",
+    "Upload your image(s) here", "Fanart credit to? (optional)",
     "Your nickname", "Saki has become my \" \""
 ]
 
@@ -28,6 +30,7 @@ JP_COLS = [
 
 if __name__ == "__main__": 
     print("fetching msgs...")
+    jst = datetime.now(pytz.timezone('Asia/Tokyo'))
     resps = zip([EN_CSV, JP_CSV], [EN_COLS, JP_COLS])
     resps = [pd.read_csv(csv).filter(items=cols) for csv, cols in resps]
 
@@ -35,8 +38,6 @@ if __name__ == "__main__":
     msgs = []
     folder = "public/fig/fanarts"
     old_files = [f for f in listdir() if isfile(f)]
-    js_file = open("src/python/text_subs.js", "w")
-    js_file.write("const fetchedMsgs = ")
     for is_jp, datas in enumerate(resps): 
         datas = [datas[cols] for cols in datas]
         for df_en_msg, df_jp_msg, df_urls, df_cred, df_name, df_quote in zip(*datas):
@@ -74,4 +75,9 @@ if __name__ == "__main__":
             
         js_file.write(dumps)
         js_file.write("\nexport default %s;" % var_name)
-       
+
+    with open("src/python/last_update.js", "w") as js_file:
+        var_name = "LAST_UPDATE"
+        js_file.write("const %s = " % var_name)
+        js_file.write("\"%s (JST)\";" % jst.strftime("%Y-%m-%d %H:%M:%S"))
+        js_file.write("\nexport default %s;" % var_name)
