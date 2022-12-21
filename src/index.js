@@ -23,6 +23,7 @@ ReactDOM.render
 function App()
 {
     document.body.style.backgroundColor = "black";
+    document.body.style.margin = 0;
     const router = (
         <Router>
             <NavbarDropdown/>

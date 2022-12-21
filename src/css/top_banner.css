@@ -1,0 +1,58 @@
+.top-banner{
+    position: static;
+    background-color:rgb(34, 34, 34);
+    width: 100%;
+    height: 100VH;
+    border-radius: 10px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+.top-banner .fixed{
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+.top-banner .static{
+    position: relative;
+    width: 100%;
+}
+
+.top-banner .upper{
+    height: 35VH;
+    background-color:rgb(228, 0, 18);
+}
+
+.top-banner .lower{
+    height: calc(65VH - 8px);
+    background-color:rgb(34, 34, 34);
+}
+
+.top-banner .bar-container {
+    width: 100%;
+    height: 8px;
+    background: #ccc;
+}
+  
+.top-banner .bar-container .progress {
+    height: 8px;
+    background: #04AA6D;
+    width: 0%;
+}
+
+.top-banner .suptitle{
+    background-color:rgb(228, 0, 18);
+    font-size: 36px;
+    width: 100%;
+    padding-top: calc(25VH - 18px);
+    color:rgb(35, 24, 21);
+    text-align: center;
+}
+
+.top-banner .quote{
+    font-size: 54px;
+    width: 100%;
+    margin-bottom: calc(50VH - 27px);
+    color: white;
+    text-align: center;
+}

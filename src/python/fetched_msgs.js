@@ -81,9 +81,9 @@ const FETCHED_MSGS = [
     {
         is_jp: 0,
         name: "Ryukato",
-        quote: "Only existences in Life, always love her cool and beautiful singing voice, Forever Love and Support Ashizawa Saki",
+        quote: "Only existence in Life",
         jp: "",
-        en: "she the reason that i still alive and live, her singing voice always gives me a reason to live"
+        en: "Always love her cool and beautiful singing voice. Forever Love and Support Ashizawa Sakishe the reason that i still alive and live, her singing voice always gives me a reason to live"
     },
     {
         is_jp: 0,

@@ -25,15 +25,18 @@ import Border from '../config/border';
 import LAST_UPDATE from '../python/last_update';
 import FanMsg from '../modules/fan_msg';
 import ProjectDetails from '../modules/project_details';
+import { TOP_BANNER } from '../modules/defaults/top_banner';
 
 const Home = () => {
     EntranceEffect.stopAllRequest();
     window.scrollTo(0, 0);
-
+    TOP_BANNER.inProg = true;
     var arrow = new ScrollIndicator();
     const App = utils.merge(
+        //createLogoBanner(), 
+        TOP_BANNER.get("fixed"), 
+        TOP_BANNER.get("static"), 
         arrow.get(), 
-        createLogoBanner(), 
         createAbout(), 
         //createNews(), 
         //createCurrentEvent(), 
@@ -49,6 +52,7 @@ const Home = () => {
 }
   
 export default Home;
+
 
 
 function createMsgCase(){
@@ -235,7 +239,9 @@ function createAbout(){
     cols.insert(0, fadeInExplosiveLatched.get(haatoPfp));
     cols.insert(1, fadeInDelayed.get(passage), fadeInExplosiveLatched.get(button));
 
-    return wrapDiv("intro", fadeInUpwards.get(title),  cols.get());
+    const style = {}
+
+    return utils.wrapDivStyled("intro", {marginTop: "0VH"}, fadeInUpwards.get(title),  cols.get());
 }
 
 
@@ -266,7 +272,7 @@ function createLogoBanner(){
 
 
 document.addEventListener('scroll', function(e){
-    var logoBanner = document.getElementById('logo_banner');
+    /*var logoBanner = document.getElementById('logo_banner');
     if(!logoBanner)
         return;
 
@@ -281,8 +287,9 @@ document.addEventListener('scroll', function(e){
     if(placeHolderImg && placeHolderImg.getBoundingClientRect().bottom < 0){
         logoBanner.removeChild(logoBanner.childNodes[0]);
         placeHolder.style.opacity="1";
-    }
+    }*/
 
+    TOP_BANNER.scrollCallBack();
 })
 
 
