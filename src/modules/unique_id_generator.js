@@ -11,6 +11,10 @@ export default class UniqueIDGenerator extends Mutex{
         this.uid = 0;
     }
 
+    genId(){
+        return this.generateUniqueID();
+    }
+
     generateUniqueID(){
         this.acquire();
         const uid = this.uid++;

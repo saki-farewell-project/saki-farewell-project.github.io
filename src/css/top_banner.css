@@ -19,12 +19,13 @@
 }
 
 .top-banner .upper{
-    height: 35VH;
+    height: calc(35VH - 8px);
     background-color:rgb(228, 0, 18);
 }
 
 .top-banner .lower{
-    height: calc(65VH - 8px);
+    position: static;
+    height: 65VH;
     background-color:rgb(34, 34, 34);
 }
 
@@ -42,9 +43,9 @@
 
 .top-banner .suptitle{
     background-color:rgb(228, 0, 18);
-    font-size: 36px;
+    font-size: 48px;
     width: 100%;
-    padding-top: calc(25VH - 18px);
+    padding-top: calc(25VH - 48px);
     color:rgb(35, 24, 21);
     text-align: center;
 }
@@ -52,7 +53,16 @@
 .top-banner .quote{
     font-size: 54px;
     width: 100%;
-    margin-bottom: calc(50VH - 27px);
+    padding-top: calc(65VH / 3 - 54px);
     color: white;
     text-align: center;
+}
+
+.top-banner .proj{
+    font-size: 36px;
+    width: 100%;
+    margin-top: calc(65VH / 3 - 36px);
+    color: white;
+    text-align: center;
+    opacity: 0;
 }
