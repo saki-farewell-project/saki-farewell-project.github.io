@@ -6,11 +6,12 @@
     border-radius: 10px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     --prog-bar: 18px;
-    --upper-font: 96px;
-    --lower-font: 54px;
-    --font-pad: 18px;
+    --upper-font: 72px;
+    --lower-font: 48px;
+    --font-pad: 24px;
     --upper-height: calc(50VH  - var(--prog-bar) / 2);
     --lower-height: calc(100VH - var(--prog-bar) - var(--upper-height));
+    --subtitle-top: calc(var(--upper-height) - var(--upper-font) - var(--font-pad));
 }
 
 .top-banner .fixed{
@@ -20,7 +21,7 @@
 }
 
 .top-banner .static{
-    position: relative;
+    position: static;
     width: 100%;
 }
 
@@ -29,10 +30,27 @@
     background-color:rgb(228, 0, 18);
 }
 
+.top-banner .upper .img-frame{
+    position: absolute;
+    --img: 270px;
+    width: var(--img);
+    padding-top: calc(var(--subtitle-top) - var(--upper-font) - var(--font-pad));
+    padding-left: calc(50% - var(--img) / 2);
+}
+
 .top-banner .lower{
     position: static;
     height: var(--lower-height);
     background-color:rgb(34, 34, 34);
+    --quote-top: calc(var(--upper-pad) + var(--font-pad));
+}
+
+.top-banner .lower .img-frame{
+    position: static;
+    --img: 640px;
+    width: var(--img);
+    top: calc(var(--quote-top) + 90px);
+    padding-left: calc(50% - var(--img) / 2);
 }
 
 .top-banner .bar-container {
@@ -48,26 +66,48 @@
 }
 
 .top-banner .suptitle{
+    position: absolute;
     font-size: var(--upper-font);
     width: 100%;
-    padding-top: calc(var(--upper-height) - var(--upper-font) - var(--font-pad));
+    top: var(--subtitle-top);
     color:rgb(35, 24, 21);
     text-align: center;
 }
 
 .top-banner .quote{
+    position: static;
     font-size: var(--lower-font);
     width: 100%;
-    padding-top: var(--font-pad);
     color: white;
     text-align: center;
+    padding-top: var(--font-pad);
+    padding-bottom: var(--font-pad);
+    /**--upper-pad: calc(50VH  + var(--prog-bar) / 2);**/
+    top: var(--quote-top);
 }
 
 .top-banner .proj{
+    position: absolute;
     font-size: 36px;
     width: 100%;
     margin-top: calc(65VH / 3 - 36px);
     color: white;
     text-align: center;
     opacity: 0;
+}
+
+@media screen and (max-width: 780px) {
+    .top-banner{
+        --prog-bar: 24px;
+        --upper-font: 48px;
+        --lower-font: 36px;
+    }
+
+    .top-banner .upper .img-frame{
+        --img: 180px;
+    }
+
+    .top-banner .lower .img-frame{
+        --img: 85%;
+    }
 }

@@ -1,7 +1,9 @@
 import "../css/top_banner.css";
 import { merge, wrapDiv, wrapDivStyled } from "../utils";
-import { fadeIn, fadeInRightwards} from "./defaults/entrance_effect";
+import { fadeInDelayed, fadeInExplosive, fadeInRightwards} from "./defaults/entrance_effect";
 import UniqueIDGenerator from "./unique_id_generator";
+import Image from "./Image";
+import Border from "../config/border";
 
 export default class TopBanner{
     static UID_GEN = new UniqueIDGenerator("top_banner");
@@ -43,7 +45,7 @@ export default class TopBanner{
         if (scrolled >= 0.95){
             setDisp(this.FIXED_ID, "none");
             this.inProg = false;
-            var elem = document.getElementById(this.PROJ_ID);
+            /*var elem = document.getElementById(this.PROJ_ID);
             //elem.animate(effect.keyframes, effect.options);
             const kfs = [ {transform: 'scale(0.5, 0.5)', opacity: 0}, 
                 { transform: 'scale(1, 1)', opacity: 1}
@@ -52,7 +54,7 @@ export default class TopBanner{
             const opts = {duration:600, fill: 'forwards', 
                 easing: 'ease-out', delay: 300
             };
-            elem.animate(kfs, opts);
+            elem.animate(kfs, opts);*/
         }
 
         else if (scrolled > 0.01){
@@ -67,16 +69,30 @@ export default class TopBanner{
 
             setDisp(this.quoteIds[nid], "block");
             this.lid = nid;
-            console.log("lid: ", nid);
+            var elem = document.getElementById(this.PROJ_ID);
+            if (elem)
+                elem.style.opacity = scrolled;
         }
     }
 
-    get(pos){
-        const isFix = pos == "fixed";
-        var title = wrapDiv("suptitle", "You Have Become My");
-        title = fadeInRightwards.get(title);
-        title = wrapDiv("upper", title);
+    getImg(file){
+        var img = new Image();
+        img.setWidth("100%");
+        return wrapDiv("img-frame", img.get(file));
+    }
 
+    get(pos){
+        var items = [];
+        const isFix = pos == "fixed";
+        //items.push(this.getImg("15%", "fig/banner-upper.png"));
+
+        var title = wrapDiv("suptitle", fadeInExplosive.get("You Have Become My"));
+        //title = fadeInExplosiveDelayed.get(title);
+        var upperImg = this.getImg("fig/banner-upper.png");
+        upperImg = fadeInDelayed.get(upperImg);
+
+        items.push(wrapDiv("upper", upperImg, title));
+        
         var style = {};
         if (!isFix)
             style.width = "100%";
@@ -85,12 +101,16 @@ export default class TopBanner{
             className="progress" style={style}>
         </div>;
 
-        var prog = wrapDivStyled("bar-container", style, prog);
-        var items = [title, prog];
+        prog = wrapDivStyled("bar-container", style, prog);
+        items.push(prog);
+
+        var lowerImg = this.getImg("fig/banner-lower.png");
+        
         var quotes = [];
         if (isFix){
+            lowerImg = <div id ={this.PROJ_ID} style={{opacity: 0}}>{lowerImg}</div>;
             for (var i = 0; i < this.quotes.length; i++){
-                const style = {display: "none"};
+                const style = {display: i? "none": "block"};
                 console.log(style, i);
 
                 var quote = "「" + this.quotes[i] + "」";
@@ -99,15 +119,12 @@ export default class TopBanner{
             }
         }
         else{
-            var proj = <div id ={this.PROJ_ID} className="proj" style={style}>
-                {"Ashizawa Saki Farewell Project"}
-            </div>
             quotes.push(wrapDiv("quote", "「」"));
-            quotes.push(proj);
+            //quotes.push(proj);
+            lowerImg = <div style={{opacity: 1}}>{lowerImg}</div>;
         }
         
-
-        items.push(wrapDiv("lower", quotes));
+        items.push(wrapDiv("lower", quotes, lowerImg));
         const rslt = wrapDiv(["top-banner", pos], items);
         const id = isFix ? this.FIXED_ID: this.STATIC_ID;
 
