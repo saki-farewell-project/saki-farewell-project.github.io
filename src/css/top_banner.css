@@ -98,13 +98,14 @@
 
 @media screen and (max-width: 780px) {
     .top-banner{
-        --prog-bar: 24px;
-        --upper-font: 48px;
-        --lower-font: 36px;
+        --prog-bar: 12px;
+        --upper-font: 36px;
+        --lower-font: 24px;
+        --font-pad: 18px;
     }
 
     .top-banner .upper .img-frame{
-        --img: 180px;
+        --img: 160px;
     }
 
     .top-banner .lower .img-frame{
