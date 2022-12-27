@@ -4,7 +4,13 @@
     width: 100%;
     height: 100VH;
     border-radius: 10px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    --prog-bar: 18px;
+    --upper-font: 96px;
+    --lower-font: 54px;
+    --font-pad: 18px;
+    --upper-height: calc(50VH  - var(--prog-bar) / 2);
+    --lower-height: calc(100VH - var(--prog-bar) - var(--upper-height));
 }
 
 .top-banner .fixed{
@@ -19,41 +25,40 @@
 }
 
 .top-banner .upper{
-    height: calc(35VH - 8px);
+    height: var(--upper-height);
     background-color:rgb(228, 0, 18);
 }
 
 .top-banner .lower{
     position: static;
-    height: 65VH;
+    height: var(--lower-height);
     background-color:rgb(34, 34, 34);
 }
 
 .top-banner .bar-container {
     width: 100%;
-    height: 8px;
+    height: var(--prog-bar);
     background: #ccc;
 }
   
 .top-banner .bar-container .progress {
-    height: 8px;
-    background: #04AA6D;
+    height: var(--prog-bar);
+    background: white;
     width: 0%;
 }
 
 .top-banner .suptitle{
-    background-color:rgb(228, 0, 18);
-    font-size: 48px;
+    font-size: var(--upper-font);
     width: 100%;
-    padding-top: calc(25VH - 48px);
+    padding-top: calc(var(--upper-height) - var(--upper-font) - var(--font-pad));
     color:rgb(35, 24, 21);
     text-align: center;
 }
 
 .top-banner .quote{
-    font-size: 54px;
+    font-size: var(--lower-font);
     width: 100%;
-    padding-top: calc(65VH / 3 - 54px);
+    padding-top: var(--font-pad);
     color: white;
     text-align: center;
 }

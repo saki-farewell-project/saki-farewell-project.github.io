@@ -272,23 +272,6 @@ function createLogoBanner(){
 
 
 document.addEventListener('scroll', function(e){
-    /*var logoBanner = document.getElementById('logo_banner');
-    if(!logoBanner)
-        return;
-
-    var placeHolder = document.getElementById('place_holder_banner');
-    if(!placeHolder || placeHolder.style.opacity=="1")
-        return;
-
-    const ratio = 0.5+placeHolder.getBoundingClientRect().top/window.innerHeight;
-    logoBanner.style.opacity = ratio>0? ratio.toString(): "0";
-    
-    var placeHolderImg = document.getElementById('place_holder_img_id');
-    if(placeHolderImg && placeHolderImg.getBoundingClientRect().bottom < 0){
-        logoBanner.removeChild(logoBanner.childNodes[0]);
-        placeHolder.style.opacity="1";
-    }*/
-
     TOP_BANNER.scrollCallBack();
 })
 
@@ -297,8 +280,8 @@ class ScrollIndicator extends Image{
     static uid = "index-scoll-indicator";
     static duration = 850;
     static keyframes = [
-        {transform: 'translateY(-20%)', opacity: 0.65}, 
-        {transform: 'translateY(10%)', opacity: 0}
+        {transform: 'translateY(25%)', opacity: 0.85}, 
+        {transform: 'translateY(65%)', opacity: 0}
     ];
     static options = {duration: ScrollIndicator.duration, 
         fill:'forwards', easing: 'ease-out'};
@@ -306,8 +289,8 @@ class ScrollIndicator extends Image{
     static timer = 0; 
     constructor(){
         super();
-        this.setWidth("50%");
-        this.item = super.get("fig/index/arrow1.png");
+        this.setWidth("15%");
+        this.item = super.get("fig/index/scroll.png");
     }
 
     timerCallBack(){
@@ -325,12 +308,12 @@ class ScrollIndicator extends Image{
 
     get(){
         var args = {};
-        args.className="image-container";
+        args.className = "image-container";
         args.id = ScrollIndicator.uid;
         args.style = ScrollIndicator.keyframes[1];
 
         ScrollIndicator.timer = setInterval(
-                this.timerCallBack.bind(this), ScrollIndicator.duration*1.2);
+                this.timerCallBack.bind(this), ScrollIndicator.duration * 1.2);
 
         return wrapDiv(["scroll-indicator", args], this.item);
     }

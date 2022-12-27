@@ -44,11 +44,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wws-haato/wws-haato.github.io.git"
+    "url": "git+https://github.com/saki-farewell-project/saki-farewell-project.github.io.git"
   },
   "author": "leo-hsieh",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wws-haato/wws-haato.github.io/issues"
+    "url": "https://github.com/saki-farewell-project/saki-farewell-project.github.io/issues"
   }
 }
