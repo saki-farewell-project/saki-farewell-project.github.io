@@ -1,42 +1,24 @@
 import "../css/fan_msg.css";
 import { merge, wrapDiv, wrapDivStyled, wrapLink } from "../utils";
 import Boarder from "../config/border";
-import { wrapLanguages } from "../utils";
 import Image from "./Image";
 import ImageLinked from "./Image_linked";
 import "../css/image.css";
-import twitterIntent from 'twitter-intent';
-import UniqueIDGenerator from "./unique_id_generator";
-import { useRef } from "react";
 import { fadeInDelayed, fadeInExplosiveDelayed, fadeInExplosiveLatched, fadeInRightwardsLatched} from "./defaults/entrance_effect";
 
-export default class FanMsg
+export default class FanartDisp
 {
-    static FIRE_IMG = "fig/fire.jpg";
-    static uidGen = new UniqueIDGenerator("msg-cards");
-    constructor(kwargs, is_txt)
+    constructor(kwargs)
     {
         this.name = kwargs.name;
-        this.context = is_txt ? wrapLanguages(kwargs): "";
         this.margin =  new Boarder();
-        this.padding =  new Boarder();
+        this.padding = new Boarder();
         this.is_jp = kwargs.is_jp == 1;
         this.quote = kwargs.quote;
-        this.uid = FanMsg.uidGen.generateUniqueID();
-        this.is_txt = !kwargs.imgs;
-        this.ref = useRef(null);
+        this.imgs = kwargs.imgs;
     }
 
-    goToMsg()
-    {
-        window.scrollTo({
-            top:this.ref.current.offsetTop, 
-            behavior: "smooth"
-        });
-    }
-
-    getMsgCard()
-    {
+    getMsgCard(){
         var items = [];
         var suptitle = this.is_jp ? "サキはなりましたよ、私の": "Saki has become my";
         suptitle = wrapDiv("suptitle", suptitle);

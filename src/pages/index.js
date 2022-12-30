@@ -26,22 +26,25 @@ import LAST_UPDATE from '../python/last_update';
 import FanMsg from '../modules/fan_msg';
 import ProjectDetails from '../modules/project_details';
 import { TOP_BANNER } from '../modules/defaults/top_banner';
+import LightBox from '../modules/light_box';
 
 const Home = () => {
     EntranceEffect.stopAllRequest();
+    LightBox.HIDDENS.clear();
     window.scrollTo(0, 0);
     TOP_BANNER.inProg = true;
     var arrow = new ScrollIndicator();
-    const App = utils.merge(
+    const blocks = [
         TOP_BANNER.get("fixed"), 
         TOP_BANNER.get("static"), 
         arrow.get(), 
         createAbout(), 
         createMsgCase(), 
         createAll(),
-        createFootNote("0px")
-    );
+        createFootNote("0px"), 
+    ];
 
+    const App = utils.merge(LightBox.HIDDENS, blocks);
     EntranceEffect.startAllRequest();
     EntranceEffect.debug();
     
@@ -147,7 +150,7 @@ function createAbout(){
     cols.setPadding(Boarder.TOP, "2%");
     cols.setPadding(Boarder.LEFT, "10%");
     cols.setPadding(Boarder.RIGHT, "10%");
-    cols.setMargin(Boarder.BOTTOM, "120px");
+    //cols.setMargin(Boarder.BOTTOM, "120px");
 
     cols.setColumnInterval("0px");
     cols.setRatios(35, 65);
@@ -159,22 +162,38 @@ function createAbout(){
     var waterMark = new Image();
     waterMark.setWidth("35%");
     const icon = waterMark.get("fig/common/icons/youtube.png");
-    imgLinked.setWaterMark(utils.merge(icon, wrapDiv("haachama-channel-text", "芦澤サキ / SAKI ASHIZAWA")));
+    imgLinked.setWaterMark(utils.merge(icon, wrapDiv("channel-text", "芦澤サキ / SAKI ASHIZAWA")));
 
     const haatoPfp = imgLinked.get("fig/pfp_saki_yt.jpg", 
         "https://www.youtube.com/channel/UCPZgBtMYoFKypEG2SCvBN9A");
     
     let about = articlesHome[2];    
-    const title = wrapDiv("title", utils.wrapLanguages(about.title));
+    var title = wrapDiv("title", utils.wrapLanguages(about.title));
     const intro = wrapDiv("passage", utils.wrapLanguages(about.intro));
     const langs = utils.wrapLanguages({jp: "メッセージ投稿", en: "Submit Now!"});
-    const button = TitledMediaText.createButton(langs, "https://forms.gle/ys4Xca2oZpSuFuNy7", 
+    const url ="https://forms.gle/ys4Xca2oZpSuFuNy7"
+    var button = TitledMediaText.createButton(langs, url, 
         {background: "crimson", marginTop: "10%"});
+
+    var test = new LightBox();
+    for (let msg of FETCHED_MSGS){
+        if (msg.imgs){
+            var img = new Image();
+            img.setWidth("100%");
+            for (let file of msg.imgs){
+                test.append(<img src={file} className={"fill"}></img>);
+            }
+        }
+    }
+    //test.setText("fuiyoh!!!!!");
+    title = <div onClick={test.get()}>
+        {[title, test.get()]}
+    </div>;
 
     cols.insert(0, fadeInExplosiveLatched.get(haatoPfp));
     cols.insert(1, fadeInDelayed.get(intro), fadeInExplosiveLatched.get(button));
 
-    return utils.wrapDivStyled("intro", {marginTop: "80px"}, fadeInUpwards.get(title),  cols.get());
+    return utils.wrapDiv("intro", fadeInUpwards.get(title),  cols.get());
 }
 
 

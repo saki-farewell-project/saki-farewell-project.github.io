@@ -2,6 +2,20 @@
     width: 100%;
 }
 
+.intro{
+    width: 100%;
+    margin-top: 80px;
+    margin-bottom: 120px;
+}
+
+@media screen and (max-width: 780px) {
+    .intro{
+        margin-top: 40px;
+        margin-bottom: 60px;
+    }
+}
+
+
 .titled-media-text .button{
     font-size: 2VW;
     margin-top: 4VW;
@@ -38,8 +52,7 @@
     transform: scale(1.2, 1.2);
 }
 
-a:hover, a:visited, a:link, a:active
-{
+a:hover, a:visited, a:link, a:active{
     text-decoration: none;
 }
 

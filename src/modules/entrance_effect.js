@@ -20,6 +20,14 @@ export class ProtectedArray extends Array{
 		return id;
 	}
 
+	clear(){
+		this.mutex.acquire();
+		while (super.length)
+			super.pop();
+			
+		this.mutex.runExclusive();
+	}
+
 }
 
 
