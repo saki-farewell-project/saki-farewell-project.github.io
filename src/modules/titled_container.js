@@ -38,12 +38,11 @@ export default class TitledContainer{
     }
 
     get(item){
-        const shadow = this.bodyColor.divide(2).add(new ColourRGBA(0,0,0,0.5));
-
+        const shadow = this.bodyColor.divide(2).add(new ColourRGBA(0, 0, 0, 0.5));
         const titlestyle = {color: this.fontColor.get(), 
-            boxShadow: "2.5px 2.5px 5px "+shadow.get(), 
+            boxShadow: "2.5px 2.5px 5px " + shadow.get(), 
             background: this.titleColor.get()};
-        const suffix = this.isLeft?"left": "right";
+        const suffix = this.isLeft? "left": "right";
         const title = wrapDivRecursive([{className: "title"}, {className: suffix, style: titlestyle}], this.title);
 
         const bodystyle = {background: this.bodyColor.get()};

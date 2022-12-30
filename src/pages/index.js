@@ -10,7 +10,7 @@ import "../css/index.css";
 
 import Slider from "../modules/slider";
 import { wrapDiv} from "../utils";
-import { fadeInExplosive, fadeInExplosiveDelayed, fadeInExplosiveLatched, fadeInRightwardsLatched, fadeInUpwards, fadeInUpwardsDelayed } from "../modules/defaults/entrance_effect";
+import { fadeInExplosiveLatched, fadeInUpwards} from "../modules/defaults/entrance_effect";
 import TitledMediaText from "../modules/titled_media_text";
 import TitledContainer from "../modules/titled_container";
 import InvertableColumn from "../modules/invertable_columns";
@@ -33,13 +33,10 @@ const Home = () => {
     TOP_BANNER.inProg = true;
     var arrow = new ScrollIndicator();
     const App = utils.merge(
-        //createLogoBanner(), 
         TOP_BANNER.get("fixed"), 
         TOP_BANNER.get("static"), 
         arrow.get(), 
         createAbout(), 
-        //createNews(), 
-        //createCurrentEvent(), 
         createMsgCase(), 
         createAll(),
         createFootNote("0px")
@@ -73,7 +70,6 @@ function createMsgCase(){
     titleCont.setBodyColor(181, 38, 59, 1);
     titleCont.setRight();
 
-    //const slicedMsgs = fetchedMsgs.slice(0, 1);
     var cols = new InvertableColumn();
     var cells = [0, 0, 0, 0];
 
@@ -82,48 +78,23 @@ function createMsgCase(){
         fetchMsgs.push(fetchMsgs[fetchMsgs.length % 4 - 1]);
 
     var i = 0;
-    for (let msg of fetchMsgs)
-    {
+    for (let msg of fetchMsgs){
         if (!msg)
-        {
-            cells[i % 4] = utils.wrapStyle({width:"100%", aspectRatio: "2 / 1"}, "");
-        }
-        else
-        {
+            cells[i % 4] = utils.wrapStyle(
+                {width:"100%", aspectRatio: "2 / 1"}, "");
+        else{
             var showcase = new FanMsg(msg, true);
             showcase.setMargin(Boarder.ALL, "15px");
             cells[i % 4] = showcase.getMsgCard();
         }
         
-        if ((i+1) % 4 === 0)
-        {
+        if ((i+1) % 4 === 0){
             cols.insert(0, cells[0], cells[1]);
             cols.insert(1, cells[2], cells[3]);
             slider.append(cols.get());
         }
         i++;
     }
-
-    /*
-    for (let msg of FETCHED_MSGS.reverse())
-    {
-        if (cntMsgs++ >= 100000)
-            break;
-
-        var showcase = new FanMsg(msg, true);
-        showcase.setMargin(Boarder.ALL, "15px");
-        //slider.append(showcase.get());
-        var cols = new InvertableColumn();
-
-        const passage = wrapDiv("passage", showcase.context);
-        
-        cols.insert(0, showcase.getMsgCard());
-        //cols.insert(1, fullMsg);
-        //cols.insert(1, fullMsg);
-        slider.append(cols.get());
-    }*/
-    //slider.append(youtube.get("https://youtu.be/aHt-fGy5BYQ"));
-    //slider.append(youtube.get("https://youtu.be/LLuqBMnfKJY"));
 
     slider.setClickWidth("4VW");
     slider.setWidth("100%"); 
@@ -133,38 +104,6 @@ function createMsgCase(){
     slider.hideBar();
 
     const title = wrapDiv("title", utils.wrapLanguages(articlesHome[3].title));
-    const fullMsg = wrapDiv("titled-media-text", title);
-
-    
-
-    /*wrapDiv("titled-media-text", graphics);
-    this.cols.insert(this.getGraphID(), wrapDiv("titled-media-text", graphics));
-        
-    var content = this.passage.content;
-    if(!content.length)
-        content = [content];
-
-    content = content.map(function(x){return wrapDivStyled("passage", style, x);});
-    const passage = wrapDiv("titled-media-text", content);
-    const subtitle = wrapDiv("titled-media-text", wrapDivStyled("title", style, this.passage.title));
-   
-    var passages = [fadeInDelayed.get(subtitle), fadeInExplosiveDelayed.get(passage)];
-    if(this.button){
-        const style = {color: this.fontColor.get(), background: this.titleColor.get()};
-        const anime = this.isLeft? fadeInRightwardsLatched: fadeInLeftwardsLatched;
-        passages.push(anime.get(TitledMediaText.createButton(this.button.text, this.button.link, style)));
-    }*/
-    //mediaText.setTitleColor(229, 49, 76, 1);
-    //mediaText.setBodyColor(181, 38, 59, 1);
-    //mediaText.setButton("View all", "/#/fan-msgs");
-    //mediaText.setRight();
-
-    const style = {color: titleCont.fontColor.get(), background: titleCont.titleColor.get()};
-    const anime = fadeInExplosiveLatched;
-      
-    var a = anime.get(TitledMediaText.createButton("View all messages", "/#/fan-msgs", style));
-    //var a = anime.get(TitledMediaText.createButton("View all messages", href, style));
-
     return titleCont.get(utils.merge(wrapDiv("titled-media-text", title), slider.get()));
   
 }
@@ -181,8 +120,7 @@ function createAll(){
     var cols = new InvertableColumn();
     var items = [[], []];
     var i = 0;
-    for (let msg of FETCHED_MSGS.reverse())
-    {
+    for (let msg of FETCHED_MSGS.reverse()){
         var fmsg = new FanMsg(msg, true);
         if (!fmsg.is_txt)
             continue;
@@ -198,7 +136,6 @@ function createAll(){
     tc.setTitleColor(229, 49, 76, 1);
     tc.setBodyColor(181, 38, 59, 1);
     var cont = utils.merge(wrapDiv("titled-media-text", title), cols.get())
-    //const cont = utils.merge(title.get(), cols.get());
     return tc.get(cont);
 }
 
@@ -207,10 +144,10 @@ function createAll(){
 function createAbout(){
     var cols = new Column(2);
 
-    cols.setMargin(Boarder.TOP, "2%");
+    cols.setPadding(Boarder.TOP, "2%");
     cols.setPadding(Boarder.LEFT, "10%");
     cols.setPadding(Boarder.RIGHT, "10%");
-    cols.setMargin(Boarder.BOTTOM, "20%");
+    cols.setMargin(Boarder.BOTTOM, "120px");
 
     cols.setColumnInterval("0px");
     cols.setRatios(35, 65);
@@ -221,53 +158,23 @@ function createAbout(){
 
     var waterMark = new Image();
     waterMark.setWidth("35%");
-    const yotubeIcon = waterMark.get("fig/common/icons/youtube.png");
-    imgLinked.setWaterMark(utils.merge(yotubeIcon, wrapDiv("haachama-channel-text", "芦澤サキ / SAKI ASHIZAWA")));
+    const icon = waterMark.get("fig/common/icons/youtube.png");
+    imgLinked.setWaterMark(utils.merge(icon, wrapDiv("haachama-channel-text", "芦澤サキ / SAKI ASHIZAWA")));
 
     const haatoPfp = imgLinked.get("fig/pfp_saki_yt.jpg", 
         "https://www.youtube.com/channel/UCPZgBtMYoFKypEG2SCvBN9A");
     
-    let aboutArticle = articlesHome[2];    
-    const title = wrapDiv("title", utils.wrapLanguages(aboutArticle.title));
-    const passage = wrapDiv("passage", utils.wrapLanguages(aboutArticle.intro));
-    const buttonLangs = utils.wrapLanguages({jp: "メッセージ投稿", en:"Submit Now!"});
-      
-    
-    const button = TitledMediaText.createButton(buttonLangs, "https://forms.gle/ys4Xca2oZpSuFuNy7", 
+    let about = articlesHome[2];    
+    const title = wrapDiv("title", utils.wrapLanguages(about.title));
+    const intro = wrapDiv("passage", utils.wrapLanguages(about.intro));
+    const langs = utils.wrapLanguages({jp: "メッセージ投稿", en: "Submit Now!"});
+    const button = TitledMediaText.createButton(langs, "https://forms.gle/ys4Xca2oZpSuFuNy7", 
         {background: "crimson", marginTop: "10%"});
 
     cols.insert(0, fadeInExplosiveLatched.get(haatoPfp));
-    cols.insert(1, fadeInDelayed.get(passage), fadeInExplosiveLatched.get(button));
+    cols.insert(1, fadeInDelayed.get(intro), fadeInExplosiveLatched.get(button));
 
-    const style = {}
-
-    return utils.wrapDivStyled("intro", {marginTop: "0VH"}, fadeInUpwards.get(title),  cols.get());
-}
-
-
-
-function createLogoBanner(){
-    var img = new Image();
-    img.setWidth("100%");
-    img.setCorner(Border.ALL, "25px");
-
-    const bannerImg = img.get("fig/SiteBanner.png");
-    const placeHolder = 
-        <div id = "place_holder_banner" 
-            className="logo_banner_place_holder " style={{opacity: "0"}}>
-            <div id = "place_holder_img_id"
-                className="logo_banner_inner_image"> {bannerImg}
-            </div>
-        </div>;
-    
-    const logoBanner = 
-        <div id="logo_banner" className="logo_banner">
-            <div id = "img" className="logo_banner_inner_image">
-                {fadeInExplosive.get(bannerImg)}
-            </div>
-        </div>;
-
-    return utils.merge(placeHolder, logoBanner);
+    return utils.wrapDivStyled("intro", {marginTop: "80px"}, fadeInUpwards.get(title),  cols.get());
 }
 
 
