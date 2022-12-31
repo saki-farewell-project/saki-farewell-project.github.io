@@ -81,9 +81,9 @@ const FETCHED_MSGS = [
     {
         is_jp: 0,
         name: "Ryukato",
-        quote: "Only existence in Life",
+        quote: "Only existences in Life",
         jp: "",
-        en: "Always love her cool and beautiful singing voice. Forever Love and Support Ashizawa Sakishe the reason that i still alive and live, her singing voice always gives me a reason to live"
+        en: "Forever Love and Support Ashizawa Saki, always love her cool and beautiful singing voice, she the reason that i still alive and live, her singing voice always gives me a reason to live"
     },
     {
         is_jp: 0,
@@ -101,14 +101,35 @@ const FETCHED_MSGS = [
         ],
         cred: "ET",
         jp: "",
-        en: NaN
+        en: ""
     },
     {
         is_jp: 0,
         name: "ET",
         quote: "Eternal Blaze",
-        jp: NaN,
+        jp: "",
         en: "Saki is like a Flame that will forever be remembered in my heart. A present that has been there for as long as I could remember, always warming me up with her amazing voice and cute personality. Though she might be gone, her flames will never go out, even if there's only embers left. She is my main source of motivation, and her covers and songs drive me forward through hard times and push me to be a better version of myself. Thank you very much for all your hard work and we shall meet again in the future."
+    },
+    {
+        is_jp: 0,
+        name: "Aryadi Subagio",
+        quote: "Idol",
+        jp: "RIOT MUSICがあなたとココアだけだった頃からあなたのことをずっと見ていて、あなたの歌が本当に好きです. あなたは強い感情と力強い声を持っている, 稀有な歌手です. いつも楽しい思い出をありがとう",
+        en: "It's sad to see you go. I've been watching you since RIOT music was just you and Cocoa, and I really love your singing. You have a strong emotion and powerful voice, you are a rare singer. Thanks for all the fun memories. I wish you luck in your future singing career"
+    },
+    {
+        is_jp: 0,
+        name: "BlackAce",
+        quote: "Favorite Singer of all time",
+        jp: "",
+        en: "Thank you Saki for blessing us with your music. I remember the first time I listened to you was when you released your cover of Joint and really loved your voice ever since. My favorite cover of yours is Hikarie it's definitely a song I listened to at least 1000 times since released. I really hope you continue doing music, it will be a bit sad that we won't know you as Saki anymore but I'll continue to listen to you forever by whoever you go by in the future. Thank you again Saki and I hope we get to hear your voice again soon."
+    },
+    {
+        is_jp: 0,
+        name: "Almo",
+        quote: "Inspiration in life ",
+        jp: NaN,
+        en: "Saki! Thank you for the amazing covers and the awesome music and sound. I new the meaning of vsingers through you and I instantly became fully inspired by your talent and voice. I truly loved your music and everything you do. I really wish I knew how to speak Japanese to capture everything as it is. Please don't prevent us from hearing more of your talent. Much much love! "
     },
     {
         is_jp: 1,
