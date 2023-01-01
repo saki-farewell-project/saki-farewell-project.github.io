@@ -1,0 +1,36 @@
+.sect-block{
+    position: static;
+    width: auto;
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    --title-font: 80px;
+}
+
+.sect-block .header{
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.sect-block .header .title{
+    position: absolute;
+    font-size: var(--title-font);
+    top: 0px;
+    left: 0px;
+    color: white;
+    text-shadow: 0px 0px 3px #eeff00;
+}
+
+.sect-block .header .view-all{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 30px;
+    color: white;
+}
+
+.sect-block .content{
+    width: auto;
+    padding-top: 120px;
+}

@@ -33,7 +33,6 @@ export default class LightBox extends Slider{
         if (!elem)
             return;
         
-        console.log("fuiyoh!~~~!!!");
         elem.style.display = close ? "none": "block";
     }
 
@@ -45,8 +44,6 @@ export default class LightBox extends Slider{
         items[0] = <div onClick={this.toggleWindow.bind(this, true)}>{items[0]}</div>;
         if (this.txt)
             items.push(wrapDivRecursive(["container", "text"], this.txt));
-        else if (this.items.length == 1)
-            items.push(wrapDiv("container", this.items[0]));
         else
             items.push(wrapDiv("container", super.get()));
 

@@ -128,8 +128,15 @@ const FETCHED_MSGS = [
         is_jp: 0,
         name: "Almo",
         quote: "Inspiration in life ",
-        jp: NaN,
+        jp: "",
         en: "Saki! Thank you for the amazing covers and the awesome music and sound. I new the meaning of vsingers through you and I instantly became fully inspired by your talent and voice. I truly loved your music and everything you do. I really wish I knew how to speak Japanese to capture everything as it is. Please don't prevent us from hearing more of your talent. Much much love! "
+    },
+    {
+        is_jp: 0,
+        name: "Jackie",
+        quote: "friend, my companion in tough times",
+        jp: NaN,
+        en: "She was the best singer in the group. I loved the way her covers stoked a fire in me, made me feel like I could take on the whole world. I'm sure she's somewhere out in the world, waiting to say hi. GO SAKI GO. \n\nねぇ あんたわかっちゃいない!!\n"
     },
     {
         is_jp: 1,

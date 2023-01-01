@@ -27,18 +27,23 @@ import FanMsg from '../modules/fan_msg';
 import ProjectDetails from '../modules/project_details';
 import { TOP_BANNER } from '../modules/defaults/top_banner';
 import LightBox from '../modules/light_box';
+import SectBlock from '../modules/sect_block';
+import FanartCase from '../modules/fanart_case';
 
 const Home = () => {
     EntranceEffect.stopAllRequest();
     LightBox.HIDDENS.clear();
+
     window.scrollTo(0, 0);
     TOP_BANNER.inProg = true;
     var arrow = new ScrollIndicator();
+
     const blocks = [
         TOP_BANNER.get("fixed"), 
         TOP_BANNER.get("static"), 
         arrow.get(), 
         createAbout(), 
+        createFanartCase(),
         createMsgCase(), 
         createAll(),
         createFootNote("0px"), 
@@ -52,6 +57,38 @@ const Home = () => {
 }
   
 export default Home;
+
+
+function createFanartCase(){
+    var sect = new SectBlock();
+    sect.setTitle("Fanart");
+    console.log("1");
+    var items = [];
+    for (let msg of FETCHED_MSGS)
+        if (msg.imgs)
+            items.push(msg);
+
+    if (items.length % 2)
+        items.push(items[0]);
+
+    var cols = new InvertableColumn();
+    var slider = new Slider();
+
+    slider.setClickWidth("45px");
+    slider.setPadding(Boarder.LEFT, "45px");
+    slider.setPadding(Boarder.RIGHT, "45px");
+    slider.setBarColor(228, 0, 18, 1);
+    slider.setPeriod(3000);
+    slider.hideBar();
+    for (let i in items){
+        var msg = new FanartCase(items[i]);
+        cols.insert(i % 2, msg.getCase());
+        if (i % 2)
+            slider.append(cols.get());
+    }
+
+    return sect.get(slider.get());
+}
 
 
 
@@ -174,21 +211,6 @@ function createAbout(){
     const url ="https://forms.gle/ys4Xca2oZpSuFuNy7"
     var button = TitledMediaText.createButton(langs, url, 
         {background: "crimson", marginTop: "10%"});
-
-    var test = new LightBox();
-    for (let msg of FETCHED_MSGS){
-        if (msg.imgs){
-            var img = new Image();
-            img.setWidth("100%");
-            for (let file of msg.imgs){
-                test.append(<img src={file} className={"fill"}></img>);
-            }
-        }
-    }
-    //test.setText("fuiyoh!!!!!");
-    title = <div onClick={test.get()}>
-        {[title, test.get()]}
-    </div>;
 
     cols.insert(0, fadeInExplosiveLatched.get(haatoPfp));
     cols.insert(1, fadeInDelayed.get(intro), fadeInExplosiveLatched.get(button));

@@ -27,16 +27,14 @@ export default class FanMsg
         this.ref = useRef(null);
     }
 
-    goToMsg()
-    {
+    goToMsg(){
         window.scrollTo({
             top:this.ref.current.offsetTop, 
             behavior: "smooth"
         });
     }
 
-    getMsgCard()
-    {
+    getMsgCard(){
         var items = [];
         var suptitle = this.is_jp ? "サキはなりましたよ、私の": "Saki has become my";
         suptitle = wrapDiv("suptitle", suptitle);
@@ -123,58 +121,7 @@ export default class FanMsg
     
         img.setWidth("15%");
         img.setWaterMark(waterMark.get("fig/common/icons/ext_link.png"));
-
-        /*var bundle = 
-            (<div className="centered-img" style={{width: "100%", margin: this.margin.get()}}>
-                <img src={img_path}  class="centered-img" 
-                        style={{width: "100%", borderRadius: this.corner.get()}}>
-                            
-                </img>
-                
-            </div>);*/
                    
         return wrapDiv(divArgs, img.get("fig/common/icons/twitter.png", this.getTwitterPost()));
-
-        return img.get(img_path);
-        
-        /*var colInt = new NumberSuffix(this.colInterval);
-        var extInt = colInt.clone();
-        extInt.val/=2;
-
-        var colItems = [];
-        var colBorder = new Boarder();
-        var ratioSuffix = new NumberSuffix("0%");
-        for(var i = 0; i < this.items.length; ++i){
-            colBorder.set(Boarder.LEFT, extInt.get());
-            colBorder.set(Boarder.RIGHT, extInt.get());
-            ratioSuffix.setVal(this.ratios[i]);
-            const divArgs = {
-                className: "column", 
-                style: {
-                    margin: colBorder.get(), 
-                    textAlign: this.textAligns[i],
-                    width: ratioSuffix.calc('-', colInt)
-                }
-            };
-
-            colItems.push(wrapDiv(divArgs, this.items[i]));
-        }
-
-        const divArgs = [
-            {
-                className: "w3-container", 
-                style: {
-                    maxWidth: "auto", 
-                    margin: this.margin.get(),
-                    padding: this.padding.get()
-                }
-            }, 
-            {
-                className: "row", 
-                style: {maxWidth: "auto"}
-            }
-        ];
-        return wrapDiv(divArgs, colItems);*/
     }
-
 }

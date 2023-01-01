@@ -111,7 +111,6 @@ export default class TopBanner{
             lowerImg = <div id ={this.PROJ_ID} style={{opacity: 0}}>{lowerImg}</div>;
             for (var i = 0; i < this.quotes.length; i++){
                 const style = {display: i? "none": "block"};
-                console.log(style, i);
 
                 var quote = "「" + this.quotes[i] + "」";
                 quote = <div id ={this.quoteIds[i]} className="quote" style={style}>{quote}</div>
