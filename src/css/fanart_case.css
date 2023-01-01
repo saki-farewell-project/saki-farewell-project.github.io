@@ -5,25 +5,21 @@
     color: white;
     position: static;
     --height: 65VH;
-    --name: 36px;
+    --name: 48px;
     --temp: 36px;
     --quote: 48px;
-    --cred: 12px;
+    --cred: 18px;
     height: var(--height);
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }
 
-@media screen and (max-width: 1000px) {
-    .fanart-case{
-        --temp: 24px;
-        --quote: 28px;
-    }
-}
-
 @media screen and (max-width: 780px) {
     .fanart-case{
+        --name: 36px;
         --temp: 18px;
         --quote: 24px;
+        --cred: 12px;
+        --height: 45VH;
     }
 }
 
@@ -84,7 +80,9 @@ img.frame{
     position: absolute;
     width: 100%;
     right:0;
-    height: var(--height);
+    --pad: calc(var(--name) + var(--cred) + 30px);
+    height: calc(var(--height) - var(--pad));
+    top: calc(var(--pad) / 2);
     object-fit: scale-down;
     border-radius: 6px;
 }

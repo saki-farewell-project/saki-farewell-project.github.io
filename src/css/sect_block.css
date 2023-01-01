@@ -34,3 +34,12 @@
     width: auto;
     padding-top: 120px;
 }
+
+
+@media screen and (max-width: 1000px) {
+    .sect-block{
+        --title-font: 40px;
+        margin-left: 5px;
+        margin-right: 0px;
+    }
+}
