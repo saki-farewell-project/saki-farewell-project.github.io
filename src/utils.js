@@ -38,6 +38,14 @@ export function wrapDiv(args, ... obj)
     return <div id={args.id} className={args.className} style = {args.style}>{merge(obj)}</div>;
 }
 
+export function wrapId(name, id, ... obj){
+    return <div id={id} className={name}>{merge(obj)}</div>;
+}
+
+export function wrapImgId(name, id, file){
+    return <img src={file} className={name} id={id}></img>;
+}
+
 
 export function wrapDivStyled(name, style,  ... obj)
 {

@@ -28,12 +28,15 @@ export default class LightBox extends Slider{
     }
 
     toggleWindow(close){
-        console.log("fuiyoh!", this.id);
         var elem = document.getElementById(this.id);
         if (!elem)
             return;
         
         elem.style.display = close ? "none": "block";
+    }
+
+    appendImg(file){
+        this.append(<img src={file} className={"fill"}></img>);
     }
 
     get(){
