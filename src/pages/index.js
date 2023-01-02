@@ -61,8 +61,7 @@ export default Home;
 
 function createFanartCase(){
     var sect = new SectBlock();
-    sect.setTitle("Fanart");
-    console.log("1");
+    sect.setTitle("Fanart Contributions");
     var items = [];
     for (let msg of FETCHED_MSGS)
         if (msg.imgs)
@@ -78,7 +77,7 @@ function createFanartCase(){
     slider.setPadding(Boarder.LEFT, "45px");
     slider.setPadding(Boarder.RIGHT, "45px");
     slider.setBarColor(228, 0, 18, 1);
-    slider.setPeriod(3000);
+    slider.setPeriod(4000);
     slider.hideBar();
     for (let i in items){
         var msg = new FanartCase(items[i]);
@@ -187,7 +186,6 @@ function createAbout(){
     cols.setPadding(Boarder.TOP, "2%");
     cols.setPadding(Boarder.LEFT, "10%");
     cols.setPadding(Boarder.RIGHT, "10%");
-    //cols.setMargin(Boarder.BOTTOM, "120px");
 
     cols.setColumnInterval("0px");
     cols.setRatios(35, 65);

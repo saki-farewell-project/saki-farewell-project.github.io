@@ -9,6 +9,7 @@ import "../css/light_box.css";
 
 export default class FanartCase extends FanMsg{
     static UID_GEN = new UniqueIDGenerator("fanart-case");
+    static DEBUG = "";
 
     constructor(kwargs){
         super(kwargs);
@@ -76,6 +77,11 @@ export default class FanartCase extends FanMsg{
         for (let elem of elems){
             var frames = [{}, {}];
             const comp = window.getComputedStyle(elem);
+            if (!FanartCase.DEBUG && elem.id == this.ids.canvus && rev){
+                var log = comp.getPropertyValue("width");
+                log += " x " + comp.getPropertyValue("height");
+                FanartCase.DEBUG = log;
+            }
             for (let style of styles){
                 for (var i = 0; i < 2; i++){
                     const tag = "--" + (i != rev? "end-": "init-") + style;
