@@ -18,7 +18,7 @@
         --name: 36px;
         --temp: 18px;
         --quote: 24px;
-        --cred: 14px;
+        --cred: 12px;
         --height: 45VH;
     }
 }
@@ -53,7 +53,7 @@
     position: absolute;
     background-color: rgba(228, 0, 18, 0.65);
     --pad: 10px;
-    width: calc(55%);
+    width: 60%;
     padding-top: var(--pad);
     padding-bottom: var(--pad);
     border-radius: 7.5px;
@@ -106,7 +106,7 @@ img.frame{
     --c-marg: calc(var(--cred) + var(--pad));
 
     /*javascript animation params*/
-    --init-width: 55%;
+    --init-width: 60%;
     --init-height: calc(var(--height) - var(--n-marg) - var(--c-marg));
     --init-top: var(--n-marg);
 
@@ -118,4 +118,10 @@ img.frame{
     width: var(--init-width);
     height: var(--init-height);
     top: var(--init-top);
+}
+
+@media screen and (max-width: 780px) {
+    img.frame{
+        --pad: 5px;
+    }
 }
