@@ -5,7 +5,7 @@
     margin-right: 60px;
     margin-top: 40px;
     margin-bottom: 60px;
-    --title-font: 80px;
+    --title-font: 54px;
 }
 
 .sect-block .header{
@@ -38,7 +38,7 @@
 
 @media screen and (max-width: 780px) {
     .sect-block{
-        --title-font: 40px;
+        --title-font: 42px;
         margin-left: 5px;
         margin-right: 5px;
     }

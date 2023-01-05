@@ -62,7 +62,7 @@ export default Home;
 
 function createFanartCase(){
     var sect = new SectBlock();
-    sect.setTitle("Fanart Contributions");
+    sect.setTitle("Fanart");
     var items = [];
     for (let msg of FETCHED_MSGS)
         if (msg.imgs)
@@ -193,7 +193,6 @@ function createAbout(){
 
     var imgLinked = new ImageLinked();
     imgLinked.setWidth("100%");
-    imgLinked.setCorner(Boarder.ALL, "10px");
 
     var waterMark = new Image();
     waterMark.setWidth("35%");
@@ -213,8 +212,9 @@ function createAbout(){
 
     cols.insert(0, fadeInExplosiveLatched.get(haatoPfp));
     
-    var test = new Button("test button text");
-    cols.insert(1, fadeInDelayed.get(intro), test.get());
+    var submit = new Button({jp: "メッセージ投稿", en: "Submit Now!"});
+    submit = submit.get("https://forms.gle/ys4Xca2oZpSuFuNy7");
+    cols.insert(1, fadeInDelayed.get(intro), fadeInExplosiveLatched.get(submit));
 
     return utils.wrapDiv("intro", fadeInUpwards.get(title),  cols.get());
 }

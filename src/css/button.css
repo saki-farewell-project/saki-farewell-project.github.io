@@ -8,6 +8,23 @@
     --height: 60px;
     height: var(--height);
     white-space: nowrap;
+    transition: 0.5s ease-out;
+}
+
+.button:hover{
+    opacity: 0.65;
+    cursor: pointer;
+    transform: scale(1.2, 1.2);
+}
+
+
+@media screen and (max-width: 780px) {
+    .button{
+        --strip-trans: 6.5px;
+        --strip-red: 8px;
+        --font: 14px;
+        --height: 30px;
+    }
 }
 
 .button .canvus{
