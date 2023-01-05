@@ -5,7 +5,7 @@
     color: white;
     position: static;
     --height: 65VH;
-    --name: 48px;
+    --name: 42px;
     --temp: 28px;
     --quote: 36px;
     --cred: 18px;
@@ -15,7 +15,7 @@
 
 @media screen and (max-width: 780px) {
     .fanart-case{
-        --name: 36px;
+        --name: 32px;
         --temp: 18px;
         --quote: 24px;
         --cred: 12px;
@@ -38,6 +38,7 @@
     margin: 0px;
     height: var(--height);
     background-color: rgb(34, 34, 34);
+    top:0;
 
     /*javascript animation params*/
     --init-width: 0%;
@@ -82,6 +83,7 @@
     position: absolute;
     font-size: var(--name);
     text-align: center;
+    top:0;
     width: 100%;
 }
 

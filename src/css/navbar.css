@@ -75,7 +75,7 @@
 
 
 
-.dropdown .button{
+.dropdown .item{
     background-color:transparent; /* Green */
     border: none;
     color: white;
@@ -95,7 +95,7 @@
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-.dropdown .button:hover{
+.dropdown .item:hover{
     color: rgba(64, 0, 0, 1);
     background-color: white;
     opacity: 0.65;

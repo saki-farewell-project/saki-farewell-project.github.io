@@ -184,10 +184,6 @@ function createAll(){
 function createAbout(){
     var cols = new Column(2);
 
-    cols.setPadding(Boarder.TOP, "2%");
-    cols.setPadding(Boarder.LEFT, "10%");
-    cols.setPadding(Boarder.RIGHT, "10%");
-
     cols.setColumnInterval("0px");
     cols.setRatios(35, 65);
 
@@ -199,24 +195,23 @@ function createAbout(){
     const icon = waterMark.get("fig/common/icons/youtube.png");
     imgLinked.setWaterMark(utils.merge(icon, wrapDiv("channel-text", "芦澤サキ / SAKI ASHIZAWA")));
 
-    const haatoPfp = imgLinked.get("fig/pfp_saki_yt.jpg", 
+    const pfp = imgLinked.get("fig/pfp_saki_yt.jpg", 
         "https://www.youtube.com/channel/UCPZgBtMYoFKypEG2SCvBN9A");
     
     let about = articlesHome[2];    
     var title = wrapDiv("title", utils.wrapLanguages(about.title));
     const intro = wrapDiv("passage", utils.wrapLanguages(about.intro));
-    const langs = utils.wrapLanguages({jp: "メッセージ投稿", en: "Submit Now!"});
-    const url ="https://forms.gle/ys4Xca2oZpSuFuNy7"
-    var button = TitledMediaText.createButton(langs, url, 
-        {background: "crimson", marginTop: "10%"});
 
-    cols.insert(0, fadeInExplosiveLatched.get(haatoPfp));
+    cols.insert(0, fadeInExplosiveLatched.get(pfp));
     
     var submit = new Button({jp: "メッセージ投稿", en: "Submit Now!"});
     submit = submit.get("https://forms.gle/ys4Xca2oZpSuFuNy7");
-    cols.insert(1, fadeInDelayed.get(intro), fadeInExplosiveLatched.get(submit));
+    cols.insert(1, fadeInUpwards.get(title), fadeInDelayed.get(intro), fadeInExplosiveLatched.get(submit));
 
-    return utils.wrapDiv("intro", fadeInUpwards.get(title),  cols.get());
+    var sect = new SectBlock();
+    sect.setTitle("About");
+
+    return sect.get(utils.wrapDiv("intro", cols.get()));
 }
 
 

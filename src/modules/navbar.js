@@ -18,10 +18,10 @@ export const NavbarDropdown = () =>{
 			
 			<div id="nav_dropdown" className="dropdown-content">
 				<NavLink to="/" activeStyle>
-					<div className="button">Home</div>
+					<div className="item">Home</div>
 				</NavLink>
 				<NavLink to="fan-msgs" activeStyle>
-					<div className="button">Debug</div>
+					<div className="item">Debug</div>
 				</NavLink>
 			</div>
 		</nav>
