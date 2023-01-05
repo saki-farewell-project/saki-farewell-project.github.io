@@ -100,8 +100,7 @@
 }
 
 .intro .title{
-    margin-top: 2VW;
-    font-size: 3.2VW;
+    font-size: 32px;
     text-align: center;
 }
 
@@ -111,18 +110,28 @@ a:hover, a:visited, a:link, a:active
 }
 
 .intro .passage{
-    font-size: 2.4VW;
+    font-size: 24px;
     text-align: justify;
     font-family: Arial, Helvetica, sans-serif;
-    margin: 3.6VW;
+    margin: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 @media screen and (max-width: 780px) {
+    .intro .title{
+        font-size: 18px;
+    }
     .intro .passage{
-        font-size: 2.8VW;
-        margin: 2.8VW;
+        font-size: 14px;
+        text-align: justify;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 10px;
+        margin-left: 10%;
+        margin-right: 10%;
     }
 }
+
 
 .scroll-indicator{
     position: fixed;

@@ -30,6 +30,7 @@ import LightBox from '../modules/light_box';
 import SectBlock from '../modules/sect_block';
 import FanartCase from '../modules/fanart_case';
 import Button from '../modules/button';
+import FlexCols from '../modules/flex_cols';
 
 const Home = () => {
     EntranceEffect.stopAllRequest();
@@ -182,10 +183,10 @@ function createAll(){
 
 
 function createAbout(){
-    var cols = new Column(2);
+    var cols = new FlexCols();
 
     cols.setColumnInterval("0px");
-    cols.setRatios(35, 65);
+    cols.setRatios(3, 7);
 
     var imgLinked = new ImageLinked();
     imgLinked.setWidth("100%");

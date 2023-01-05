@@ -1,0 +1,15 @@
+.flex-cols {
+    display: flex;
+    flex-direction: row;
+}
+  
+.flex-cols .item{
+    align-items: center;
+    flex: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+  
