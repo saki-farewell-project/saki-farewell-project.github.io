@@ -1,0 +1,38 @@
+.button{
+    width: auto;
+    --strip-trans: 13px;
+    --strip-red: 18px;
+    --slope: 54.9deg;
+    --color:red;
+    --font: 28px;
+    --height: 60px;
+    height: var(--height);
+    white-space: nowrap;
+}
+
+.button .canvus{
+    width: min-content;
+    height: auto;
+    transform: skew(calc(var(--slope) - 90deg));
+    text-align: center;
+    background: var(--color);
+    font-size: var(--font);
+    margin: auto;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
+    padding: calc(0.5 * var(--height) - 0.5 * var(--font));
+}
+
+.button .canvus .text{
+    transform: skew(calc(90deg - var(--slope)));
+}
+
+
+.button .canvus .right-parral{
+    position: absolute;
+    top: 0;
+    right: calc(-1 * var(--strip-trans) - var(--strip-red));
+    background: var(--color);
+    width: var(--strip-red);
+    height: 100%;
+}

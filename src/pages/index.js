@@ -29,6 +29,7 @@ import { TOP_BANNER } from '../modules/defaults/top_banner';
 import LightBox from '../modules/light_box';
 import SectBlock from '../modules/sect_block';
 import FanartCase from '../modules/fanart_case';
+import Button from '../modules/button';
 
 const Home = () => {
     EntranceEffect.stopAllRequest();
@@ -211,7 +212,9 @@ function createAbout(){
         {background: "crimson", marginTop: "10%"});
 
     cols.insert(0, fadeInExplosiveLatched.get(haatoPfp));
-    cols.insert(1, fadeInDelayed.get(intro), fadeInExplosiveLatched.get(button));
+    
+    var test = new Button("test button text");
+    cols.insert(1, fadeInDelayed.get(intro), test.get());
 
     return utils.wrapDiv("intro", fadeInUpwards.get(title),  cols.get());
 }
