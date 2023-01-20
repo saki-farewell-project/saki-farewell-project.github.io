@@ -79,7 +79,7 @@ function createFanartCase(){
     slider.setPadding(Boarder.LEFT, "45px");
     slider.setPadding(Boarder.RIGHT, "45px");
     slider.setBarColor(228, 0, 18, 1);
-    slider.setPeriod(4000);
+    slider.setPeriod(10000);
     slider.hideBar();
     for (let i in items){
         var msg = new FanartCase(items[i]);
@@ -114,9 +114,14 @@ function createMsgCase(){
     var cols = new InvertableColumn();
     var cells = [0, 0, 0, 0];
 
-    var fetchMsgs = FETCHED_MSGS.reverse().map(function(x){return x;});
+    var fetchMsgs = [];
+    for (let msg of FETCHED_MSGS.reverse()) 
+        if (!msg.imgs)
+            fetchMsgs.push(msg);
+    
+    //fetchMsgs = fetchMsgs.slice(0, 7);
     while (fetchMsgs.length % 4)
-        fetchMsgs.push(fetchMsgs[fetchMsgs.length % 4 - 1]);
+        fetchMsgs.push(0);
 
     var i = 0;
     for (let msg of fetchMsgs){

@@ -1,21 +1,20 @@
 import "../css/fan_msg.css";
-import { merge, wrapDiv, wrapDivStyled, wrapLink } from "../utils";
+import { merge, wrapDiv, wrapDivRecursive, wrapDivStyled, wrapLink } from "../utils";
 import Boarder from "../config/border";
 import { wrapLanguages } from "../utils";
 import Image from "./Image";
 import ImageLinked from "./Image_linked";
 import "../css/image.css";
+import "../css/fanmsg_card.css";
 import twitterIntent from 'twitter-intent';
 import UniqueIDGenerator from "./unique_id_generator";
 import { useRef } from "react";
 import { fadeInDelayed, fadeInExplosiveDelayed, fadeInExplosiveLatched, fadeInRightwardsLatched} from "./defaults/entrance_effect";
 
-export default class FanMsg
-{
+export default class FanMsg {
     static FIRE_IMG = "fig/fire.jpg";
     static uidGen = new UniqueIDGenerator("msg-cards");
-    constructor(kwargs, is_txt)
-    {
+    constructor(kwargs, is_txt) {
         this.name = kwargs.name;
         this.context = is_txt ? wrapLanguages(kwargs): "";
         this.margin =  new Boarder();
@@ -27,7 +26,7 @@ export default class FanMsg
         this.ref = useRef(null);
     }
 
-    goToMsg(){
+    goToMsg() {
         window.scrollTo({
             top:this.ref.current.offsetTop, 
             behavior: "smooth"
@@ -37,19 +36,19 @@ export default class FanMsg
     getMsgCard(){
         var items = [];
         var suptitle = this.is_jp ? "サキはなりましたよ、私の": "Saki has become my";
-        suptitle = wrapDiv("suptitle", suptitle);
+        suptitle = wrapDiv("temp", suptitle);
         items.push(suptitle);
 
         var quote = this.is_jp ? "「": " \"";
         quote += this.quote + (this.is_jp ? "」に": "\"");
-        quote = wrapDiv("passage", quote);
+        quote = wrapDivRecursive(["quote", "inner"], quote);
         items.push(quote);
 
         var name = this.is_jp ? this.name + " より": "from " + this.name;
         name = wrapDiv("name", name);
         items.push(name);
 
-        var out = wrapDivStyled("card", 
+        var out = wrapDivStyled("fanmsg-card", 
             {backgroundImage: "url("+FanMsg.FIRE_IMG+')'}, items);
         return wrapLink(this.getTwitterPost(), out);
     }

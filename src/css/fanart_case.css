@@ -1,16 +1,24 @@
 .fanart-case{
     width: auto;
     margin: 10px;
-    border-radius: 6px;
     color: white;
     position: static;
     --height: 65VH;
     --name: 42px;
-    --temp: 28px;
-    --quote: 36px;
+    --temp: 26px;
+    --quote: 32px;
     --cred: 18px;
+    --line-width: 2px;
     height: var(--height);
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+hr.decor-line{
+    border: var(--line-width) solid red;
+    position: absolute;
+    text-align: center;
+    top: var(--name);
+    width: calc(100% - 2 * var(--line-width));
 }
 
 @media screen and (max-width: 780px) {
@@ -34,7 +42,6 @@
 .fanart-case .rel .canvus{
     position: absolute;
     width: 100%;
-    border-radius: 6px;
     margin: 0px;
     height: var(--height);
     background-color: rgb(34, 34, 34);
@@ -49,7 +56,6 @@
 }
 
 
-
 .fanart-case .rel .txt-wrap{
     position: absolute;
     background-color: rgba(228, 0, 18, 0.65);
@@ -57,7 +63,6 @@
     width: 60%;
     padding-top: var(--pad);
     padding-bottom: var(--pad);
-    border-radius: 7.5px;
     font-size: var(--temp);
     left:0;
     top: calc(var(--height) / 2 - var(--temp));
@@ -111,15 +116,18 @@ img.frame{
     --init-width: 60%;
     --init-height: calc(var(--height) - var(--n-marg) - var(--c-marg));
     --init-top: var(--n-marg);
+    --init-padding-top: var(--line-width);
 
     --end-width: 100%;
     --end-height: var(--height);
     --end-top: 0;
+    --end-padding-top: 0;
 
     /*var plugin*/
     width: var(--init-width);
     height: var(--init-height);
     top: var(--init-top);
+    padding-top: var(--line-width);
 }
 
 @media screen and (max-width: 780px) {

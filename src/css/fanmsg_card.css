@@ -1,0 +1,67 @@
+.fanmsg-card {
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    color: white;
+    text-shadow: 0px 0px 3px #eeff00;
+    font-family: sans-serif;
+    display: flex;
+    flex-flow: column;
+    --quote: 54px;
+    --temp: 36px;
+    --name: 24px;
+    position: relative; 
+}
+
+@media screen and (max-width: 780px) {
+    .fanmsg-card {
+        --name: 18px;
+        --temp: 24px;
+        --quote: 32px;
+    }
+}
+
+
+.fanmsg-card .quote {
+    flex-grow: 1;
+    position: relative; 
+    font-size: var(--quote); 
+    font-family: Impact;
+}
+
+.fanmsg-card .quote .inner{
+    position: absolute;  
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.fanmsg-card .temp {
+    position: absolute; 
+    top:  calc(var(--temp) / 2);
+    left: calc(var(--temp) / 2);
+    text-align: left;
+    font-size: var(--temp); 
+}
+
+.fanmsg-card .name {
+    position: absolute; 
+    bottom: calc(var(--name) / 2);
+    right: calc(var(--name) / 2);
+    text-align: right;
+    font-size: var(--name); 
+    text-shadow: 0px 0px 4px red;
+}
+
+.fanmsg-card {
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    color: white;
+    text-shadow: 0px 0px 3px #eeff00;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: flex;
+    flex-flow: column;
+}

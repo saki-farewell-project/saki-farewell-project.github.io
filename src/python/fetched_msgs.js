@@ -176,7 +176,7 @@ const FETCHED_MSGS = [
         stamp: "05/01/2023 16:09:18",
         is_jp: 0,
         name: "Kuhakukage",
-        quote: "my first memory of vsinger and vtuber, one that I will always cherish",
+        quote: "cherishable first memory of vsinger",
         jp: "",
         en: "Saki, you are my first contact to this Virtual world in 2020, in the video of (命に嫌われている。 (Hated by Life Itself.) - カンザキイオリ // covered by 芦澤 サキ). I discover you in when I was more lost than I ever was, unable to understand my position, future in this world. Your music gave me motivation to go on and I am eternally grateful. I only wish for the best of your future endeavor! Good luck! I swear to forever remember you!!!"
     },

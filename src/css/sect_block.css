@@ -1,4 +1,4 @@
-.sect-block{
+.sect-block {
     width: auto;
     margin: 60px;
     margin-bottom: 80px;
@@ -27,7 +27,12 @@
 
 .sect-block .content{
     position: static;
-    width: 100%;
+    --cont-width: 85%;
+    width: var(--cont-width);
+
+    --marg: calc(50% - var(--cont-width) / 2);
+    margin-left: var(--marg);
+    margin-right: var(--marg);
 }
 
 
@@ -36,5 +41,9 @@
         --title-font: 42px;
         margin-left: 5px;
         margin-right: 5px;
+    }
+
+    .sect-block .content{
+        --cont-width: 100%;
     }
 }
