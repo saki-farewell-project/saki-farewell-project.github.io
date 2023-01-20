@@ -32,7 +32,7 @@ if __name__ == "__main__":
     print("fetching msgs...")
     jst = datetime.now(pytz.timezone('Asia/Tokyo'))
     resps = zip([EN_CSV, JP_CSV], [EN_COLS, JP_COLS])
-    resps = [pd.read_csv(csv).filter(items=cols) for csv, cols in resps]
+    resps = [pd.read_csv(csv).filter(items=["Timestamp"]+cols) for csv, cols in resps]
 
     print("exporting...")
     msgs = []
@@ -40,8 +40,8 @@ if __name__ == "__main__":
     old_files = [f for f in listdir() if isfile(f)]
     for is_jp, datas in enumerate(resps): 
         datas = [datas[cols] for cols in datas]
-        for df_en_msg, df_jp_msg, df_urls, df_cred, df_name, df_quote in zip(*datas):
-            out_dict = {"is_jp": is_jp, "name": df_name, "quote": df_quote}
+        for t, df_en_msg, df_jp_msg, df_urls, df_cred, df_name, df_quote in zip(*datas):
+            out_dict = {"stamp": t,"is_jp": is_jp, "name": df_name, "quote": df_quote}
             df_urls = [url for url in str(df_urls).split(", ") if url.startswith("http")]
             if df_urls:
                 out_dict["imgs"] = []
@@ -63,7 +63,9 @@ if __name__ == "__main__":
 
             msgs.append(out_dict)
 
-
+    toDate = lambda t: datetime.strptime(t, '%d/%m/%Y %H:%M:%S').date()
+    msgs.sort(key = lambda msg: toDate(msg["stamp"]))
+    
     with open("src/python/fetched_msgs.js", "w") as js_file:
         var_name = "FETCHED_MSGS"
         js_file.write("const %s = " % var_name)
