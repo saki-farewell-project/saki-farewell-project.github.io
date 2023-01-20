@@ -135,8 +135,29 @@ const FETCHED_MSGS = [
         is_jp: 0,
         name: "Jackie",
         quote: "friend, my companion in tough times",
-        jp: NaN,
+        jp: "",
         en: "She was the best singer in the group. I loved the way her covers stoked a fire in me, made me feel like I could take on the whole world. I'm sure she's somewhere out in the world, waiting to say hi. GO SAKI GO. \n\nねぇ あんたわかっちゃいない!!\n"
+    },
+    {
+        is_jp: 0,
+        name: "Kuhakukage",
+        quote: "my first memory of vsinger and vtuber, one that I will always cherish",
+        jp: "",
+        en: "Saki, you are my first contact to this Virtual world in 2020, in the video of (命に嫌われている。 (Hated by Life Itself.) - カンザキイオリ // covered by 芦澤 サキ). I discover you in when I was more lost than I ever was, unable to understand my position, future in this world. Your music gave me motivation to go on and I am eternally grateful. I only wish for the best of your future endeavor! Good luck! I swear to forever remember you!!!"
+    },
+    {
+        is_jp: 0,
+        name: "Fangzgzz",
+        quote: "Fiery Star",
+        jp: "今までありがとうサキちゃん!　好きです。これからも続けて応援します。じゃ、またなぁぁぁ!!!",
+        en: "Thank you Saki for all this time! I love you and I'll keep supporting you. Until next time!"
+    },
+    {
+        is_jp: 0,
+        name: "Piton koder",
+        quote: "First Riot girl",
+        jp: "",
+        en: "First your cover i saw was \"hated by life itself\" and it is the best thing i've heard in my life. Your singing and streaming helped me in difficult time and i will keep memory of it for the rest of my life. I am happy that i had found you and want to say thank you. I wish you luck in your life and i will continue to support you if i'll get the chance. "
     },
     {
         is_jp: 1,
@@ -150,6 +171,17 @@ const FETCHED_MSGS = [
         name: "Del",
         quote: "私の将来",
         jp: "私はずっと前にそれを言った。 私はいつもあなたのそばにいます。",
+        en: ""
+    },
+    {
+        is_jp: 1,
+        name: "門倉空",
+        quote: "こころの支え",
+        imgs: [
+            "fig/fanarts/ありがとう - 門倉空.jpg"
+        ],
+        cred: "Illust: @Az_Undefined",
+        jp: "",
         en: ""
     }
 ]

@@ -30,9 +30,9 @@ export default class FanartCase extends FanMsg{
         name = fadeIn.get(name);
         items.push(name);
 
-        var wrap = [this.is_jp ? "「": "You've become my"];
+        var wrap = [this.is_jp ? "なりましたよ、私の": "You've become my"];
         var quote = this.is_jp ? "「": " \"";
-        quote += this.quote + (this.is_jp ? "」": "\"");
+        quote += this.quote + (this.is_jp ? "」に": "\"");
 
         wrap.push(wrapDiv("quote", quote));
         wrap = wrapId("txt-wrap", this.ids.wrap, wrap);
