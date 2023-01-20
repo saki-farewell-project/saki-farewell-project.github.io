@@ -129,9 +129,3 @@ img.frame{
     top: var(--init-top);
     padding-top: var(--line-width);
 }
-
-@media screen and (max-width: 780px) {
-    img.frame{
-        --pad: 5px;
-    }
-}

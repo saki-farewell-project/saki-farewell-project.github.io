@@ -1,6 +1,5 @@
 .fanmsg-card {
     width: 100%;
-    aspect-ratio: 2 / 1;
     color: white;
     text-shadow: 0px 0px 3px #eeff00;
     font-family: sans-serif;
@@ -10,6 +9,8 @@
     --temp: 36px;
     --name: 24px;
     position: relative; 
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 @media screen and (max-width: 780px) {
@@ -22,6 +23,7 @@
 
 
 .fanmsg-card .quote {
+    aspect-ratio: 16 / 9;
     flex-grow: 1;
     position: relative; 
     font-size: var(--quote); 
