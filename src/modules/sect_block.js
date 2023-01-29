@@ -30,7 +30,7 @@ export default class SectBlock{
             header.push(wrapDiv("view-all", all.get(this.url)));
         }
 
-        header = wrapDiv("header", header);
+        header = wrapDiv("blk-header", header);
         header = fadeIn.get(header);
         item = wrapDiv("content", item);
         return wrapDiv("sect-block", header, item);
