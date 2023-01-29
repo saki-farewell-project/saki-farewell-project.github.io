@@ -9,7 +9,7 @@ import "../css/fanmsg_card.css";
 import twitterIntent from 'twitter-intent';
 import UniqueIDGenerator from "./unique_id_generator";
 import { useRef } from "react";
-import { fadeInDelayed, fadeInExplosiveDelayed, fadeInExplosiveLatched, fadeInRightwardsLatched} from "./defaults/entrance_effect";
+import { fadeIn, fadeInDelayed, fadeInExplosive, fadeInExplosiveDelayed, fadeInExplosiveLatched, fadeInRightwards, fadeInRightwardsDelayed, fadeInRightwardsLatched} from "./defaults/entrance_effect";
 
 export default class FanMsg {
     static FIRE_IMG = "fig/fire.jpg";
@@ -37,20 +37,23 @@ export default class FanMsg {
         var items = [];
         var suptitle = this.is_jp ? "サキはなりましたよ、私の": "Saki has become my";
         suptitle = wrapDiv("temp", suptitle);
+        suptitle = fadeInDelayed.get(suptitle);
         items.push(suptitle);
 
         var quote = this.is_jp ? "「": " \"";
         quote += this.quote + (this.is_jp ? "」に": "\"");
         quote = wrapDivRecursive(["quote", "inner"], quote);
+        quote = fadeInExplosive.get(quote);
         items.push(quote);
 
         var name = this.is_jp ? this.name + " より": "from " + this.name;
         name = wrapDiv("name", name);
+        name = fadeInRightwards.get(name);
         items.push(name);
 
         var out = wrapDivStyled("fanmsg-card", 
             {backgroundImage: "url("+FanMsg.FIRE_IMG+')'}, items);
-        return out;
+        return fadeIn.get(out);
     }
 
     setMargin(ind, val){

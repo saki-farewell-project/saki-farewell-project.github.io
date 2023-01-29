@@ -5,9 +5,9 @@
     font-family: sans-serif;
     display: flex;
     flex-flow: column;
-    --quote: 54px;
-    --temp: 36px;
-    --name: 24px;
+    --quote: 3.2VW;
+    --temp: 2.4VW;
+    --name: 1.4VW;
     position: relative; 
     background-size: cover;
     background-repeat: no-repeat;
@@ -15,9 +15,9 @@
 
 @media screen and (max-width: 780px) {
     .fanmsg-card {
-        --name: 18px;
-        --temp: 24px;
-        --quote: 32px;
+        --quote: 6VW;
+        --temp: 4VW;
+        --name: 3.2VW;
     }
 }
 

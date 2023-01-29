@@ -46,8 +46,8 @@ const Home = () => {
         arrow.get(), 
         createAbout(), 
         createFanartCase(),
-        createMsgCase(), 
-        createAll(),
+        createFanmsgCard(), 
+        //createAll(),
         createFootNote("0px"), 
     ];
 
@@ -91,6 +91,39 @@ function createFanartCase(){
     return sect.get(slider.get());
 }
 
+
+function createFanmsgCard(){
+    var sect = new SectBlock();
+    sect.setTitle("Messages");
+    var items = [];
+    for (let msg of FETCHED_MSGS)
+        if (!msg.imgs)
+            items.push(msg);
+
+    if (items.length % 2)
+        items.push(items[0]);
+
+    var cols = new InvertableColumn();
+    var slider = new Slider();
+
+    slider.setClickWidth("45px");
+    slider.setPadding(Boarder.LEFT, "45px");
+    slider.setPadding(Boarder.RIGHT, "45px");
+    slider.setBarColor(228, 0, 18, 1);
+    cols.setColour(34, 34, 34, 1);
+    slider.setPeriod(4000);
+    slider.hideBar();
+    for (let i in items){
+        var msg = new FanMsg(items[i], true);
+        msg.setMargin(Boarder.ALL, "15px");
+        msg = msg.getMsgCard();
+        cols.insert(i % 2, utils.wrapStyle({padding:"12px"}, msg));
+        if (i % 2)
+            slider.append(cols.get());
+    }
+
+    return sect.get(slider.get());
+}
 
 
 function createMsgCase(){
