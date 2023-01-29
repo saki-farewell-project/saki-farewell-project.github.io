@@ -50,7 +50,7 @@ export default class FanMsg {
 
         var out = wrapDivStyled("fanmsg-card", 
             {backgroundImage: "url("+FanMsg.FIRE_IMG+')'}, items);
-        return wrapLink(this.getTwitterPost(), out);
+        return out;
     }
 
     setMargin(ind, val){

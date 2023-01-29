@@ -38,7 +38,7 @@ export default class FanartCase extends FanMsg{
         wrap.push(wrapDiv("quote", quote));
         wrap = wrapId("txt-wrap", this.ids.wrap, wrap);
 
-        if (this.cred){
+        if (this.cred && 0){
             var cred = "credit: " + this.cred;
             items.push(wrapDiv("credit", cred));
         }

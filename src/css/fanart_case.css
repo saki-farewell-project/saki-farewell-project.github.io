@@ -5,8 +5,8 @@
     position: static;
     --height: 65VH;
     --name: 42px;
-    --temp: 26px;
-    --quote: 32px;
+    --temp: 1.6VW;
+    --quote: 2VW;
     --cred: 18px;
     --line-width: 2px;
     height: var(--height);
