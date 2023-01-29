@@ -1,20 +1,25 @@
-.fanart-case{
-    width: auto;
-    margin: 10px;
+.fanart-case {
+    width: 100%;
     color: white;
-    position: static;
+    text-shadow: 0px 0px 3px #eeff00;
+    font-family: sans-serif;
+    display: flex;
+    flex-flow: column;
+    position: relative; 
+    font-family: Impact;
     --height: 65VH;
     --name: 42px;
     --temp: 1.6VW;
     --quote: 2VW;
     --cred: 18px;
     --line-width: 2px;
-    height: var(--height);
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    --aspect-raito: 1;
 }
 
-hr.decor-line{
-    border: var(--line-width) solid red;
+hr.decor-line {
+    --bg-color: red;
+    background-color: var(--bg-color);
+    border: var(--line-width) solid var(--bg-color);
     position: absolute;
     text-align: center;
     top: var(--name);
@@ -26,24 +31,37 @@ hr.decor-line{
         --name: 32px;
         --temp: 18px;
         --quote: 24px;
-        --cred: 12px;
-        --height: 45VH;
     }
 }
 
-.fanart-case:hover{
-    cursor: pointer;
+.fanart-case .anchor {
+    aspect-ratio: var(--aspect-raito);
+    flex-grow: 1;
+    position: relative; 
 }
 
-.fanart-case .rel{
-    position: relative;
+.fanart-case .anchor .left{
+    position: absolute;  
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.fanart-case .rel .canvus{
-    position: absolute;
+.fanart-case .anchor .canvus{
+    position: absolute;  
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     width: 100%;
-    margin: 0px;
-    height: var(--height);
     background-color: rgb(34, 34, 34);
     top:0;
 
@@ -55,17 +73,21 @@ hr.decor-line{
     width: var(--init-width);
 }
 
+.fanart-case:hover{
+    cursor: pointer;
+}
 
-.fanart-case .rel .txt-wrap{
+.fanart-case .anchor .left{
     position: absolute;
-    background-color: rgba(228, 0, 18, 0.65);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     --pad: 10px;
     width: 60%;
-    padding-top: var(--pad);
-    padding-bottom: var(--pad);
+    height: auto;
     font-size: var(--temp);
     left:0;
-    top: calc(var(--height) / 2 - var(--temp));
+    /*top: calc(var(--height) / 2 - var(--temp));*/
     font-family: sans-serif;
     
     /*javascript animation params*/
@@ -79,30 +101,27 @@ hr.decor-line{
     transform: var(--init-transform);
 }
 
-.fanart-case .rel .txt-wrap .quote{
+.fanart-case .anchor .left .txt-wrap{
+    font-size: var(--temp);
+    padding: 10px;
+    background-color: rgba(228, 0, 18, 0.65);
+}
+
+.fanart-case .anchor .left .txt-wrap .quote{
     font-size: var(--quote);
 }
 
 
-.fanart-case .rel .name{
+.fanart-case .anchor .name{
     position: absolute;
     font-size: var(--name);
     text-align: center;
-    top:0;
     width: 100%;
 }
 
-.fanart-case .rel .credit{
-    position: absolute;
-    margin: 0px;
-    font-size: var(--cred);
-    font-family: sans-serif;
-    top: calc(var(--height) -  1.5 * var(--cred));
-    right: 0;
-}
 
 
-img.frame{
+.fanart-case img.frame{
     position: absolute;
     object-fit: scale-down;
     border-radius: 6px;
@@ -114,18 +133,18 @@ img.frame{
 
     /*javascript animation params*/
     --init-width: 60%;
-    --init-height: calc(var(--height) - var(--n-marg) - var(--c-marg));
-    --init-top: var(--n-marg);
-    --init-padding-top: var(--line-width);
+    --init-height: 100%;
+    /*--init-top: var(--n-marg);
+    --init-padding-top: var(--line-width);*/
 
     --end-width: 100%;
-    --end-height: var(--height);
-    --end-top: 0;
-    --end-padding-top: 0;
+    --end-height: 100%;
+    /*--end-top: 0;
+    --end-padding-top: 0;*/
 
     /*var plugin*/
     width: var(--init-width);
     height: var(--init-height);
-    top: var(--init-top);
-    padding-top: var(--line-width);
+    /*top: var(--init-top);
+    padding-top: var(--line-width);*/
 }

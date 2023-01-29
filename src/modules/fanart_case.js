@@ -31,12 +31,14 @@ export default class FanartCase extends FanMsg{
         items.push(name);
         items.push(<hr class="decor-line"></hr>);
 
+        var anchors = [];
         var wrap = [this.is_jp ? "なりましたよ、私の": "You've become my"];
         var quote = this.is_jp ? "「": " \"";
         quote += this.quote + (this.is_jp ? "」に": "\"");
 
         wrap.push(wrapDiv("quote", quote));
-        wrap = wrapId("txt-wrap", this.ids.wrap, wrap);
+        wrap = wrapDiv("txt-wrap", wrap);
+        wrap = wrapId("left", this.ids.wrap, wrap);
 
         if (this.cred && 0){
             var cred = "credit: " + this.cred;
@@ -46,9 +48,9 @@ export default class FanartCase extends FanMsg{
         const canvus = wrapId("canvus", this.ids.canvus);
         const img = wrapImgId("frame",  this.ids.img, this.imgs[0]);
         
-        items.push(canvus);
-        items.push(img);
-        items.push(wrap);
+        anchors.push(canvus);
+        anchors.push(img);
+        anchors.push(wrap);
 
         var box = new LightBox();
         for (let file of this.imgs)
@@ -57,7 +59,7 @@ export default class FanartCase extends FanMsg{
         const rslt = <div class = {"fanart-case"} 
             onMouseEnter = {this.animate.bind(this, 0)} 
             onMouseLeave = {this.animate.bind(this, 1)}> 
-            {wrapDiv("rel", items)}
+            {wrapDiv("anchor", items, anchors)}
         </div>;
 
         return <div onClick={box.get()}>{rslt}</div>;
