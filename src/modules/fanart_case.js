@@ -1,6 +1,6 @@
 import "../css/fanart_case.css";
 import ColourRGBA from "../config/colour_rgba";
-import { wrapDivRecursive, wrapDiv, wrapLanguages, wrapClassId, wrapId, wrapImgId} from "../utils";
+import { wrapDivRecursive, wrapDiv, wrapLanguages, wrapClassId, wrapId, wrapImgId, wrapStyle} from "../utils";
 import { fadeIn, fadeInExplosiveDelayed, fadeInExplosiveLatched, fadeInLeftwards, fadeInRightwards } from "./defaults/entrance_effect";
 import FanMsg from "./fan_msg";
 import UniqueIDGenerator from "./unique_id_generator";
@@ -28,13 +28,23 @@ export default class FanartCase extends FanMsg{
         var header = [];
         header.push(<hr class="decor-line"></hr>);
         header.push(wrapDiv("name", this.name));
-        
         var name = wrapDiv("header", header);
         name = fadeIn.get(name);
-    
-        var items = [];
-        items.push(name);
 
+        var dots = [];
+        while (dots.length < 3)
+            dots.push(wrapDiv("dot"));
+
+        var items = [];
+        while (items.length < 2) {
+            var args = { position: "absolute", width: "100%"};
+            if (items.length) 
+                args.bottom = "calc(var(--name) / 2)";
+
+            items.push(wrapStyle(args, dots));
+        }
+
+        items.push(name);
         var anchors = [];
         var wrap = [this.is_jp ? "なりましたよ、私の": "You've become my"];
         var quote = this.is_jp ? "「": " \"";

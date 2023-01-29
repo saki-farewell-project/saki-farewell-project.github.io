@@ -30,13 +30,12 @@
     position: relative; 
 }
 
-.fanart-case .anchor .dot {
+.fanart-case .anchor .dot{
     --diam: 6px;
-    --hmarg: 24px;
-    --vmarg: calc(var(--name) / 2 + var(--diam) / 2);
-    height: var(--diam);
+    --hmarg: 54px;
     justify-content: center;
     width: var(--diam);
+    height: var(--diam);
     margin-left: calc(var(--hmarg) / 2);
     margin-right: calc(var(--hmarg) / 2);
     background-color: red;
