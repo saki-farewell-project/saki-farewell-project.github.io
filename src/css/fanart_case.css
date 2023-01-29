@@ -7,30 +7,19 @@
     flex-flow: column;
     position: relative; 
     font-family: Impact;
-    --height: 65VH;
     --name: 42px;
     --temp: 1.6VW;
     --quote: 2VW;
-    --cred: 18px;
-    --line-width: 2px;
-    --aspect-raito: 1;
-}
-
-hr.decor-line {
-    --bg-color: red;
-    background-color: var(--bg-color);
-    border: var(--line-width) solid var(--bg-color);
-    position: absolute;
-    text-align: center;
-    top: var(--name);
-    width: calc(100% - 2 * var(--line-width));
+    --line-width: 6px;
+    --aspect-raito: 4 / 3;
+    --vpad: 12px;
 }
 
 @media screen and (max-width: 780px) {
-    .fanart-case{
+    .fanart-case {
         --name: 32px;
-        --temp: 18px;
-        --quote: 24px;
+        --temp: 3.2VW;
+        --quote: 4VW;
     }
 }
 
@@ -40,15 +29,18 @@ hr.decor-line {
     position: relative; 
 }
 
-.fanart-case .anchor .left{
-    position: absolute;  
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
+.fanart-case .anchor .dot {
+    --diam: 6px;
+    --hmarg: 24px;
+    --vmarg: calc(var(--name) / 2 + var(--diam) / 2);
+    height: var(--diam);
     justify-content: center;
+    width: var(--diam);
+    margin-left: calc(var(--hmarg) / 2);
+    margin-right: calc(var(--hmarg) / 2);
+    background-color: red;
+    border-radius: 50%;
+    display: inline-block;
 }
 
 .fanart-case .anchor .canvus{
@@ -78,11 +70,15 @@ hr.decor-line {
 }
 
 .fanart-case .anchor .left{
-    position: absolute;
+    position: absolute;  
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    --pad: 10px;
+
     width: 60%;
     height: auto;
     font-size: var(--temp);
@@ -111,15 +107,34 @@ hr.decor-line {
     font-size: var(--quote);
 }
 
-
-.fanart-case .anchor .name{
-    position: absolute;
-    font-size: var(--name);
-    text-align: center;
+.fanart-case .header{
+    flex-grow: 1;
+    position: relative; 
     width: 100%;
+    --height: calc(var(--name) + 12px);
+    height: var(--height);
+    text-align: center;
 }
 
+.fanart-case .header .name {
+    position: absolute;  
+    font-size: var(--name);
+    width: 100%;
+    height: var(--height);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
+.fanart-case .header hr.decor-line {
+    border: var(--line-width) solid red;
+    position: absolute;
+    background-color: red;
+    top: calc(var(--height) / 2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 .fanart-case img.frame{
     position: absolute;
@@ -127,24 +142,17 @@ hr.decor-line {
     border-radius: 6px;
     right: 0;
 
-    --pad: 10px;
-    --n-marg: calc(var(--name) + var(--pad));
-    --c-marg: calc(var(--cred) + var(--pad));
-
     /*javascript animation params*/
-    --init-width: 60%;
-    --init-height: 100%;
-    /*--init-top: var(--n-marg);
-    --init-padding-top: var(--line-width);*/
-
     --end-width: 100%;
     --end-height: 100%;
-    /*--end-top: 0;
-    --end-padding-top: 0;*/
+    --end-top: 0;
+
+    --init-top: calc(var(--name) + var(--vpad));
+    --init-width: 60%;
+    --init-height: calc(100% - 2 * var(--init-top));
 
     /*var plugin*/
     width: var(--init-width);
     height: var(--init-height);
-    /*top: var(--init-top);
-    padding-top: var(--line-width);*/
+    top: var(--init-top);
 }

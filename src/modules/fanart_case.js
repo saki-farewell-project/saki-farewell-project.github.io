@@ -26,8 +26,12 @@ export default class FanartCase extends FanMsg{
 
     getCase(){
         var items = [];
-        var name = wrapDiv("name", this.name);
+        var header = [];
+        header.push(wrapDiv("name", this.name));
+        header.push(<hr class="decor-line"></hr>);
+        var name = wrapDivRecursive(["header", "name"], this.name);
         name = fadeIn.get(name);
+    
         items.push(name);
         items.push(<hr class="decor-line"></hr>);
 
@@ -46,7 +50,8 @@ export default class FanartCase extends FanMsg{
         }
 
         const canvus = wrapId("canvus", this.ids.canvus);
-        const img = wrapImgId("frame",  this.ids.img, this.imgs[0]);
+        var img = wrapImgId("frame",  this.ids.img, this.imgs[0]);
+        img = wrapDiv("right", img);
         
         anchors.push(canvus);
         anchors.push(img);
