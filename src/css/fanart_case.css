@@ -13,6 +13,7 @@
     --line-width: 6px;
     --aspect-raito: 4 / 3;
     --vpad: 12px;
+    --height: calc(var(--name) + 12px);
 }
 
 @media screen and (max-width: 780px) {
@@ -52,7 +53,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-
     width: 100%;
     background-color: rgb(34, 34, 34);
     top:0;
@@ -110,8 +110,7 @@
 .fanart-case .header{
     flex-grow: 1;
     position: relative; 
-    width: 100%;
-    --height: calc(var(--name) + 12px);
+    
     height: var(--height);
     text-align: center;
 }
@@ -127,10 +126,13 @@
 }
 
 .fanart-case .header hr.decor-line {
-    border: var(--line-width) solid red;
+    --line: calc(var(--line-width) / 2);
+    border: var(--line) solid red;
     position: absolute;
     background-color: red;
-    top: calc(var(--height) / 2);
+    top: calc(var(--height) / 2 - 3 * var(--line));
+    left: var(--line-width);
+    width: calc(100% - 3 * var(--line-width));
     display: flex;
     flex-direction: column;
     justify-content: center;

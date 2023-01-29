@@ -25,15 +25,15 @@ export default class FanartCase extends FanMsg{
     }
 
     getCase(){
-        var items = [];
         var header = [];
-        header.push(wrapDiv("name", this.name));
         header.push(<hr class="decor-line"></hr>);
-        var name = wrapDivRecursive(["header", "name"], this.name);
+        header.push(wrapDiv("name", this.name));
+        
+        var name = wrapDiv("header", header);
         name = fadeIn.get(name);
     
+        var items = [];
         items.push(name);
-        items.push(<hr class="decor-line"></hr>);
 
         var anchors = [];
         var wrap = [this.is_jp ? "なりましたよ、私の": "You've become my"];
