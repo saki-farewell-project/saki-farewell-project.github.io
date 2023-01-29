@@ -3,15 +3,16 @@
     margin: 60px;
     margin-bottom: 80px;
     --title-font: 64px;
+    --cont-width: 85%;
+    --marg: calc(50% - var(--cont-width) / 2);
 }
 
 .sect-block .header{
-    position: static;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    position: relative;
+    font-family: Impact
 }
 
 .sect-block .header .title{
-    position: relative;
     font-size: var(--title-font);
     color: white;
     text-shadow: 0px 0px 3px #eeff00;
@@ -20,30 +21,23 @@
 .sect-block .header .view-all{
     position: absolute;
     top: 0px;
-    right: 0px;
+    right: var(--marg);
     font-size: 30px;
     color: white;
+    font-family: Impact sans-serif
 }
 
-.sect-block .content{
+.sect-block .content {
     position: static;
-    --cont-width: 85%;
     width: var(--cont-width);
-
-    --marg: calc(50% - var(--cont-width) / 2);
     margin-left: var(--marg);
     margin-right: var(--marg);
 }
 
 
 @media screen and (max-width: 780px) {
-    .sect-block{
-        --title-font: 42px;
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-
-    .sect-block .content{
+    .sect-block {
         --cont-width: 100%;
+        --title-font: 42px;
     }
 }

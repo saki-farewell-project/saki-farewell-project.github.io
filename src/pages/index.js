@@ -95,6 +95,7 @@ function createFanartCase(){
 function createFanmsgCard(){
     var sect = new SectBlock();
     sect.setTitle("Messages");
+    sect.setViewAll(true);
     var items = [];
     for (let msg of FETCHED_MSGS)
         if (!msg.imgs)
