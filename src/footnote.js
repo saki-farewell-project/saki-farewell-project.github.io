@@ -11,7 +11,7 @@ import{fadeInExplosive, fadeInExplosiveDelayed,
 function createFootNoteBotton(text, link, imgPath){
     var img = new Image();
     img.setWidth("2.5VW");
-    const content = wrapDiv("button", img.get(imgPath), text);
+    const content = wrapDiv("foot-button", img.get(imgPath), text);
     
     return fadeInExplosiveDelayed.get(wrapLink(link, content));
 }
