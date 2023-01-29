@@ -95,7 +95,7 @@ function createFanartCase(){
 function createFanmsgCard(){
     var sect = new SectBlock();
     sect.setTitle("Messages");
-    sect.setViewAll(true);
+    sect.setViewAll("/#/fan-msgs");
     var items = [];
     for (let msg of FETCHED_MSGS)
         if (!msg.imgs)
@@ -187,39 +187,6 @@ function createMsgCase(){
     return titleCont.get(utils.merge(wrapDiv("titled-media-text", title), slider.get()));
   
 }
-
-function createAll(){
-    var tc = new TitledContainer();
-    tc.setTitle("All Messages");
-    var updatetime = {
-        jp: articlesHome[4].jp + LAST_UPDATE, 
-        en: articlesHome[4].en + LAST_UPDATE
-    };
-    
-    const title = wrapDiv("title", utils.wrapLanguages(updatetime));
-    var cols = new InvertableColumn();
-    var items = [[], []];
-    var i = 0;
-    for (let msg of FETCHED_MSGS.reverse()){
-        var fmsg = new FanMsg(msg, true);
-        if (!fmsg.is_txt)
-            continue;
-
-        items[i%2].push(fmsg.getAll());
-        i++;
-    }
-
-    for (var i = 0; i < 2; i++)
-        cols.insert(i, items[i]);
-
-    tc.setFontColor(255, 255, 255, 1);
-    tc.setTitleColor(229, 49, 76, 1);
-    tc.setBodyColor(181, 38, 59, 1);
-    var cont = utils.merge(wrapDiv("titled-media-text", title), cols.get())
-    return tc.get(cont);
-}
-
-
 
 function createAbout(){
     var cols = new FlexCols();
