@@ -8,42 +8,9 @@
     --quote: 3.2VW;
     --temp: 2.4VW;
     --name: 1.4VW;
-    --passage: 1VW;
+    --passage: 1.2VW;
     position: relative; 
-    background-size: cover;
-    background-repeat: no-repeat;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
     transition: transform 0.6s;
-}
-
-.fanmsg-card .inner {
-    position: relative;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-}
-
-.fanmsg-card-front, .fanmsg-card-back{
-    position: absolute;
-    aspect-ratio: 16 / 9;
-    flex-grow: 1;
-    font-size: var(--passage); 
-
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-  
-.fanmsg-card:hover {
-    transform: rotateY(180deg);
 }
 
 @media screen and (max-width: 780px) {
@@ -51,47 +18,47 @@
         --quote: 6VW;
         --temp: 4VW;
         --name: 3.2VW;
+        --passage: 2.8VW;
     }
 }
 
-.fanmsg-card .passage {
+.fanmsg-card .inner {
+    position: relative;
     aspect-ratio: 16 / 9;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.fanmsg-card .front, .fanmsg-card .back {
+    position: absolute;
     flex-grow: 1;
-    font-size: var(--passage); 
-    position: absolute;  
+
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
+
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    transform: rotateY(180deg);
+}
+
+.fanmsg-card .front {
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-size: var(--quote);
+}
+
+.fanmsg-card .back {
     text-align: justify;
+    font-size: var(--passage);
+    transform: rotateY(180deg);
 }
 
-.fanmsg-card .quote {
-    aspect-ratio: 16 / 9;
-    flex-grow: 1;
-    position: relative; 
-    font-size: var(--quote); 
-    font-family: Impact;
-}
-
-.fanmsg-card .quote .inner{
-    position: absolute;  
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.fanmsg-card .temp {
+.fanmsg-card .front .temp {
     position: absolute; 
     top:  calc(var(--temp) / 2);
     left: calc(var(--temp) / 2);
@@ -99,11 +66,15 @@
     font-size: var(--temp); 
 }
 
-.fanmsg-card .name {
+.fanmsg-card .front .name {
     position: absolute; 
     bottom: calc(var(--name) / 2);
-    right: calc(var(--name) / 2);
+    right:  calc(var(--name) / 2);
     text-align: right;
     font-size: var(--name); 
     text-shadow: 0px 0px 4px red;
+}
+  
+.fanmsg-card:hover .inner {
+    transform: rotateY(180deg);
 }

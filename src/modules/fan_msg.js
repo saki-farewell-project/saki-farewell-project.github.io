@@ -34,27 +34,27 @@ export default class FanMsg {
     }
 
     getMsgCard(){
+        //front side of card
         var items = [];
-        var suptitle = this.is_jp ? "サキはなりましたよ、私の": "Saki has become my";
-        suptitle = wrapDiv("temp", suptitle);
-        suptitle = fadeInDelayed.get(suptitle);
-        items.push(suptitle);
+        var temp = this.is_jp ? "サキはなりましたよ、私の": "Saki has become my";
+        temp = wrapDiv("temp", temp);
+        items.push(fadeInDelayed.get(temp));
 
         var quote = this.is_jp ? "「": " \"";
         quote += this.quote + (this.is_jp ? "」に": "\"");
-        quote = wrapDivRecursive(["quote", "inner"], quote);
-        quote = fadeInExplosive.get(quote);
-        items.push(quote);
+        quote = wrapDiv("quote", quote);
+        items.push(fadeInExplosive.get(quote));
 
         var name = this.is_jp ? this.name + " より": "from " + this.name;
         name = wrapDiv("name", name);
-        name = fadeInRightwards.get(name);
-        items.push(name);
+        items.push(fadeInDelayed.get(name));
 
-        const args = {backgroundImage: "url("+FanMsg.FIRE_IMG+')'};
-        items.push(wrapDivRecursive(["passage"], this.context))
+        const args = {backgroundImage: "url(" + FanMsg.FIRE_IMG + ')'};
+        const front = wrapDivStyled("front", args, items);
+        const back = wrapDiv("back", this.context);
+        const card = wrapDivRecursive(["fanmsg-card", "inner"], [front, back]);
 
-        return fadeIn.get(wrapDivStyled("fanmsg-card", args, items));
+        return fadeIn.get(card);
     }
 
     setMargin(ind, val){
