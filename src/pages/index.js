@@ -79,7 +79,7 @@ function createFanartCase(){
     slider.setPadding(Boarder.LEFT, "25px");
     slider.setPadding(Boarder.RIGHT, "25px");
     slider.setBarColor(228, 0, 18, 0);
-    //slider.setPeriod(10000);
+    slider.setPeriod(3000);
     slider.hideBar();
     for (let i in items){
         var msg = new FanartCase(items[i]);
@@ -113,7 +113,7 @@ function createFanmsgCard(){
     //slider.setDotColor(228, 0, 18, 1);
     slider.setBarColor(228, 0, 18, 0);
     cols.setColour(34, 34, 34, 1);
-    //slider.setPeriod(400000);
+    slider.setPeriod(5000);
     slider.hideBar();
     for (let i in items){
         var msg = new FanMsg(items[i], true);

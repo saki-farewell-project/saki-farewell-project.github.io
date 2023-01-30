@@ -31,6 +31,14 @@ export default class Slider{
         this.period = -1;
         this.lastAnimatedTime = -1;
         this.uid = Slider.uidGen.generateUniqueID();
+        this.switchable = true;
+    }
+
+    setSwitchability(switchable) {
+        if (switchable) 
+            this.lastAnimatedTime = Date.now();
+
+        this.switchable = switchable;
     }
 
     empty(){
@@ -96,7 +104,7 @@ export default class Slider{
     }
 
     setClickWidth(width){
-        this.imgWidth=width;
+        this.imgWidth = width;
     }
 
     getClick(isLeftwards){
@@ -126,7 +134,10 @@ export default class Slider{
         return wrapDivStyled("bar", {color: bar, background: bar}, dots);
     }
 
-    callBackTimer(){
+    callBackTimer() {
+        if (!this.switchable)
+            return;
+
 		var elem = document.getElementById(this.uid);
         const now = Date.now();
 		if(!elem || !scrolledIntoView(elem))
@@ -257,6 +268,11 @@ export default class Slider{
             divArgs[1].style.padding = this.padding.get();
 
 
+        return <div class = {"slider-timer-switch"} 
+            onMouseEnter = {this.setSwitchability.bind(this, 0)} 
+            onMouseLeave = {this.setSwitchability.bind(this, 1)}> 
+            {wrapDiv(divArgs, items)}
+        </div>;
         return(wrapDiv(divArgs, items));
     }
 }
