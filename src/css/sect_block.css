@@ -1,7 +1,8 @@
 .sect-block {
     --blk-marg: 60px;
     --head-marg: 30px;
-    width: calc(100% - 2 * var(--blk-marg));
+    --width: calc(100% - 2 * var(--blk-marg));
+    width: var(--width);
     margin: var(--blk-marg);
     margin-bottom: 80px;
     --title-font: 64px;
@@ -9,8 +10,17 @@
     --cont-marg: calc(50% - var(--cont-width) / 2);
 }
 
+@media screen and (max-width: 780px) {
+    .sect-block {
+        --cont-width: 100%;
+        --title-font: 42px;
+        --blk-marg: 10px;
+        --head-marg: 0;
+    }
+}
+
 .sect-block .blk-header {
-    width: calc(100% - 2 * var(--cont-marg));
+    width: calc(var(--width) - var(--cont-marg) / 2 - 10px);
     height: 72px;
     flex-grow: 1;
     position: relative; 
@@ -51,14 +61,4 @@
     width: var(--cont-width);
     margin-left: var(--cont-marg);
     margin-right: var(--cont-marg);
-}
-
-
-@media screen and (max-width: 780px) {
-    .sect-block {
-        --cont-width: 100%;
-        --title-font: 42px;
-        --blk-marg: 40px;
-        --head-marg: 0;
-    }
 }

@@ -10,7 +10,7 @@
     --name: 1.4VW;
     --passage: 1.2VW;
     position: relative; 
-    transition: transform 0.6s;
+    transition: transform 0.8s;
 }
 
 @media screen and (max-width: 780px) {

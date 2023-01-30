@@ -13,7 +13,7 @@
     background-color: black;
     opacity: 1;
     margin: 10px 20%;
-    border-radius: 10px;
+    border-radius: 0 0 10px 10px;
 }
 
 @media screen and (max-width: 780px) {
@@ -22,7 +22,7 @@
         text-align: center;
         background-color: black;
         opacity: 1;
-        border-radius: 7px;
+        border-radius: 0 0 6px 6px;
     }
 }
 
