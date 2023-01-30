@@ -51,9 +51,10 @@ export default class FanMsg {
         name = fadeInRightwards.get(name);
         items.push(name);
 
-        var out = wrapDivStyled("fanmsg-card", 
-            {backgroundImage: "url("+FanMsg.FIRE_IMG+')'}, items);
-        return fadeIn.get(out);
+        const args = {backgroundImage: "url("+FanMsg.FIRE_IMG+')'};
+        items.push(wrapDivRecursive(["passage"], this.context))
+
+        return fadeIn.get(wrapDivStyled("fanmsg-card", args, items));
     }
 
     setMargin(ind, val){

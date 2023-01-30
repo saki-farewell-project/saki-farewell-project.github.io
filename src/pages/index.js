@@ -168,7 +168,7 @@ function createMsgCase(){
             cells[i % 4] = showcase.getMsgCard();
         }
         
-        if ((i+1) % 4 === 0){
+        if ((i+1) % 4 === 0) {
             cols.insert(0, cells[0], cells[1]);
             cols.insert(1, cells[2], cells[3]);
             slider.append(cols.get());
@@ -202,7 +202,7 @@ function createAbout(){
     const icon = waterMark.get("fig/common/icons/youtube.png");
     imgLinked.setWaterMark(utils.merge(icon, wrapDiv("channel-text", "芦澤サキ / SAKI ASHIZAWA")));
 
-    const pfp = imgLinked.get("fig/pfp_saki_yt.jpg", 
+    const pfp = imgLinked.get("fig/saki_thank_you2.png", 
         "https://virtualyoutuber.fandom.com/wiki/Ashizawa_Saki");
     
     let about = articlesHome[2];    
