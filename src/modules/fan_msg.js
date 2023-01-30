@@ -9,7 +9,7 @@ import "../css/fanmsg_card.css";
 import twitterIntent from 'twitter-intent';
 import UniqueIDGenerator from "./unique_id_generator";
 import { useRef } from "react";
-import { fadeIn, fadeInDelayed, fadeInExplosive, fadeInExplosiveDelayed, fadeInExplosiveLatched, fadeInRightwards, fadeInRightwardsDelayed, fadeInRightwardsLatched} from "./defaults/entrance_effect";
+import { fadeIn, fadeInDelayed, fadeInExplosive, fadeInExplosiveDelayed, fadeInExplosiveLatched, fadeInLatched, fadeInRightwards, fadeInRightwardsDelayed, fadeInRightwardsLatched} from "./defaults/entrance_effect";
 
 export default class FanMsg {
     static FIRE_IMG = "fig/fire.jpg";
@@ -70,7 +70,7 @@ export default class FanMsg {
 
         var name = wrapDiv("name", this.name);
         items.push(fadeInDelayed.get(name));
-        items.push(fadeInExplosiveLatched.get(this.get()));
+        items.push(fadeInLatched.get(this.get()));
 
         var quote = this.is_jp ? "サキは私の": "Saki has become my";
         quote += this.is_jp ? "「": " \"";
@@ -88,14 +88,13 @@ export default class FanMsg {
     getTwitterPost(){
         var text = 
             "@sakifansupport1\n" + this.name + " says:\n\n" +
-            "SAKI, you have become my \""+this.quote+"\"\n"+
+            "Saki, you've become my \""+this.quote+"\"\n"+
             "サキは私の「"+this.quote+"」になりました\n\n"+
-            "submit/投稿: https://forms.gle/ys4Xca2oZpSuFuNy7\n"+
-            "see full message/メッセージ全文: https://saki-farewell-project.github.io/\n";
+            "saki-farewell-project.github.io/\n";
 
         return twitterIntent.tweet.url({
             text: text,
-            hashtags: ['芦澤サキ', 'Saki_Farewell_Project'],
+            hashtags: ['芦澤サキ'],
         });
     }
 
@@ -106,11 +105,12 @@ export default class FanMsg {
         img.setCorner(Boarder.ALL, "15px");
         const divArgs = [
             {
-                className: "w3-container", 
+                className: "container", 
                 style: {
-                    maxWidth: "auto", 
+                    maxWidth: "25%", 
                     margin: this.margin.get(),
-                    padding: this.padding.get(), 
+                    marginLeft: "calc(50% - 25% / 2)",
+                    padding: this.padding.get()
                 }
             }, 
             {
@@ -121,10 +121,8 @@ export default class FanMsg {
 
         var waterMark = new Image();
         waterMark.setWidth("35%");
-    
-        img.setWidth("15%");
-        img.setWaterMark(waterMark.get("fig/common/icons/ext_link.png"));
+        //img.setWaterMark(waterMark.get("fig/common/icons/ext_link.png"));
                    
-        return wrapDiv(divArgs, img.get("fig/common/icons/twitter.png", this.getTwitterPost()));
+        return wrapDiv(divArgs, img.get("fig/common/icons/tweet.png", this.getTwitterPost()));
     }
 }

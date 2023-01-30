@@ -3,7 +3,7 @@ import { merge, wrapDiv, wrapDivStyled} from "../utils";
 import Column from "./column";
 
 
-export default class FlexCols extends  Column{
+export default class FlexCols extends Column{
     constructor(){
         super(2);
     }
