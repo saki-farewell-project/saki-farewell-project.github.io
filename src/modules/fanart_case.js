@@ -38,8 +38,10 @@ export default class FanartCase extends FanMsg{
         var items = [];
         while (items.length < 2) {
             var args = { position: "absolute", width: "100%"};
-            if (items.length) 
+            if (items.length) {
                 args.bottom = "calc(var(--name) / 2)";
+                args.display = "var(--lower-dots-disp)";
+            }
 
             items.push(wrapStyle(args, dots));
         }

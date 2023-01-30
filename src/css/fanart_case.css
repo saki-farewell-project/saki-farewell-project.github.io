@@ -14,6 +14,7 @@
     --aspect-raito: 4 / 3;
     --vpad: 12px;
     --height: calc(var(--name) + 12px);
+    --lower-dots-disp: block;
 }
 
 @media screen and (max-width: 780px) {
@@ -21,6 +22,7 @@
         --name: 32px;
         --temp: 3.2VW;
         --quote: 4VW;
+        --lower-dots-disp: none;
     }
 }
 
