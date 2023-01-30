@@ -203,7 +203,7 @@ function createAbout(){
     imgLinked.setWaterMark(utils.merge(icon, wrapDiv("channel-text", "芦澤サキ / SAKI ASHIZAWA")));
 
     const pfp = imgLinked.get("fig/pfp_saki_yt.jpg", 
-        "https://www.youtube.com/channel/UCPZgBtMYoFKypEG2SCvBN9A");
+        "https://virtualyoutuber.fandom.com/wiki/Ashizawa_Saki");
     
     let about = articlesHome[2];    
     var title = wrapDiv("title", utils.wrapLanguages(about.title));

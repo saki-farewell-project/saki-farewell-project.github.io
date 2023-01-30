@@ -10,7 +10,7 @@
     --name: 42px;
     --temp: 1.6VW;
     --quote: 2VW;
-    --line-width: 6px;
+    --line-width: 4px;
     --aspect-raito: 4 / 3;
     --vpad: 12px;
     --height: calc(var(--name) + 12px);

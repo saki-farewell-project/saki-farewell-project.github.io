@@ -28,8 +28,9 @@ export default class FanartCase extends FanMsg{
         var header = [];
         header.push(<hr class="decor-line"></hr>);
         header.push(wrapDiv("name", this.name));
-        var name = wrapDiv("header", header);
-        name = fadeIn.get(name);
+
+        header = wrapDiv("header", header);
+        header = fadeIn.get(header);
 
         var dots = [];
         while (dots.length < 3)
@@ -46,7 +47,7 @@ export default class FanartCase extends FanMsg{
             items.push(wrapStyle(args, dots));
         }
 
-        items.push(name);
+        items.push(header);
         var anchors = [];
         var wrap = [this.is_jp ? "なりましたよ、私の": "You've become my"];
         var quote = this.is_jp ? "「": " \"";

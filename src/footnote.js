@@ -22,7 +22,7 @@ export default function createFootNote(topMargin){
     const dir = "fig/common/icons/";
     for(var i = 0; i < 2; i++){
         const link = i? "https://twitter.com/sakifansupport1":
-            "https://www.youtube.com/channel/UCPZgBtMYoFKypEG2SCvBN9A";
+            "https://virtualyoutuber.fandom.com/wiki/Ashizawa_Saki";
 
         cols.insert(i, createFootNoteBotton(
             wrapLanguages(articlesFootNote.button[i]), 
