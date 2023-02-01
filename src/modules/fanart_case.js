@@ -13,15 +13,11 @@ export default class FanartCase extends FanMsg{
 
     constructor(kwargs){
         super(kwargs);
-        this.imgs = kwargs.imgs;
         this.ids = {
             canvus: FanartCase.UID_GEN.genId(), 
             wrap: FanartCase.UID_GEN.genId(), 
             img: FanartCase.UID_GEN.genId(), 
         };
-        
-        if (kwargs.cred)
-            this.cred = kwargs.cred;
     }
 
     getCase(){
@@ -56,11 +52,6 @@ export default class FanartCase extends FanMsg{
         wrap.push(wrapDiv("quote", quote));
         wrap = wrapDiv("txt-wrap", wrap);
         wrap = wrapId("left", this.ids.wrap, wrap);
-
-        if (this.cred && 0){
-            var cred = "credit: " + this.cred;
-            items.push(wrapDiv("credit", cred));
-        }
 
         const canvus = wrapId("canvus", this.ids.canvus);
         var img = wrapImgId("frame",  this.ids.img, this.imgs[0]);

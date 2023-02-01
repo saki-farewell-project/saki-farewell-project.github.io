@@ -10,6 +10,8 @@ import twitterIntent from 'twitter-intent';
 import UniqueIDGenerator from "./unique_id_generator";
 import { useRef } from "react";
 import { fadeIn, fadeInDelayed, fadeInExplosive, fadeInExplosiveDelayed, fadeInExplosiveLatched, fadeInLatched, fadeInRightwards, fadeInRightwardsDelayed, fadeInRightwardsLatched} from "./defaults/entrance_effect";
+import Column from "./column";
+import LightBox from "./light_box";
 
 export default class FanMsg {
     static FIRE_IMG = "fig/fire.jpg";
@@ -23,6 +25,9 @@ export default class FanMsg {
         this.quote = kwargs.quote;
         this.uid = FanMsg.uidGen.generateUniqueID();
         this.is_txt = !kwargs.imgs;
+        this.imgs = kwargs.imgs;
+        if (kwargs.cred)
+            this.cred = kwargs.cred;
         this.ref = useRef(null);
     }
 
@@ -65,6 +70,14 @@ export default class FanMsg {
         this.padding.set(ind, val);
     }
 
+    getImg(ind) {
+        var img = new Image();
+        img.setWidth("100%");
+        img = img.get(this.imgs[ind]);
+        const rslt = <div onClick={this.box.get()}>{img}</div>;
+        return wrapDiv("fanart-hover", rslt);
+    }
+
     getAll(){
         var items = [];
 
@@ -76,11 +89,33 @@ export default class FanMsg {
         quote += this.is_jp ? "「": " \"";
         quote += this.quote + (this.is_jp ? "」になりました": "\"");
         quote = wrapDiv("quote", quote);
-        items.push(fadeInExplosiveDelayed.get(quote));
+        items.push(fadeInRightwardsDelayed.get(quote));
 
-        var cont = wrapDivStyled("div", {width:"85%"}, this.context);
-        items.push(fadeInRightwardsLatched.get(this.context));
-        
+        if (this.is_txt) 
+            items.push(fadeInExplosiveLatched.get(this.context));
+
+        else {
+            this.box = new LightBox();
+            for (let file of this.imgs)
+                this.box.appendImg(file);
+
+            var img = this.getImg(0);
+            if (this.imgs.length == 2) {
+                var col = new Column(2);
+                for (var i = 0; i < 2; i++) 
+                    col.insert(i, this.getImg(i));
+
+                img = col.get();
+            }
+            
+            items.push(fadeInExplosiveLatched.get(img));
+            if (this.cred){
+                var cred = "credit: " + this.cred;
+                items.push(wrapDiv("credit", cred));
+            }
+        }
+
+
         return <div ref={this.ref}>{wrapDiv("all_msgs", items)}</div>;
     }
 

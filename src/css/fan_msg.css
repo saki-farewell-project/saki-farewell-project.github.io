@@ -9,6 +9,19 @@
     background-color: rgb(181, 38, 59);
 }
 
+.all_msgs .fanart-hover {
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+.all_msgs .fanart-hover:hover {
+    opacity: 0.65;
+    transform: scale(1.1, 1.1);
+}
+
+
 .all_msgs .name{
     font-size: 3VW;
     margin-bottom: 0.6VW;
@@ -20,7 +33,11 @@
     font-size: 2VW;
     margin-bottom: 1.8VW;
     text-align: center;
-    font-family: Impact
+    font-family: Arial;
+}
+
+.all_msgs .credit{
+    font-size: 16px;
 }
 
 @media screen and (max-width: 780px) {

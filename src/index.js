@@ -8,6 +8,7 @@ import { HashRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from "./pages";
 import Debug from "./pages/debug";
 import FanMsgs from "./pages/fan_msgs";
+import FanArt from "./pages/fanart";
 
 var rootElement = document.getElementById("root");
 rootElement.style.overflow = "hidden";
@@ -30,6 +31,7 @@ function App()
             <NavbarDropdown/>
                 <Routes>
                     <Route exact path='/' element={<Home />} />
+                    <Route exact path='/fanart' element={<FanArt />} />
                     <Route exact path='/fan-msgs' element={<FanMsgs />} />
                     <Route exact path='/debug' element={<Debug />} />
                 </Routes>
