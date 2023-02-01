@@ -1,7 +1,7 @@
 import InvertableColumn from "../modules/invertable_columns";
 import "../css/previous_works.css";
 import Image from "../modules/Image";
-import { merge, wrapDiv, wrapDivRecursive, wrapDivStyled, wrapLanguages} from "../utils";
+import { merge, wrapDiv, wrapDivRecursive, wrapDivStyled, wrapLanguages, wrapStyle} from "../utils";
 import Border from "../config/border";
 import { wrapLink } from "../utils";
 import FanartCase from "../modules/fanart_case";
@@ -12,6 +12,7 @@ import articlesHome from "../articles/article_home";
 import LAST_UPDATE from "../python/last_update";
 import FanMsg from "../modules/fan_msg";
 import FETCHED_MSGS from "../python/fetched_msgs";
+import SectBlock from '../modules/sect_block';
 
 
 const FanMsgs = () => {
@@ -33,14 +34,9 @@ export default FanMsgs;
 
 
 function createAll(){
-    var tc = new TitledContainer();
-    tc.setTitle("All Messages");
-    var updatetime = {
-        jp: articlesHome[4].jp + LAST_UPDATE, 
-        en: articlesHome[4].en + LAST_UPDATE
-    };
-    
-    const title = wrapDiv("title", wrapLanguages(updatetime));
+    var sect = new SectBlock();
+    sect.setTitle("All Messages");
+
     var cols = new InvertableColumn();
     var items = [[], []];
     var i = 0;
@@ -56,9 +52,5 @@ function createAll(){
     for (var i = 0; i < 2; i++)
         cols.insert(i, items[i]);
 
-    tc.setFontColor(255, 255, 255, 1);
-    tc.setTitleColor(229, 49, 76, 1);
-    tc.setBodyColor(181, 38, 59, 1);
-    var cont = merge(wrapDiv("titled-media-text", title), cols.get())
-    return tc.get(cont);
+    return wrapStyle({marginTop: "60px"}, sect.get(cols.get()));
 }

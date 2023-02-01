@@ -1,96 +1,26 @@
-
-.tweet-text{
-    font-size: 1.2VW;
-    opacity: 0.65;
-    color: white;
-    text-shadow: none;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
-}
-
-.card {
-    width: 100%;
-    padding-top: 40px;
-    padding-bottom: 20px;
-    background: transparent;
-    background-size: 100%;
-    color:white;
-    font-size: 3VW;
-    text-shadow: 0px 0px 3px #eeff00;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    border-radius: 15px;
-}
-
-.card:hover {
-    opacity: 0.65;
-    cursor: pointer;
-    transition: 0.5s ease-out;
-    transform: scale(1.1, 1.1);
-}
-
-.card .suptitle{
-    padding-left: 40px;
-    text-align: left;
-    padding-bottom: 2VW;
-}
-
-.card .name{
-    font-size: 2VW;
-    margin-top: 4VW;
-    margin-right: 15px;
-    text-align: right;
-    
-}
-
-.card .passage{
-    font-size: 4VW;
-    margin-top: 1.2VW;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-
-.card .passage .line{
-    margin-top: 1.2VW;
-    margin-bottom: 1.2VW;
-}
-
-@media screen and (max-width: 780px) {
-    .card .passage {
-        font-size: 7VW;
-        margin: 0 30px;
-    }    
-    .card .name{
-        font-size: 4.5VW;
-    }
-    .card{
-        width: 100%;
-        font-size: 5VW;
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-}
-
 .all_msgs {
     font-size: 1.6VW;
-    margin-top: 1.2VW;
+    padding: 12px;
     text-align: justify;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-left: 15px;
-    margin-right: 15px;
+    font-family: sans-serif;
+    margin: 24px;
+    border-radius: 7px;
+    color: white;
+    background-color: rgb(181, 38, 59);
 }
 
 .all_msgs .name{
     font-size: 3VW;
-    margin-top: 1.8VW;
     margin-bottom: 0.6VW;
     text-align: center;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    font-family: Impact
 }
 
 .all_msgs .quote{
-    font-size: 2.4VW;
+    font-size: 2VW;
     margin-bottom: 1.8VW;
     text-align: center;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    font-family: Impact
 }
 
 @media screen and (max-width: 780px) {
@@ -106,16 +36,10 @@
     
     .all_msgs .name{
         font-size: 4.2VW;
-        margin-top: 1.8VW;
-        text-align: center;
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
     }
     
     .all_msgs .quote{
-        font-size: 3.2VW;
-        margin-top: 0.6VW;
+        font-size: 3.6VW;
         margin-bottom: 15px;
-        text-align: center;
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
     }
 }

@@ -32,6 +32,7 @@ import FanartCase from '../modules/fanart_case';
 import Button from '../modules/button';
 import FlexCols from '../modules/flex_cols';
 
+
 const Home = () => {
     EntranceEffect.stopAllRequest();
     LightBox.HIDDENS.clear();
