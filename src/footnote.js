@@ -26,7 +26,7 @@ export default function createFootNote(topMargin){
 
         cols.insert(i, createFootNoteBotton(
             wrapLanguages(articlesFootNote.button[i]), 
-            link, i? dir+"contact.png": dir+"youtube.png"));
+            link, i? dir+"contact.png": dir+"fandom.webp"));
     }
 
     var objs = [fadeInExplosive.get(wrapLanguages(articlesFootNote.suptitle))];

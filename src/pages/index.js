@@ -65,6 +65,7 @@ export default Home;
 function createFanartCase(){
     var sect = new SectBlock();
     sect.setTitle("Fanart");
+    sect.setViewAll("/#/fanart");
     var items = [];
     for (let msg of FETCHED_MSGS)
         if (msg.imgs)
@@ -201,7 +202,7 @@ function createAbout(){
 
     var waterMark = new Image();
     waterMark.setWidth("35%");
-    const icon = waterMark.get("fig/common/icons/youtube.png");
+    const icon = waterMark.get("fig/common/icons/fandom.webp");
     imgLinked.setWaterMark(utils.merge(icon, wrapDiv("channel-text", "芦澤サキ / SAKI ASHIZAWA")));
 
     const pfp = imgLinked.get("fig/saki_thank_you2.png", 

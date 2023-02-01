@@ -23,7 +23,7 @@
 .channel-text{
     font-size: 1.2VW;
     opacity: 0.65;
-    color: crimson;
+    color: white;
     text-shadow: none;
 }
 
@@ -32,7 +32,6 @@
     .channel-text{
         font-size: 1.7VW;
         opacity: 0.65;
-        color: crimson;
     }
 }
 
