@@ -44,7 +44,7 @@ function createAll(){
     var cols = new InvertableColumn();
     var items = [[], []];
     var i = 0;
-    for (let msg of FETCHED_MSGS.reverse()){
+    for (let msg of FETCHED_MSGS){
         var fmsg = new FanMsg(msg, true);
         if (!fmsg.is_txt)
             continue;

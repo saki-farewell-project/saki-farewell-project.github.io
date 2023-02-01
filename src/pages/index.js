@@ -150,7 +150,7 @@ function createMsgCase(){
     var cells = [0, 0, 0, 0];
 
     var fetchMsgs = [];
-    for (let msg of FETCHED_MSGS.reverse()) 
+    for (let msg of FETCHED_MSGS) 
         if (!msg.imgs)
             fetchMsgs.push(msg);
     

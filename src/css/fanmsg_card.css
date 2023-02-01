@@ -66,6 +66,10 @@
     font-size: var(--temp); 
 }
 
+.fanmsg-card .front .quote {
+    font-family: Impact;
+}
+
 .fanmsg-card .front .name {
     position: absolute; 
     bottom: calc(var(--name) / 2);
