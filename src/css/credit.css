@@ -1,0 +1,33 @@
+.cred {
+    margin: 54px;
+    color: white;
+    text-align: center;
+}
+
+.cred .position {
+    font-size: 48px;
+    font-family: Impact;
+    text-shadow: 0px 0px 2px #eeff00;
+    margin: 12px;
+}
+
+.cred .name {
+    font-size: 36px;
+    font-family: sans-serif;
+    text-shadow: 0px 0px 1px #eeff00;
+    margin: 6px;
+}
+
+@media screen and (max-width: 780px) {
+    .cred {
+        margin: 36px;
+    }
+
+    .cred .position {
+        font-size: 32px;
+    }
+    
+    .cred .name {
+        font-size: 24px;
+    }
+}

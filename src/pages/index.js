@@ -66,6 +66,7 @@ function createFanartCase(){
     var sect = new SectBlock();
     sect.setTitle("Fanart");
     sect.setViewAll("/#/fanart");
+    
     var items = [];
     for (let msg of FETCHED_MSGS)
         if (msg.imgs)
@@ -77,7 +78,7 @@ function createFanartCase(){
     var cols = new InvertableColumn();
     var slider = new Slider();
 
-    slider.setClickWidth("30px");
+    slider.setClickWidth("35px");
     slider.setPadding(Boarder.LEFT, "25px");
     slider.setPadding(Boarder.RIGHT, "25px");
     slider.setBarColor(228, 0, 18, 0);
@@ -98,6 +99,7 @@ function createFanmsgCard(){
     var sect = new SectBlock();
     sect.setTitle("Messages");
     sect.setViewAll("/#/fan-msgs");
+
     var items = [];
     for (let msg of FETCHED_MSGS)
         if (!msg.imgs)
@@ -109,14 +111,16 @@ function createFanmsgCard(){
     var cols = new InvertableColumn();
     var slider = new Slider();
 
-    slider.setClickWidth("30px");
+    slider.setClickWidth("35px");
     slider.setPadding(Boarder.LEFT, "25px");
     slider.setPadding(Boarder.RIGHT, "25px");
     //slider.setDotColor(228, 0, 18, 1);
     slider.setBarColor(228, 0, 18, 0);
     cols.setColour(34, 34, 34, 1);
+    
     slider.setPeriod(5000);
     slider.hideBar();
+
     for (let i in items){
         var msg = new FanMsg(items[i], true);
         msg.setMargin(Boarder.ALL, "15px");
@@ -132,11 +136,6 @@ function createFanmsgCard(){
 
 function createMsgCase(){
     var slider = new Slider();
-    var youtube = new Youtube();
-
-    youtube.setWidth("85%");
-    youtube.setCorner(Boarder.ALL, "10px");
-
     var titleCont = new TitledContainer();
     titleCont.setTitle("Submissions");
 
