@@ -26,7 +26,7 @@ export default class SectBlock{
         langs = wrapDiv("title", langs);
         header.push(langs);
         if (this.viewAll) {
-            var all = new Button({jp: "View All", en: "View All"});
+            var all = new Button({jp: "すべて表示", en: "View All"});
             header.push(wrapDiv("view-all", all.get(this.url)));
         }
 

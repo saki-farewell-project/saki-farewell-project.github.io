@@ -168,7 +168,7 @@ const FETCHED_MSGS = [
         stamp: "01/01/2023 07:29:43",
         is_jp: 0,
         name: "Jackie",
-        quote: "friend, my companion in tough times",
+        quote: "friend, companion in tough times",
         jp: "",
         en: "She was the best singer in the group. I loved the way her covers stoked a fire in me, made me feel like I could take on the whole world. I'm sure she's somewhere out in the world, waiting to say hi. GO SAKI GO. \n\nねぇ あんたわかっちゃいない!!\n"
     },

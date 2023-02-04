@@ -35,7 +35,6 @@ function App()
                     <Route exact path='/fanart' element={<FanArt />} />
                     <Route exact path='/fan-msgs' element={<FanMsgs />} />
                     <Route exact path='/credit' element={<Credit />} />
-                    <Route exact path='/debug' element={<Debug />} />
                 </Routes>
         </Router>
     );

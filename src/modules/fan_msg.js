@@ -41,17 +41,16 @@ export default class FanMsg {
     getMsgCard(){
         //front side of card
         var items = [];
-        var temp = this.is_jp ? "サキはなりましたよ、私の": "Saki has become my";
-        temp = wrapDiv("temp", temp);
+        var temp = {jp:"なりましたよ、私の", en:"Saki has become my"};
+        temp = wrapDiv("temp", wrapLanguages(temp));
         items.push(fadeInDelayed.get(temp));
 
-        var quote = this.is_jp ? "「": " \"";
-        quote += this.quote + (this.is_jp ? "」に": "\"");
-        quote = wrapDiv("quote", quote);
+        var quote = {en: "\"" + this.quote + "\"", jp: "「" + this.quote + "」に"};
+        quote = wrapDiv("quote", wrapLanguages(quote));
         items.push(fadeInExplosive.get(quote));
 
-        var name = this.is_jp ? this.name + " より": "from " + this.name;
-        name = wrapDiv("name", name);
+        var name = {jp: this.name + " より", en: "from " + this.name};
+        name = wrapDiv("name", wrapLanguages(name));
         items.push(fadeInDelayed.get(name));
 
         const args = {backgroundImage: "url(" + FanMsg.FIRE_IMG + ')'};
@@ -85,10 +84,17 @@ export default class FanMsg {
         items.push(fadeInDelayed.get(name));
         items.push(fadeInLatched.get(this.get()));
 
-        var quote = this.is_jp ? "サキは私の": "Saki has become my";
-        quote += this.is_jp ? "「": " \"";
-        quote += this.quote + (this.is_jp ? "」になりました": "\"");
-        quote = wrapDiv("quote", quote);
+        var wrap = [wrapLanguages({jp:"なりましたよ、私の", en: "You've become my"})];
+        var quote = {jp:"「", en: " \""};
+        for (let tag in quote)
+            quote[tag] += this.quote + (tag=="jp" ? "」に": "\"");
+        //quote += this.quote + (this.is_jp ? "」に": "\"");
+
+        var quote = {jp: "私の「", en: "Saki has become my \""};
+        for (let tag in quote)
+            quote[tag] += this.quote + (tag=="jp" ? "」になりました": "\"");
+        
+        quote = wrapDiv("quote", wrapLanguages(quote));
         items.push(fadeInRightwardsDelayed.get(quote));
 
         if (this.is_txt) 

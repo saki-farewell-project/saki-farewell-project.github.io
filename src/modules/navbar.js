@@ -29,9 +29,6 @@ export const NavbarDropdown = () =>{
 				<NavLink to="credit" activeStyle>
 					<div className="item">Credit</div>
 				</NavLink>
-				<NavLink to="debug" activeStyle>
-					<div className="item">Debug</div>
-				</NavLink>
 			</div>
 		</nav>
 	);

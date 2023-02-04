@@ -97,6 +97,7 @@ function createFanartCase(){
 
 function createFanmsgCard(){
     var sect = new SectBlock();
+    
     sect.setTitle("Messages");
     sect.setViewAll("/#/fan-msgs");
 
@@ -155,7 +156,6 @@ function createMsgCase(){
         if (!msg.imgs)
             fetchMsgs.push(msg);
     
-    //fetchMsgs = fetchMsgs.slice(0, 7);
     while (fetchMsgs.length % 4)
         fetchMsgs.push(0);
 

@@ -45,11 +45,13 @@ export default class FanartCase extends FanMsg{
 
         items.push(header);
         var anchors = [];
-        var wrap = [this.is_jp ? "なりましたよ、私の": "You've become my"];
-        var quote = this.is_jp ? "「": " \"";
-        quote += this.quote + (this.is_jp ? "」に": "\"");
+        var wrap = [wrapLanguages({jp:"なりましたよ、私の", en: "You've become my"})];
+        var quote = {jp:"「", en: " \""};
+        for (let tag in quote)
+            quote[tag] += this.quote + (tag=="jp" ? "」に": "\"");
+        //quote += this.quote + (this.is_jp ? "」に": "\"");
 
-        wrap.push(wrapDiv("quote", quote));
+        wrap.push(wrapDiv("quote", wrapLanguages(quote)));
         wrap = wrapDiv("txt-wrap", wrap);
         wrap = wrapId("left", this.ids.wrap, wrap);
 
