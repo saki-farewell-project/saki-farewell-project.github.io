@@ -18,7 +18,7 @@ const articlesFootNote = {
                 jp: "RIOT MUSICやSuper Yellow株式会社とは一切関係ありません。"
             },
             {
-                en: "We are NOT representing/endorded by Ashizawa Saki", 
+                en: "We are NOT representing/endorsed by Ashizawa Saki", 
                 jp: "芦澤サキさんとは一切関係ありません。芦澤サキさんの代理人ではありません。"
             }
         ]
