@@ -117,7 +117,7 @@ function createFanmsgCard(){
     slider.setPadding(Boarder.RIGHT, "25px");
     //slider.setDotColor(228, 0, 18, 1);
     slider.setBarColor(228, 0, 18, 0);
-    cols.setColour(34, 34, 34, 1);
+    cols.setColour(34, 34, 34, 0);
     
     slider.setPeriod(5000);
     slider.hideBar();

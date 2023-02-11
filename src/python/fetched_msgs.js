@@ -81,17 +81,17 @@ const FETCHED_MSGS = [
         is_jp: 0,
         name: "Del",
         quote: "My Future",
-        jp: "",
+        jp: "私はずっと前にそれを言った。 私はいつもあなたのそばにいます。",
         en: "I've said that a long time ago. I will always stand by you."
     },
-    {
-        stamp: "26/11/2022 15:23:45",
-        is_jp: 1,
-        name: "Del",
-        quote: "私の将来",
-        jp: "私はずっと前にそれを言った。 私はいつもあなたのそばにいます。",
-        en: ""
-    },
+    //{
+        //stamp: "26/11/2022 15:23:45",
+        //is_jp: 1,
+        //name: "Del",
+        //quote: "私の将来",
+        //jp: "私はずっと前にそれを言った。 私はいつもあなたのそばにいます。",
+        //en: ""
+    //},
     {
         stamp: "27/11/2022 16:14:39",
         is_jp: 0,
@@ -168,7 +168,7 @@ const FETCHED_MSGS = [
         stamp: "01/01/2023 07:29:43",
         is_jp: 0,
         name: "Jackie",
-        quote: "friend, companion in tough times",
+        quote: "friend and companion in tough times",
         jp: "",
         en: "She was the best singer in the group. I loved the way her covers stoked a fire in me, made me feel like I could take on the whole world. I'm sure she's somewhere out in the world, waiting to say hi. GO SAKI GO. \n\nねぇ あんたわかっちゃいない!!\n"
     },
@@ -176,7 +176,7 @@ const FETCHED_MSGS = [
         stamp: "05/01/2023 16:09:18",
         is_jp: 0,
         name: "Kuhakukage",
-        quote: "cherishable first memory of vsinger",
+        quote: "first and most cherished vsinger memory",
         jp: "",
         en: "Saki, you are my first contact to this Virtual world in 2020, in the video of (命に嫌われている。 (Hated by Life Itself.) - カンザキイオリ // covered by 芦澤 サキ). I discover you in when I was more lost than I ever was, unable to understand my position, future in this world. Your music gave me motivation to go on and I am eternally grateful. I only wish for the best of your future endeavor! Good luck! I swear to forever remember you!!!"
     },

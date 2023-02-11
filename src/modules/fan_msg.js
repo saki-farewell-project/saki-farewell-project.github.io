@@ -53,7 +53,8 @@ export default class FanMsg {
         name = wrapDiv("name", wrapLanguages(name));
         items.push(fadeInDelayed.get(name));
 
-        const args = {backgroundImage: "url(" + FanMsg.FIRE_IMG + ')'};
+        const args = {backgroundImage: "url(fig/cards/" + this.name.replace(" ", "-") + ".png)"};
+        items = [];
         const front = wrapDivStyled("front", args, items);
         const back = wrapDiv("back", this.context);
         const card = wrapDivRecursive(["fanmsg-card", "inner"], [front, back]);

@@ -33,12 +33,12 @@ const Credit = () => {
   
 export default Credit;
 
-function getCredit(position, names) {
+function getCredit(en, jp, names) {
     var items = [];
-    items.push(fadeIn.get(wrapDiv("position", position)));
+    items.push(fadeInExplosive.get(wrapDiv("position", wrapLanguages({en:en, jp:jp}))));
     
     for (let name of names) 
-        items.push(fadeInExplosive.get(wrapDiv("name", name)));
+        items.push(fadeIn.get(wrapDiv("name", name)));
     
     return wrapDiv("cred", items);
 }
@@ -49,10 +49,10 @@ function createAll(){
     sect.setTitle("Credit");
 
     var items = [];
-    items.push(getCredit("Programming", ["Leo Hsieh"]));
-    items.push(getCredit("UI Design", ["Seira Astramor"]));
-    items.push(getCredit("Translation", ["Aster", "Aryadi Subagio"]));
-    items.push(getCredit("Special Thanks", ["RIOT MUSIC English Fan Server", "All project participants"]));
+    items.push(getCredit("Programming", "プログラミング", ["Leo Hsieh"]));
+    items.push(getCredit("UI Design", "UI デザイン", ["Seira Astramor"]));
+    items.push(getCredit("Translation", "翻訳", ["Aster", "Aryadi Subagio"]));
+    items.push(getCredit("Special Thanks", "Special Thanks", ["RIOT MUSIC English Fan Server", "企画参加者全員"]));
 
     return wrapStyle({marginTop: "60px"}, sect.get(items));
 }

@@ -13,9 +13,9 @@ export default class LanguageSwitch{
     constructor(textObj)
     {
         if (!textObj.en)
-            textObj.en = "[Translating]" + textObj.jp;
+            textObj.en = "" + textObj.jp;
         if (!textObj.jp)
-            textObj.jp = "[翻訳中] "+ textObj.en;
+            textObj.jp = "" + textObj.en;
 
         this.items = [textObj.en, textObj.jp];
     }
