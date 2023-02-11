@@ -52,7 +52,10 @@ function createAll(){
     items.push(getCredit("Programming", "プログラミング", ["Leo Hsieh"]));
     items.push(getCredit("UI Design", "UI デザイン", ["Seira Astramor"]));
     items.push(getCredit("Translation", "翻訳", ["Aster", "Aryadi Subagio"]));
-    items.push(getCredit("Special Thanks", "Special Thanks", ["RIOT MUSIC English Fan Server", "企画参加者全員"]));
+    items.push(getCredit("Special Thanks", "Special Thanks", [
+        "RIOT MUSIC English Fan Server", 
+        wrapLanguages({en:"All Project Participants", jp:"企画参加者全員"})
+    ]));
 
     return wrapStyle({marginTop: "60px"}, sect.get(items));
 }
