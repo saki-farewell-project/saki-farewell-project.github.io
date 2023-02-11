@@ -53,7 +53,7 @@ function createAll(){
     items.push(getCredit("UI Design", "UI デザイン", ["Seira Astramor"]));
     items.push(getCredit("Translation", "翻訳", ["Aster", "Aryadi Subagio"]));
     items.push(getCredit("Special Thanks", "Special Thanks", [
-        "RIOT MUSIC English Fan Server", 
+        "RIOT MUSIC FAN SERVER (unofficial)", 
         wrapLanguages({en:"All Project Participants", jp:"企画参加者全員"})
     ]));
 
