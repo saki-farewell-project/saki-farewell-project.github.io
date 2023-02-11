@@ -9,8 +9,10 @@
     --temp: 2.4VW;
     --name: 1.4VW;
     --passage: 1.2VW;
+    --pad: 12px;
     position: relative; 
     transition: transform 0.8s;
+    background-color: rgb(34, 34, 34);
 }
 
 @media screen and (max-width: 780px) {
@@ -56,6 +58,8 @@
     text-align: justify;
     font-size: var(--passage);
     transform: rotateY(180deg);
+    padding-left: var(--pad);
+    padding-right: var(--pad);
 }
 
 .fanmsg-card .front .temp {
